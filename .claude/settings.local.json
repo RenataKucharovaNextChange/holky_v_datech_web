@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.holkyvdatech.cz)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(python scripts/thumbnail.py \"C:\\\\Users\\\\renat\\\\Next Change AI\\\\Next Change AI - General\\\\02_Areas\\\\NextChange_AI_Brand_Template.potx\" template_thumb)",
+      "Bash(pip install *)",
+      "PowerShell(pip install python-pptx -q)",
+      "PowerShell(python -c \"import pptx; print\\('OK', pptx.__version__\\)\")"
+    ]
+  }
+}
