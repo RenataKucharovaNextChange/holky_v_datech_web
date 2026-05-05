@@ -40,16 +40,17 @@ async function handleSubmit(e) {
 
   const payload = new URLSearchParams({
     'subscriber[email]': email,
-    'subscriber[name]': name
+    'subscriber[name]':  name
   });
 
   try {
     await fetch('https://holkyvdatech.ecomailapp.cz/public/subscribe/2/2bb287d15897fe2f9d89c882af9a3a8b', {
       method: 'POST',
-      mode: 'no-cors',
+      mode:   'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: payload.toString()
+      body:   payload.toString()
     });
+    // no-cors → odpověď nelze číst, ale požadavek Ecomail přijme
     btn.textContent = '✓ Přihlášeno!';
     btn.style.background = '#1a5233';
     msg.textContent = 'Zkontroluj e-mail – pošleme ti potvrzení.';
