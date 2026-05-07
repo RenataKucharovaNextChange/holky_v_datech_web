@@ -828,3 +828,96 @@ body {
   .gallery-strip__item { width: 160px; height: 110px; }
   .kontakt__form { padding: 24px 20px; }
 }
+
+/* ── Ecomail widget override ───────────────────────── */
+
+/* Skryj vlastní rámeček a pozadí widgetu */
+#f-1-43c2cd496486bcc27217c3e790fb4088 .ecm-form,
+#f-1-43c2cd496486bcc27217c3e790fb4088 form {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Skryj nadpis uvnitř widgetu (máme vlastní) */
+#f-1-43c2cd496486bcc27217c3e790fb4088 h1,
+#f-1-43c2cd496486bcc27217c3e790fb4088 h2,
+#f-1-43c2cd496486bcc27217c3e790fb4088 h3,
+#f-1-43c2cd496486bcc27217c3e790fb4088 .ecm-title {
+  display: none !important;
+}
+
+/* Pole – styl shodný s formuláři webu */
+#f-1-43c2cd496486bcc27217c3e790fb4088 input[type="text"],
+#f-1-43c2cd496486bcc27217c3e790fb4088 input[type="email"] {
+  width: 100% !important;
+  padding: 12px 16px !important;
+  border: 1.5px solid var(--green-mid) !important;
+  border-radius: var(--radius-sm) !important;
+  font-family: var(--font) !important;
+  font-size: 0.9375rem !important;
+  color: var(--ink) !important;
+  background: var(--white) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  margin-bottom: 12px !important;
+}
+
+#f-1-43c2cd496486bcc27217c3e790fb4088 input[type="text"]:focus,
+#f-1-43c2cd496486bcc27217c3e790fb4088 input[type="email"]:focus {
+  border-color: var(--green) !important;
+}
+
+/* Tlačítko – zelené, pill tvar */
+#f-1-43c2cd496486bcc27217c3e790fb4088 input[type="submit"],
+#f-1-43c2cd496486bcc27217c3e790fb4088 button[type="submit"] {
+  width: 100% !important;
+  padding: 14px 24px !important;
+  background: var(--green) !important;
+  color: var(--white) !important;
+  border: 2px solid var(--green) !important;
+  border-radius: 100px !important;
+  font-family: var(--font) !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  letter-spacing: 0.01em !important;
+  transition: background .2s, border-color .2s !important;
+  margin-top: 4px !important;
+}
+
+#f-1-43c2cd496486bcc27217c3e790fb4088 input[type="submit"]:hover,
+#f-1-43c2cd496486bcc27217c3e790fb4088 button[type="submit"]:hover {
+  background: var(--green-dark) !important;
+  border-color: var(--green-dark) !important;
+}
+
+/* Checkbox řádek */
+#f-1-43c2cd496486bcc27217c3e790fb4088 input[type="checkbox"] {
+  accent-color: var(--green) !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin-right: 8px !important;
+  flex-shrink: 0 !important;
+}
+
+#f-1-43c2cd496486bcc27217c3e790fb4088 label {
+  font-family: var(--font) !important;
+  font-size: 0.875rem !important;
+  color: var(--ink-soft) !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  line-height: 1.5 !important;
+}
+
+/* Chybové a úspěšné hlášky */
+#f-1-43c2cd496486bcc27217c3e790fb4088 .ecm-success,
+#f-1-43c2cd496486bcc27217c3e790fb4088 .ecm-message {
+  font-family: var(--font) !important;
+  font-size: 0.9375rem !important;
+  color: var(--green) !important;
+  margin-top: 12px !important;
+}
