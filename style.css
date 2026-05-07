@@ -845,7 +845,12 @@ body {
 #f-1-43c2cd496486bcc27217c3e790fb4088 h1,
 #f-1-43c2cd496486bcc27217c3e790fb4088 h2,
 #f-1-43c2cd496486bcc27217c3e790fb4088 h3,
-#f-1-43c2cd496486bcc27217c3e790fb4088 .ecm-title {
+#f-1-43c2cd496486bcc27217c3e790fb4088 h4,
+#f-1-43c2cd496486bcc27217c3e790fb4088 p:first-child,
+#f-1-43c2cd496486bcc27217c3e790fb4088 .ecm-title,
+#f-1-43c2cd496486bcc27217c3e790fb4088 .ecm-form__title,
+#f-1-43c2cd496486bcc27217c3e790fb4088 [class*="title"],
+#f-1-43c2cd496486bcc27217c3e790fb4088 [class*="heading"] {
   display: none !important;
 }
 
