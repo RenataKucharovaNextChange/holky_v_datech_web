@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Díky za přihlášení – holky_v_datech</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .dekujeme {
+      min-height: calc(100vh - 96px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--green-light);
+    }
+    .dekujeme__box {
+      background: var(--white);
+      border: 1px solid var(--green-mid);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      padding: 56px 48px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+    .dekujeme__icon {
+      width: 64px;
+      height: 64px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: var(--green);
+    }
+    .dekujeme__box h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .dekujeme__box p {
+      color: var(--ink-soft);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .dekujeme__box p strong {
+      color: var(--ink);
+    }
+    .dekujeme__actions {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+    @media (max-width: 480px) {
+      .dekujeme__box { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav-wrapper">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logo.png" alt="holky_v_datech" class="nav__logo-img" />
+        <span class="nav__logo-text">holky_v_datech</span>
+      </a>
+      <button class="nav__toggle" aria-label="Otevřít menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html#o-nas">O nás</a></li>
+        <li><a href="index.html#akce">Akce</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><a href="index.html#kontakt" class="btn btn--sm">Přidej se</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- OBSAH -->
+  <section class="dekujeme">
+    <div class="dekujeme__box">
+      <div class="dekujeme__icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+      </div>
+      <h1>Díky za přihlášení!</h1>
+      <p>Poslaly jsme ti potvrzovací e-mail. <strong>Klikni na odkaz v e-mailu</strong> a odběr novinek se aktivuje.</p>
+      <p>Pokud e-mail do pár minut nepřijde, zkontroluj složku se spamem.</p>
+      <div class="dekujeme__actions">
+        <a href="index.html" class="btn">Zpět na hlavní stránku</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logo.png" alt="holky_v_datech" class="nav__logo-img nav__logo-img--footer" />
+      </a>
+      <p class="footer__copy">© 2026 holky_v_datech · <a href="mailto:info@holkyvdatech.cz">info@holkyvdatech.cz</a></p>
+      <div class="footer__social">
+        <a href="https://instagram.com/holkyvdatech" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
