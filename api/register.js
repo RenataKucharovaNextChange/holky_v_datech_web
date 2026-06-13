@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
 
   try {
     const ecomailRes = await fetch(
-      `https://api2.ecomail.cz/lists/${process.env.ECOMAIL_LIST_ID}/subscribe`,
+      `https://api2.ecomailapp.cz/lists/${process.env.ECOMAIL_LIST_ID}/subscribe`,
       {
         method: 'POST',
         headers: {
