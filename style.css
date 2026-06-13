@@ -177,6 +177,7 @@ body {
   transition: color .2s, background .2s;
 }
 .nav__links a:hover { color: var(--green); background: var(--green-light); }
+.nav__links a.active { color: var(--green); }
 .nav__links .btn { color: var(--white) !important; }
 .nav__links .btn:hover { color: var(--ink) !important; }
 .nav__toggle {

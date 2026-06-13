@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentoring – holky_v_datech</title>
+  <meta name="description" content="Individuální mentoring pro ženy v datech – kariérní rozvoj, příprava na konference a firemní spolupráce. holky_v_datech." />
+  <link rel="canonical" href="https://www.holkyvdatech.cz/mentoring.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Raleway:ital,wght@0,600;0,700;0,800;1,700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Hero ──────────────────────────────────────── */
+    .mentoring-hero {
+      background: var(--off-white);
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--green-mid);
+      text-align: center;
+    }
+    .mentoring-hero .container { max-width: 760px; }
+    .mentoring-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.15;
+      margin: 16px 0;
+    }
+    .mentoring-hero h1 .hero__highlight { color: var(--green); }
+    .mentoring-hero .lead {
+      color: var(--ink-soft);
+      font-size: 1.0625rem;
+      max-width: 540px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+    .mentoring-hero .hero__cta {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .booking-note {
+      margin: 20px auto 0;
+      max-width: 460px;
+      background: var(--green-light);
+      border: 1px solid var(--green-mid);
+      border-radius: var(--radius-sm);
+      padding: 12px 18px;
+      font-size: .875rem;
+      color: var(--green-dark);
+    }
+
+    /* ── Pain points ───────────────────────────────── */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .pain-card {
+      background: var(--off-white);
+      border: 1px solid var(--green-mid);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      font-size: .9375rem;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .pain-card::before {
+      content: '→';
+      display: block;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 8px;
+    }
+
+    /* ── Jak to funguje ────────────────────────────── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--green-light);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.125rem;
+      flex-shrink: 0;
+    }
+    .step-body strong { display: block; color: var(--ink); font-size: 1rem; margin-bottom: 4px; }
+    .step-body p { color: var(--ink-soft); font-size: .9375rem; }
+
+    /* ── Komunita ──────────────────────────────────── */
+    .mentoring-community {
+      background: var(--off-white);
+      padding: 80px 0;
+      border-top: 1px solid var(--green-mid);
+      border-bottom: 1px solid var(--green-mid);
+    }
+    .mentoring-community__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .mentoring-community__photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .mentoring-community__photos img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      display: block;
+    }
+    .mentoring-community__photos img:first-child {
+      grid-row: span 2;
+      aspect-ratio: auto;
+      height: 100%;
+    }
+    .mentoring-community__text {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .mentoring-community__text h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      line-height: 1.2;
+      color: var(--ink);
+    }
+    .mentoring-community__text p {
+      color: var(--ink-soft);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+    }
+
+    /* ── Nabídka / tabs ────────────────────────────── */
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .tab-btn {
+      background: none;
+      border: 2px solid var(--green-mid);
+      border-radius: 100px;
+      padding: 10px 24px;
+      font-family: var(--font);
+      font-size: .9375rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .tab-btn.active { background: var(--green); border-color: var(--green); color: var(--white); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .pricing-card {
+      background: var(--off-white);
+      border: 1px solid var(--green-mid);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+    }
+    .pricing-card.featured { background: var(--green); border-color: var(--green); color: var(--white); }
+    .pricing-card.featured .pricing-tag,
+    .pricing-card.featured .pricing-desc,
+    .pricing-card.featured .pricing-price span,
+    .pricing-card.featured .pricing-list li { color: rgba(255,255,255,.8); }
+    .pricing-card.featured .pricing-title,
+    .pricing-card.featured .pricing-price { color: var(--white); }
+    .pricing-card.featured .pricing-list li::before { color: var(--white); }
+    .pricing-card.featured .btn--ghost {
+      background: var(--white);
+      color: var(--green);
+      border-color: var(--white);
+    }
+    .pricing-card.featured .btn--ghost:hover { background: var(--green-light); }
+
+    .featured-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      color: var(--green);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+      box-shadow: var(--shadow);
+    }
+    .pricing-tag { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+    .pricing-title { font-size: 1.125rem; font-weight: 700; color: var(--ink); }
+    .pricing-price { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; color: var(--ink); line-height: 1; }
+    .pricing-price span { font-size: .8125rem; font-weight: 400; color: var(--ink-soft); font-family: var(--font); }
+    .pricing-desc { color: var(--ink-soft); font-size: .9rem; line-height: 1.6; }
+    .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: .875rem; color: var(--ink); }
+    .pricing-list li::before { content: '✓ '; color: var(--green); font-weight: 700; }
+    .pricing-card .btn,
+    .pricing-card .btn--ghost { margin-top: auto; justify-content: center; }
+
+    .b2b-box {
+      background: var(--off-white);
+      border: 1px solid var(--green-mid);
+      border-radius: var(--radius);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .b2b-box h3 { font-family: var(--font-serif); font-size: 1.375rem; color: var(--ink); margin-bottom: 4px; }
+    .b2b-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+    .b2b-list li { font-size: .9375rem; color: var(--ink); padding-left: 22px; position: relative; line-height: 1.5; }
+    .b2b-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    .b2b-right { display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+    .b2b-right p { color: var(--ink-soft); font-size: .9375rem; line-height: 1.6; }
+
+    /* ── Mentorka ──────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .about-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--green-mid);
+    }
+    .about-text h3 { font-family: var(--font-serif); font-size: 1.375rem; color: var(--ink); margin-bottom: 4px; }
+    .about-role { color: var(--green); font-weight: 600; font-size: .9375rem; margin-bottom: 16px; }
+    .about-text p { color: var(--ink-soft); font-size: .9375rem; line-height: 1.7; margin-bottom: 12px; }
+
+    /* ── FAQ ───────────────────────────────────────── */
+    .faq { display: flex; flex-direction: column; gap: 10px; }
+    .faq details {
+      background: var(--off-white);
+      border: 1px solid var(--green-mid);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .faq details[open] { border-color: var(--green); }
+    .faq summary {
+      padding: 16px 22px;
+      font-weight: 600;
+      font-size: .9375rem;
+      color: var(--ink);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--green); font-size: 1.25rem; font-weight: 700; flex-shrink: 0; }
+    .faq details[open] summary::after { content: '–'; }
+    .faq-body { padding: 0 22px 18px; color: var(--ink-soft); font-size: .9375rem; line-height: 1.7; }
+
+    /* ── CTA banner ────────────────────────────────── */
+    .cta-banner {
+      background: var(--green);
+      color: var(--white);
+      text-align: center;
+      padding: 64px 0;
+    }
+    .cta-banner h2 { font-family: var(--font-serif); font-size: clamp(1.5rem, 3vw, 2.25rem); margin-bottom: 12px; }
+    .cta-banner p { color: rgba(255,255,255,.85); max-width: 440px; margin: 0 auto 28px; font-size: 1.0625rem; }
+    .cta-banner .btn { background: var(--white); color: var(--green); border-color: var(--white); }
+    .cta-banner .btn:hover { background: var(--green-light); }
+
+    /* ── Responsive ────────────────────────────────── */
+    @media (max-width: 900px) {
+      .pain-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .b2b-box { grid-template-columns: 1fr; gap: 24px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo { width: 140px; height: 140px; }
+      .mentoring-community__inner { grid-template-columns: 1fr; gap: 32px; }
+      .mentoring-community__photos { order: -1; }
+    }
+    @media (max-width: 480px) {
+      .mentoring-hero { padding: 56px 0 48px; }
+      .b2b-box { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav-wrapper">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logo.png" alt="holky_v_datech" class="nav__logo-img" />
+      </a>
+      <button class="nav__toggle" aria-label="Otevřít menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html#o-nas">O nás</a></li>
+        <li><a href="index.html#akce">Akce</a></li>
+        <li><a href="mentoring.html" class="active">Mentoring</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><a href="index.html#kontakt" class="btn btn--sm">Přidej se</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="mentoring-hero">
+    <div class="container">
+      <span class="pill pill--dark">Mentoring</span>
+      <h1>Posuň se dál v datech.<br /><span class="hero__highlight">S tím, kdo ví.</span></h1>
+      <p class="lead">
+        Individuální mentoring pro analytičky a datové inženýrky. Kariérní posun,
+        viditelnost na konferencích nebo příprava na náročnější roli.
+      </p>
+      <div class="hero__cta">
+        <a href="#" target="_blank" rel="noopener" class="btn js-bookings-link-20">Rezervovat úvodní konzultaci zdarma</a>
+        <a href="#nabidka" class="btn btn--ghost">Nabídka a ceny</a>
+      </div>
+      <p class="booking-note">
+        Rezervace jde přímo do kalendáře – zvol si termín a dostaneš pozvánku do Outlooku s odkazem na MS Teams.
+      </p>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="pill">Poznáváš se?</span>
+        <h2>Chceš se posunout, ale nevíš jak – a nemáš koho se zeptat.</h2>
+        <p class="section__sub">Tohle slýchám od žen v datech nejčastěji:</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card">„Dělám dobrou práci, ale na konferencích prezentují pořád stejní lidé.“</div>
+        <div class="pain-card">„Chci postoupit na seniorní pozici, ale nevím, co mi chybí.“</div>
+        <div class="pain-card">„S daty teprve začínám a potřebuji někoho, kdo mi ukáže směr.“</div>
+        <div class="pain-card">„Mám téma na talk, ale nevím, jak ho podat, nebo se bojím přihlásit.“</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAK TO FUNGUJE -->
+  <section class="section" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section__header">
+        <span class="pill pill--dark">Jak to funguje</span>
+        <h2>Žádná teorie. Rovnou na věc.</h2>
+        <p class="section__sub">Každé sezení začíná tam, kde jsi teď – a končí konkrétním krokem.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Úvodní konzultace (20 min, zdarma)</strong>
+            <p>Zjistíme, co řešíš, kam chceš dojít a jestli má smysl pokračovat.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Sezení 1:1 online přes MS Teams, 60 minut</strong>
+            <p>Řešíme tvůj konkrétní případ – od kariérní strategie po přípravu CFP přihlášky na konferenci.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Akční kroky po každém hovoru</strong>
+            <p>Shrnutí a konkrétní úkoly e-mailem. Bez obecných rad, které zapomeneš do večera.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Průběžná podpora</strong>
+            <p>V balíčcích dostaneš e-mailovou podporu po celou dobu spolupráce.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KOMUNITA -->
+  <section class="mentoring-community">
+    <div class="container mentoring-community__inner">
+      <div class="mentoring-community__photos">
+        <img src="assets/fotky_zelene/DSC07954-Edit.jpg" alt="holky_v_datech – setkání komunity" loading="lazy" />
+        <img src="assets/fotky_zelene/DSC08028-Edit.jpg" alt="holky_v_datech – setkání komunity" loading="lazy" />
+        <img src="assets/fotky_zelene/DSC08252-Edit.jpg" alt="holky_v_datech – setkání komunity" loading="lazy" />
+      </div>
+      <div class="mentoring-community__text">
+        <span class="pill pill--dark">Komunita</span>
+        <h2>Mentoring je součástí komunity holky_v_datech</h2>
+        <p>
+          Kromě 1:1 mentoringu se můžeš zapojit i do měsíčních setkání, kde se ženy
+          z datových oborů potkávají, sdílí zkušenosti a navzájem se podporují.
+        </p>
+        <a href="index.html#akce" class="btn btn--ghost">Podívat se na akce</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NABÍDKA -->
+  <section class="section" id="nabidka">
+    <div class="container">
+      <div class="section__header">
+        <span class="pill">Nabídka</span>
+        <h2>Vyber, co ti sedí.</h2>
+        <p class="section__sub">Pro jednotlivkyně i pro celý tým.</p>
+      </div>
+
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab('jednotlivec', this)">Pro jednotlivce</button>
+        <button class="tab-btn" onclick="switchTab('firmy', this)">Pro firmy</button>
+      </div>
+
+      <!-- Tab: Jednotlivec -->
+      <div class="tab-panel active" id="tab-jednotlivec">
+        <div class="pricing-grid">
+
+          <div class="pricing-card">
+            <p class="pricing-tag">Zdarma</p>
+            <p class="pricing-title">Úvodní konzultace</p>
+            <p class="pricing-price">0 Kč <span>/ 20 min</span></p>
+            <p class="pricing-desc">Zjistíme, jestli si sedneme a co ti mentoring může přinést. Bez závazku.</p>
+            <ul class="pricing-list">
+              <li>Online přes MS Teams</li>
+              <li>Zmapování tvé situace a cíle</li>
+              <li>Návrh dalšího kroku</li>
+            </ul>
+            <a href="#" target="_blank" rel="noopener" class="btn btn--ghost js-bookings-link-20">Rezervovat termín</a>
+          </div>
+
+          <div class="pricing-card featured">
+            <span class="featured-badge">Nejčastější volba</span>
+            <p class="pricing-tag">Jednorázové</p>
+            <p class="pricing-title">Jedno sezení</p>
+            <p class="pricing-price">1 500 Kč <span>/ 60 min</span></p>
+            <p class="pricing-desc">Ideální, pokud máš jedno konkrétní téma – přípravu talku, kariérní dilema nebo feedback na portfolio.</p>
+            <ul class="pricing-list">
+              <li>Sezení 1:1 online přes MS Teams (60 min)</li>
+              <li>Přizpůsobeno tvé situaci</li>
+              <li>Shrnutí a akční kroky e-mailem</li>
+              <li>E-mailová podpora 7 dní po sezení</li>
+            </ul>
+            <a href="#" target="_blank" rel="noopener" class="btn js-bookings-link-60">Rezervovat sezení</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tab: Firmy -->
+      <div class="tab-panel" id="tab-firmy">
+        <div class="b2b-box">
+          <div>
+            <h3>Firemní mentoring</h3>
+            <p style="color:var(--ink-soft);font-size:.9375rem;">Pravidelná spolupráce přizpůsobená potřebám vašeho týmu.</p>
+            <ul class="b2b-list">
+              <li>Mentoring pro 1 až 3 analytičky měsíčně</li>
+              <li>Individuální plán rozvoje pro každou účastnici</li>
+              <li>Zaměření na kariérní posun, viditelnost a prezentační dovednosti</li>
+              <li>Měsíční shrnutí pokroku pro zadavatele</li>
+              <li>Možnost zapojení do komunity holky_v_datech</li>
+            </ul>
+          </div>
+          <div class="b2b-right">
+            <p>Hodí se pro firmy, kde pracují datové analytičky nebo inženýrky a chybí seniorní ženský vzor nebo mentoringový program.</p>
+            <p>Cena na základě rozsahu spolupráce – domluvíme individuálně.</p>
+            <a href="mailto:info@holkyvdatech.cz?subject=Z%C3%A1jem%20o%20firemn%C3%AD%20mentoring" class="btn">Nezávazně poptat</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MENTORKA -->
+  <section class="section" id="o-mne" style="background:var(--off-white);">
+    <div class="container">
+      <div class="section__header">
+        <span class="pill pill--dark">Mentorka</span>
+        <h2>Kdo za tím stojí.</h2>
+      </div>
+      <div class="about-grid">
+        <img class="about-photo" src="assets/Renata.png" alt="Renata Kuchařová, zakladatelka holky_v_datech" />
+        <div class="about-text">
+          <h3>Renata Kuchařová</h3>
+          <p class="about-role">Zakladatelka holky_v_datech</p>
+          <p>Pracuji v datovém týmu přes 6 let, nyní jako manažerka AI transformace a mentorka.</p>
+          <p>holky_v_datech jsem založila, protože jsem viděla, kolik šikovných žen pracuje skvěle, ale zůstává neviditelných. Mentoring je krásná cesta, jak to změnit.</p>
+          <p>V mentoringu se zaměřuju na to, aby se ženy posunuly dál, nestyděly se a měly sebevědomí – protože mají co ukázat.</p>
+          <a href="https://www.linkedin.com/in/ren%C3%A1ta-kucha%C5%99ov%C3%A1-84067116" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="pill">Časté otázky</span>
+        <h2>Co tě možná napadá.</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Pro koho je mentoring určený?</summary>
+          <div class="faq-body">Pro všechny ženy, které se chtějí posunout v datových oborech – ať už teprve začínáš, nebo jsi zkušená analytička a chceš získat větší viditelnost. Mentoring není jen pro seniorky.</div>
+        </details>
+        <details>
+          <summary>Musím být členkou komunity holky_v_datech?</summary>
+          <div class="faq-body">Ne. Mentoring je otevřený všem ženám v datových oborech, bez ohledu na to, jestli jsi součástí komunity. Komunita je jen bonus navíc.</div>
+        </details>
+        <details>
+          <summary>Kde sezení probíhají?</summary>
+          <div class="faq-body">Online přes Microsoft Teams, v čase, který si vybereme společně přes rezervační kalendář. Po rezervaci dostaneš pozvánku přímo do Outlooku.</div>
+        </details>
+        <details>
+          <summary>Co když nevím, jestli mám téma na konferenci?</summary>
+          <div class="faq-body">To je přesně to, na co se zaměřujeme v sezení. Máš zkušenosti, které stojí za sdílení – jen je potřeba je pojmenovat a podat správně.</div>
+        </details>
+        <details>
+          <summary>Jak funguje firemní mentoring?</summary>
+          <div class="faq-body">Domluvíme se na rozsahu, frekvenci a cíli – podle velikosti týmu a potřeb firmy. Spolupráce probíhá formou retaineru na 3 až 6 měsíců. Napiš na info@holkyvdatech.cz a domluvíme úvodní call.</div>
+        </details>
+        <details>
+          <summary>Jak rezervuji termín?</summary>
+          <div class="faq-body">Přes tlačítko „Rezervovat termín“ vybereš volný slot v kalendáři. Automaticky dostaneš pozvánku do Outlooku s odkazem na MS Teams. Žádné e-maily tam a zpět.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div class="container">
+      <h2>Začni konzultací zdarma.</h2>
+      <p>20 minut. Žádný závazek. Zjistíme, jestli má mentoring pro tebe smysl – a pokud ano, co dál.</p>
+      <a href="#" target="_blank" rel="noopener" class="btn js-bookings-link-20">Rezervovat termín přímo do kalendáře</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logo.png" alt="holky_v_datech" class="nav__logo-img nav__logo-img--footer" />
+      </a>
+      <p class="footer__copy">© 2026 holky_v_datech · <a href="mailto:info@holkyvdatech.cz">info@holkyvdatech.cz</a></p>
+      <div class="footer__social">
+        <a href="https://instagram.com/holkyvdatech" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Odkazy na rezervační kalendář (Microsoft Bookings)
+    const BOOKINGS_LINK_20 = 'https://outlook.office.com/book/holky_v_datechMentoring@nextchange.cz/s/AM_xay53YESuH19aBfD7PA2?ismsaljsauthenabled';
+    const BOOKINGS_LINK_60 = 'https://outlook.office.com/book/holky_v_datechMentoring@nextchange.cz/s/hOv9NtKswk-VOeeb5fKOdw2?ismsaljsauthenabled';
+    document.querySelectorAll('.js-bookings-link-20').forEach((el) => { el.href = BOOKINGS_LINK_20; });
+    document.querySelectorAll('.js-bookings-link-60').forEach((el) => { el.href = BOOKINGS_LINK_60; });
+
+    function switchTab(id, btn) {
+      document.querySelectorAll('.tab-panel').forEach((p) => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
