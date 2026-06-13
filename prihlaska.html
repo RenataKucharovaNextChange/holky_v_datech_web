@@ -185,7 +185,7 @@
   <script src="script.js"></script>
   <script>
     // Odkaz na pozvánku do Discord komunity
-    const DISCORD_INVITE = 'DOPLNIT_DISCORD_LINK';
+    const DISCORD_INVITE = 'https://discord.gg/cAa7jyN2f';
 
     const firstTimeCheckbox = document.getElementById('p-first-time');
     const firstTimeExtra = document.getElementById('first-time-extra');
@@ -234,7 +234,7 @@
         btn.style.background = '#1a5233';
         msg.style.color = 'var(--green)';
 
-        if (payload.discord && DISCORD_INVITE !== 'DOPLNIT_DISCORD_LINK') {
+        if (payload.discord) {
           msg.innerHTML = `Díky za přihlášku! Tady je odkaz na náš Discord: <a href="${DISCORD_INVITE}" target="_blank" rel="noopener">přidat se</a>.`;
         } else {
           msg.textContent = 'Díky za přihlášku! Brzy se ozveme s podrobnostmi.';
