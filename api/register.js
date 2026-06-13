@@ -18,7 +18,6 @@ module.exports = async (req, res) => {
 
   const customFields = {
     EVENT: String(body.event || ''),
-    UCAST: String(body.attendance || ''),
     DISCORD: body.discord ? 'ano' : 'ne',
   };
 

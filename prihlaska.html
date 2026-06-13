@@ -23,27 +23,10 @@
       flex-direction: column;
       gap: 22px;
     }
-    .radio-group, .check-group {
+    .check-group {
       display: flex;
       flex-direction: column;
       gap: 10px;
-    }
-    .radio-label {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      cursor: pointer;
-      font-size: .9375rem;
-      color: var(--ink);
-      line-height: 1.5;
-    }
-    .radio-label input[type="radio"] {
-      margin-top: 3px;
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-      accent-color: var(--green);
-      cursor: pointer;
     }
     .first-time-extra {
       display: none;
@@ -105,20 +88,6 @@
         <div class="form-group">
           <label for="p-email">E-mail</label>
           <input type="email" id="p-email" name="email" placeholder="jana@example.com" required />
-        </div>
-
-        <div class="form-group">
-          <label>Zúčastníš se?</label>
-          <div class="radio-group">
-            <label class="radio-label">
-              <input type="radio" name="attendance" value="Ano, přijdu" required />
-              Ano, přijdu 🎉
-            </label>
-            <label class="radio-label">
-              <input type="radio" name="attendance" value="Tentokrát ne, ale chci dál vědět o dalších akcích" />
-              Tentokrát ne, ale chci dál vědět o dalších akcích
-            </label>
-          </div>
         </div>
 
         <div class="form-group form-group--checkbox">
@@ -213,7 +182,6 @@
         event: data.get('event'),
         name: data.get('name').trim(),
         email: data.get('email').trim(),
-        attendance: data.get('attendance'),
         firstTime: data.get('firstTime') === 'on',
         source: data.getAll('source'),
         motivation: data.getAll('motivation').filter(v => v !== 'Jiné'),
