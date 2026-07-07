@@ -376,6 +376,57 @@ body {
   line-height: 1.6;
   flex: 1;
 }
+.event-card__topic {
+  font-weight: 600;
+  color: var(--ink);
+  flex: 0 !important;
+}
+.event-card--featured .event-card__topic { color: var(--white); }
+
+.event-card__badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+.event-card--featured .event-card__badge {
+  background: rgba(255,255,255,.2);
+  color: var(--white);
+}
+
+.event-card--tba:not(.event-card--featured) {
+  background: var(--off-white);
+  border: 1px dashed var(--green-mid);
+}
+.event-card--featured.event-card--tba {
+  border: 2px dashed rgba(255,255,255,.5);
+}
+
+.event-card__actions,
+.event-card__calendar {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.event-card__calendar { margin-top: 2px; }
+.event-card__cal-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font);
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.event-card--featured .event-card__cal-link { color: var(--white); }
 
 /* ── Historie akcí ─────────────────────────────────── */
 .events-history {

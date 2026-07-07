@@ -112,84 +112,13 @@
         <p class="section__sub">Setkání jsou určena ženám, které v datech už pracují – analytičkám, datovým inženýrkám a manažerkám datových týmů.</p>
       </div>
 
-      <!-- Nadcházející -->
-      <div class="events">
-        <article class="event-card event-card--featured">
-          <div class="event-card__date">
-            <span class="event-card__day">30</span>
-            <span class="event-card__month">Čvc</span>
-          </div>
-          <div class="event-card__body">
-            <span class="pill pill--sm">Brno · 17:30</span>
-            <h3>holky_v_datech Meetup #5</h3>
-            <p style="font-weight:600;color:var(--ink);margin-bottom:8px;">Café Morgal, Brno</p>
-            <p>Přijď se potkat s dalšími ženami z datového světa. Neformální setkání bez agendy – sdílíme zkušenosti, nápady i běžné starosti u dobré kávy.</p>
-            <a href="prihlaska.html" class="btn btn--sm">Mám zájem</a>
-          </div>
-        </article>
-        <article class="event-card event-card--featured">
-          <div class="event-card__date">
-            <span class="event-card__day">8</span>
-            <span class="event-card__month">Čvc</span>
-          </div>
-          <div class="event-card__body">
-            <span class="pill pill--sm">Online · 19:30</span>
-            <h3>holky_v_datech Mastermind #3</h3>
-            <p style="font-weight:600;color:var(--ink);margin-bottom:8px;">Claude v Excelu — AI a finanční reconciliace</p>
-            <p>Jak využít Claude plugin přímo v Excelu? Přijď sdílet zkušenosti a zjistit, co je možné. Otevřená diskuze pro každého, kdo trávil hodiny hledáním rozdílů v tabulkách.</p>
-            <a href="https://events.teams.microsoft.com/event/bd52eed5-a77c-453e-974b-66df9c6c45e9@aba70d4f-a934-4d60-bf09-d619bac4fdc0" class="btn btn--sm" target="_blank">Přihlásit se</a>
-          </div>
-        </article>
-      </div>
+      <!-- Nadcházející (vykresleno z events.json skriptem events.js) -->
+      <div class="events" id="events-upcoming"></div>
 
-      <!-- Historie -->
+      <!-- Historie (vykresleno z events.json skriptem events.js) -->
       <div class="events-history">
         <h3 class="events-history__title">Co jsme už zažily</h3>
-        <div class="history-list">
-
-          <a href="archiv.html#mastermind-2" class="history-item">
-            <span class="history-item__date">04. 06. 2026</span>
-            <span class="history-item__type history-item__type--online">Online</span>
-            <span class="history-item__name">Mastermind #2</span>
-            <span class="history-item__arrow">→</span>
-          </a>
-
-          <a href="archiv.html#masterclass-1" class="history-item">
-            <span class="history-item__date">26. 03. 2026</span>
-            <span class="history-item__type history-item__type--online">Online</span>
-            <span class="history-item__name">Masterclass #1</span>
-            <span class="history-item__arrow">→</span>
-          </a>
-
-          <a href="archiv.html#meetup-4" class="history-item">
-            <span class="history-item__date">04. 03. 2026</span>
-            <span class="history-item__type">Brno</span>
-            <span class="history-item__name">Meetup #4</span>
-            <span class="history-item__arrow">→</span>
-          </a>
-
-          <a href="archiv.html#meetup-3" class="history-item">
-            <span class="history-item__date">19. 11. 2025</span>
-            <span class="history-item__type">Brno</span>
-            <span class="history-item__name">Meetup #3</span>
-            <span class="history-item__arrow">→</span>
-          </a>
-
-          <a href="archiv.html#meetup-2" class="history-item">
-            <span class="history-item__date">19. 02. 2025</span>
-            <span class="history-item__type">Brno</span>
-            <span class="history-item__name">Meetup #2</span>
-            <span class="history-item__arrow">→</span>
-          </a>
-
-          <a href="archiv.html#meetup-1" class="history-item">
-            <span class="history-item__date">22. 01. 2025</span>
-            <span class="history-item__type">Brno</span>
-            <span class="history-item__name">Meetup #1</span>
-            <span class="history-item__arrow">→</span>
-          </a>
-
-        </div>
+        <div class="history-list" id="history-list"></div>
       </div>
 
     </div>
@@ -280,6 +209,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="events.js"></script>
   <script>
     (function (w,d,s,o,f,js,fjs) {
       w['ecm-widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
