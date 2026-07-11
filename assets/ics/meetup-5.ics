@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//holky_v_datech//events//CS
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:meetup-5@holkyvdatech.cz
+DTSTAMP:20260710T000000Z
+DTSTART:20260730T153000Z
+DTEND:20260730T173000Z
+SUMMARY:holky_v_datech Meetup #5
+LOCATION:Café Morgal\, Brno
+DESCRIPTION:Přijď se potkat s dalšími ženami z datového světa. Neformální setkání bez agendy – sdílíme zkušenosti\, nápady i běžné starosti u dobré kávy.
+END:VEVENT
+END:VCALENDAR

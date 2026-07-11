@@ -121,6 +121,20 @@ border-radius: 16px;
 padding: 32px 28px;
 ```
 
+### Karta akce (nadcházející akce)
+Nadcházející akce (sekce „Co nás čeká") se řadí vedle sebe ve dvousloupcové mřížce (`.events`, `grid-template-columns: 1fr 1fr`, na mobilu 1 sloupec). Barevné pravidlo: **první (nejbližší) nadcházející akce má zelené pozadí** (`.event-card--featured`), **ostatní akce mají světlé pozadí** (výchozí `.event-card`). Nejde o „hlavní vs. vedlejší" akci, ale čistě o pořadí podle termínu.
+
+Struktura karty (`article.event-card`):
+1. **Datum** (`.event-card__date`) – velké zelené číslo dne + zkratka měsíce pod ním. Pokud termín ještě není potvrzený, použij `.event-card__date--tbd` a místo čísla dej `?` + rok.
+2. **Pill** (`.pill.pill--sm`) – místo/formát a čas, např. „Brno · 17:30" nebo „Online · připravujeme".
+3. **Nadpis** (`h3`) – název akce.
+4. **Podnadpis** (`.event-card__subtitle`) – doplňující řádek (místo konání, jméno hosta apod.), tenčí a světlejší než nadpis.
+5. **Popis** (`p`) – krátký text o akci.
+6. **CTA tlačítko** (`.btn.btn--sm`, nebo `.btn--ghost` pro akce bez pevného termínu/registrace) – např. „Mám zájem" / „Přihlásit se" / „Dej mi vědět o termínu".
+7. **Odkazy na kalendář** (`.event-card__cal`) – jen u akcí s potvrzeným termínem: „Google Kalendář" (odkaz na `calendar.google.com/calendar/render?action=TEMPLATE&...`) a „Stáhnout .ics" (statický soubor v `assets/ics/<slug>.ics`, atribut `download`). U akcí bez termínu se vynechávají.
+
+Pro akce bez potvrzeného termínu (např. připravovaný webinář) se vynechává i CTA na registraci – místo toho odkaz vedoucí ke kontaktu/newsletteru (`#kontakt`), aby se lidé mohli přihlásit k odběru novinek.
+
 ---
 
 ## Assets
