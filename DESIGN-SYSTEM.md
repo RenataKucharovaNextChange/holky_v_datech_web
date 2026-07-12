@@ -137,6 +137,17 @@ Pro akce bez potvrzeného termínu (např. připravovaný webinář) se vynechá
 
 ---
 
+## Structured data (JSON-LD)
+
+Web nemá build krok, takže structured data v `<head>` (`application/ld+json`) se udržují ručně:
+
+- **index.html** – Organization (+ founder Person), Event pro každou nadcházející akci v sekci „Co nás čeká". Při přidání/změně akce na stránce aktualizuj i odpovídající Event blok (datum, popis, odkaz).
+- **mentoring.html** – Person (Renata) a FAQPage. **FAQPage musí 1:1 zrcadlit viditelný seznam `<details>/<summary>` v sekci FAQ** – při úpravě otázky nebo odpovědi v HTML uprav i text v JSON-LD, jinak se rozjedou.
+
+Po nasazení ověřuj přes `validator.schema.org` a `search.google.com/test/rich-results`.
+
+---
+
 ## Assets
 
 | Soubor | Popis |
