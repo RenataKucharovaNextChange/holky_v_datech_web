@@ -323,7 +323,7 @@ body {
   color: rgba(255,255,255,.75);
 }
 .event-card--featured h3 { color: var(--white); }
-.event-card--featured .event-card__subtitle { color: rgba(255,255,255,.85); }
+.event-card--featured .event-card__body p.event-card__subtitle { color: var(--white); font-weight: 700; }
 .event-card--featured .pill--sm {
   background: rgba(255,255,255,.2);
   color: var(--white);
@@ -378,10 +378,10 @@ body {
   line-height: 1.6;
   flex: 1;
 }
-.event-card__subtitle {
+.event-card__body p.event-card__subtitle {
   font-weight: 600;
-  color: var(--ink-soft) !important;
-  flex: none !important;
+  color: var(--ink-soft);
+  flex: none;
 }
 .event-card__cal {
   display: flex;
@@ -625,6 +625,11 @@ body {
 }
 .footer__copy a { color: rgba(255,255,255,.7); text-decoration: none; }
 .footer__copy a:hover { color: var(--white); }
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 .footer__social a {
   color: rgba(255,255,255,.6);
   transition: color .2s;
