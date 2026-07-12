@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//holky_v_datech//events//CS
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:mastermind-4@holkyvdatech.cz
+DTSTAMP:20260711T000000Z
+DTSTART:20260716T173000Z
+DTEND:20260716T190000Z
+SUMMARY:holky_v_datech Mastermind #4 — Kyberbezpečnost 101
+LOCATION:Online (Microsoft Teams)
+DESCRIPTION:Nikola Včelková nás provede základy kybernetické bezpečnosti – praktické minimum pro každou\, kdo pracuje s daty. Odkaz na setkání: https://events.teams.microsoft.com/event/17c8ea16-dbdd-42e9-9287-146dad544f75@aba70d4f-a934-4d60-bf09-d619bac4fdc0
+URL:https://events.teams.microsoft.com/event/17c8ea16-dbdd-42e9-9287-146dad544f75@aba70d4f-a934-4d60-bf09-d619bac4fdc0
+END:VEVENT
+END:VCALENDAR

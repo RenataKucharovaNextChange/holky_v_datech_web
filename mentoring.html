@@ -321,6 +321,36 @@
       .b2b-box { padding: 28px 24px; }
     }
   </style>
+  <!-- FAQ JSON-LD níže musí zrcadlit viditelný FAQ seznam (<details>) v sekci FAQ.
+       Při úpravě otázky/odpovědi tam aktualizuj i tenhle blok. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.holkyvdatech.cz/#renata-kucharova",
+        "name": "Renata Kuchařová",
+        "jobTitle": "Zakladatelka holky_v_datech",
+        "image": "https://www.holkyvdatech.cz/assets/Renata.png",
+        "url": "https://www.holkyvdatech.cz/mentoring.html",
+        "description": "Pracuji v datovém týmu přes 6 let, nyní jako manažerka AI transformace a mentorka. holky_v_datech jsem založila, protože jsem viděla, kolik šikovných žen pracuje skvěle, ale zůstává neviditelných.",
+        "sameAs": ["https://www.linkedin.com/in/ren%C3%A1ta-kucha%C5%99ov%C3%A1-84067116"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Pro koho je mentoring určený?", "acceptedAnswer": { "@type": "Answer", "text": "Pro všechny ženy, které se chtějí posunout v datových oborech – ať už teprve začínáš, nebo jsi zkušená analytička a chceš získat větší viditelnost. Mentoring není jen pro seniorky." } },
+          { "@type": "Question", "name": "Musím být členkou komunity holky_v_datech?", "acceptedAnswer": { "@type": "Answer", "text": "Ne. Mentoring je otevřený všem ženám v datových oborech, bez ohledu na to, jestli jsi součástí komunity. Komunita je jen bonus navíc." } },
+          { "@type": "Question", "name": "Kde sezení probíhají?", "acceptedAnswer": { "@type": "Answer", "text": "Online přes Microsoft Teams, v čase, který si vybereme společně přes rezervační kalendář. Po rezervaci dostaneš pozvánku přímo do Outlooku." } },
+          { "@type": "Question", "name": "Co když nevím, jestli mám téma na konferenci?", "acceptedAnswer": { "@type": "Answer", "text": "To je přesně to, na co se zaměřujeme v sezení. Máš zkušenosti, které stojí za sdílení – jen je potřeba je pojmenovat a podat správně." } },
+          { "@type": "Question", "name": "Jak funguje firemní mentoring?", "acceptedAnswer": { "@type": "Answer", "text": "Domluvíme se na rozsahu, frekvenci a cíli – podle velikosti týmu a potřeb firmy. Spolupráce probíhá formou retaineru na 3 až 6 měsíců. Napiš na info@holkyvdatech.cz a domluvíme úvodní call." } },
+          { "@type": "Question", "name": "Jak rezervuji termín?", "acceptedAnswer": { "@type": "Answer", "text": "Přes tlačítko „Rezervovat termín“ vybereš volný slot v kalendáři. Automaticky dostaneš pozvánku do Outlooku s odkazem na MS Teams. Žádné e-maily tam a zpět." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
