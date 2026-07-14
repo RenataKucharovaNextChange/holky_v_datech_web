@@ -148,6 +148,16 @@ Po nasazení ověřuj přes `validator.schema.org` a `search.google.com/test/ric
 
 ---
 
+## Watchdog (watchdog.html)
+
+Stránka zobrazuje poslední běh automatického "Watchdog" digestu (komunity/akce/tvorba kolem dat a AI v ČR), generovaného AI nástrojem (Claude Cowork) mimo tento web – zdrojová data žijí v `04_Research_agent/research-agent_Komunitni_a_datova_scena/output/watchdog-digests/`.
+
+Web nemá build krok, takže se stránka aktualizuje ručně: při novém digestu nahraď obsah sekcí mezi hero bannerem (`.archiv-hero`) a patičkou novým obsahem, ideálně zachovej strukturu (`.digest-section-header`, `.digest-list`/`.digest-list-row`, `.digest-card`/`.digest-card--featured`, `.digest-subhead`, `.digest-empty`) – tyto třídy jsou navržené přesně podle formátu, ve kterém Watchdog digest vychází, takže kopírování obsahu vyžaduje minimum úprav. Nezapomeň aktualizovat i `meta`/`digest-meta` řádek s datem poslední aktualizace a obdobím nahoře, a `lastmod` v `sitemap.xml`.
+
+Zobrazuje jen nejnovější digest, žádný archiv starších (rozhodnutí: jednoduchost před úplností).
+
+---
+
 ## Assets
 
 | Soubor | Popis |
