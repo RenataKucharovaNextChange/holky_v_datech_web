@@ -121,6 +121,57 @@ border-radius: 16px;
 padding: 32px 28px;
 ```
 
+### Karta akce (nadcházející akce)
+Nadcházející akce (sekce „Co nás čeká") se řadí vedle sebe ve dvousloupcové mřížce (`.events`, `grid-template-columns: 1fr 1fr`, na mobilu 1 sloupec). Barevné pravidlo: **první (nejbližší) nadcházející akce má zelené pozadí** (`.event-card--featured`), **ostatní akce mají světlé pozadí** (výchozí `.event-card`). Nejde o „hlavní vs. vedlejší" akci, ale čistě o pořadí podle termínu.
+
+Struktura karty (`article.event-card`):
+1. **Datum** (`.event-card__date`) – velké zelené číslo dne + zkratka měsíce pod ním. Pokud termín ještě není potvrzený, použij `.event-card__date--tbd` a místo čísla dej `?` + rok.
+2. **Pill** (`.pill.pill--sm`) – místo/formát a čas, např. „Brno · 17:30" nebo „Online · připravujeme".
+3. **Nadpis** (`h3`) – název akce.
+4. **Podnadpis** (`.event-card__subtitle`) – doplňující řádek (místo konání, jméno hosta apod.), tenčí a světlejší než nadpis.
+5. **Popis** (`p`) – krátký text o akci.
+6. **CTA tlačítko** (`.btn.btn--sm`, nebo `.btn--ghost` pro akce bez pevného termínu/registrace) – např. „Mám zájem" / „Přihlásit se" / „Dej mi vědět o termínu".
+7. **Odkazy na kalendář** (`.event-card__cal`) – jen u akcí s potvrzeným termínem: „Google Kalendář" (odkaz na `calendar.google.com/calendar/render?action=TEMPLATE&...`) a „Stáhnout .ics" (statický soubor v `assets/ics/<slug>.ics`, atribut `download`). U akcí bez termínu se vynechávají.
+
+Pro akce bez potvrzeného termínu (např. připravovaný webinář) se vynechává i CTA na registraci – místo toho odkaz vedoucí ke kontaktu/newsletteru (`#kontakt`), aby se lidé mohli přihlásit k odběru novinek.
+
+---
+
+## Structured data (JSON-LD)
+
+Web nemá build krok, takže structured data v `<head>` (`application/ld+json`) se udržují ručně:
+
+- **index.html** – Organization (+ founder Person), Event pro každou nadcházející akci v sekci „Co nás čeká". Při přidání/změně akce na stránce aktualizuj i odpovídající Event blok (datum, popis, odkaz).
+- **mentoring.html** – Person (Renata) a FAQPage. **FAQPage musí 1:1 zrcadlit viditelný seznam `<details>/<summary>` v sekci FAQ** – při úpravě otázky nebo odpovědi v HTML uprav i text v JSON-LD, jinak se rozjedou.
+
+Po nasazení ověřuj přes `validator.schema.org` a `search.google.com/test/rich-results`.
+
+---
+
+## Watchdog (watchdog.html)
+
+Stránka zobrazuje aktivní položky automatického "Watchdog" digestu (komunity/akce/tvorba kolem dat a AI v ČR), sbíraného AI nástrojem (Claude Cowork scheduled task) mimo tento web – zdrojová data žijí v `04_Research_agent/research-agent_Komunitni_a_datova_scena/output/watchdog-digests/`.
+
+`watchdog.html` je statická kostra (nav/hero/footer) beze změn mezi běhy – obsah renderuje `watchdog.js` z `watchdog-items.json` do `<div id="watchdog-content">`. **Nepřepisuj `watchdog-items.json` jako celek** – je to perzistentní úložiště (upsert, ne overwrite): scheduled task při každém běhu přidává nové položky a aktualizuje `lastSeen`/`status` u existujících, nikdy soubor nenahrazuje čerstvým snímkem. To řeší dřívější problém, kdy den bez novinek přepsal a smazal ze stránky pořád aktuální nález z předešlého dne.
+
+Schéma položky (`items[]`):
+- `id`, `category` (`Holky`/`Data`/`AI`), `section` (`akce`/`obsah`/`alert`)
+- `title`, `org`, `meta` (předformátovaný český text s datem/místem/cenou), `url`
+- `eventDate` (ISO `YYYY-MM-DD` nebo `null`), `deadlineDate` (volitelné dřívější "do kdy")
+- `unverified`, `updated` (bool flagy pro pill "NEOVĚŘENO"/"Aktualizace")
+- `status`: `active` (zobrazuje se) / `archived` (nahrazeno novější položkou nebo proběhlo) / `resolved` (alert vyřešen) – archivované/resolved položky v souboru zůstávají (dedup historie), jen se nevykreslují
+- `firstSeen`, `lastSeen` – audit, nemá vliv na render
+
+Expirace se řeší dvěma způsoby, podle typu položky (viz `watchdog.js`):
+- **Datované položky** (akce, deadliny): auto-expirují, jakmile `eventDate < dnešek` (stejné lexikografické porovnání ISO stringů jako v `events.js` – žádná timezone logika navíc).
+- **Nedatované/rekurentní položky** (podcasty, newslettery): zůstávají aktivní, dokud je *sběrný krok* (upsert) neoznačí `status: "archived"` po nalezení novější epizody/vydání stejné série.
+
+Sekce „Deadliny a akce" nahoře stránky se generuje automaticky – bere aktivní položky s `eventDate`/`deadlineDate` napříč kategoriemi, seřadí podle nejbližšího data a vezme prvních 5. Nemusí se tedy ručně duplikovat položka do dvou sekcí.
+
+Top-level pole `lastRun`, `nextDiscoveryRun` (hero meta řádek) a `notes` (pole vět „sledováno, beze změny" pro entity bez konkrétní datované položky) scheduled task také aktualizuje při každém běhu.
+
+Nezapomeň při zásahu do watchdogu aktualizovat i `lastmod` u watchdog.html v `sitemap.xml`.
+
 ---
 
 ## Assets

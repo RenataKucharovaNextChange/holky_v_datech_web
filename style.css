@@ -153,14 +153,6 @@ body {
   color: var(--ink);
   letter-spacing: .01em;
 }
-.section__logo {
-  height: 52px;
-  width: auto;
-  max-width: 160px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 8px;
-}
 .nav__links {
   display: flex;
   align-items: center;
@@ -259,7 +251,6 @@ body {
 }
 
 /* ── O nás ─────────────────────────────────────────── */
-.o-nas { background: var(--white); padding-top: 48px; }
 .cards-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -314,7 +305,6 @@ body {
 }
 .event-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .event-card--featured {
-  grid-column: span 2;
   background: var(--green);
   border-color: var(--green);
   color: var(--white);
@@ -324,6 +314,7 @@ body {
   color: rgba(255,255,255,.75);
 }
 .event-card--featured h3 { color: var(--white); }
+.event-card--featured .event-card__body p.event-card__subtitle { color: var(--white); font-weight: 700; }
 .event-card--featured .pill--sm {
   background: rgba(255,255,255,.2);
   color: var(--white);
@@ -334,6 +325,7 @@ body {
   border-color: var(--white);
 }
 .event-card--featured .btn--sm:hover { background: var(--green-light); }
+.event-card--featured .event-card__cal a { color: var(--white); }
 
 .event-card__date {
   display: flex;
@@ -357,6 +349,7 @@ body {
   text-transform: uppercase;
   letter-spacing: .06em;
 }
+.event-card__date--tbd .event-card__day { font-size: 1.5rem; }
 .event-card__body {
   display: flex;
   flex-direction: column;
@@ -657,6 +650,11 @@ body {
 }
 .footer__copy a { color: rgba(255,255,255,.7); text-decoration: none; }
 .footer__copy a:hover { color: var(--white); }
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 .footer__social a {
   color: rgba(255,255,255,.6);
   transition: color .2s;
@@ -843,6 +841,102 @@ body {
 @media (max-width: 900px) {
   .archiv-event__body { grid-template-columns: 1fr; gap: 32px; }
 }
+
+/* ── Watchdog / Digest ────────────────────────────── */
+.section--off { background: var(--off-white); }
+.container--narrow {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.digest-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.digest-section-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  color: var(--ink);
+}
+.digest-subhead {
+  margin: 24px 0 12px;
+  color: var(--ink-soft);
+  font-size: .8125rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-weight: 700;
+}
+.digest-card {
+  background: var(--white);
+  border: 1px solid var(--green-mid);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+  transition: transform .2s, box-shadow .2s;
+}
+.digest-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.digest-card--featured { background: var(--green); border-color: var(--green); color: var(--white); }
+.digest-card--featured h3, .digest-card--featured .digest-meta { color: var(--white); }
+.digest-card--featured .pill { background: rgba(255,255,255,.2); color: var(--white); }
+.digest-card h3 { font-size: 1.0625rem; font-weight: 700; color: var(--ink); }
+.digest-meta { color: var(--ink-soft); font-size: .875rem; }
+.archiv-hero .digest-meta { font-size: .875rem; margin-top: 4px; }
+.digest-list {
+  border: 1px solid var(--green-mid);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.digest-list-row {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--green-mid);
+  transition: background .15s;
+}
+.digest-list-row:last-child { border-bottom: none; }
+.digest-list-row:hover { background: var(--green-light); }
+.digest-empty {
+  color: var(--ink-soft);
+  font-size: .9375rem;
+  font-style: italic;
+  padding: 4px 0;
+}
+.digest-logo-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  margin-right: 6px;
+}
+
+/* ── Watchdog teaser (homepage) ───────────────────── */
+.watchdog-teaser {
+  background: var(--green-light);
+  border-top: 1px solid var(--green-mid);
+  border-bottom: 1px solid var(--green-mid);
+  padding: 48px 0;
+}
+.watchdog-teaser__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.watchdog-teaser__inner h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--ink);
+}
+.watchdog-teaser__inner p { color: var(--ink-soft); }
+.watchdog-teaser__inner .btn { margin-top: 8px; }
 
 /* ── Responsive ────────────────────────────────────── */
 @media (max-width: 900px) {

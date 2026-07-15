@@ -3,14 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>holky_v_datech</title>
-  <meta name="description" content="Komunita pro datové analytičky – networking, mentoring a akce v Brně i online." />
+  <title>holky_v_datech – komunita pro datové analytičky, inženýrky a manažerky</title>
+  <meta name="description" content="Komunita pro datové analytičky, inženýrky a manažerky – networking, mentoring a akce v Brně i online." />
   <link rel="canonical" href="https://www.holkyvdatech.cz/" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Raleway:ital,wght@0,600;0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.holkyvdatech.cz/#organization",
+        "name": "holky_v_datech",
+        "url": "https://www.holkyvdatech.cz/",
+        "logo": "https://www.holkyvdatech.cz/assets/logo.png",
+        "description": "Komunita pro datové analytičky, inženýrky a manažerky – networking, mentoring a akce v Brně i online.",
+        "email": "info@holkyvdatech.cz",
+        "foundingDate": "2025",
+        "sameAs": [
+          "https://www.linkedin.com/company/holky-v-datech",
+          "https://instagram.com/holkyvdatech"
+        ],
+        "founder": {
+          "@type": "Person",
+          "@id": "https://www.holkyvdatech.cz/#renata-kucharova",
+          "name": "Renata Kuchařová",
+          "sameAs": ["https://www.linkedin.com/in/ren%C3%A1ta-kucha%C5%99ov%C3%A1-84067116"]
+        }
+      },
+      {
+        "@type": "Event",
+        "name": "holky_v_datech Mastermind #4",
+        "description": "Pozvání přijala Nikola Včelková, která nás provede základy kybernetické bezpečnosti. Praktické minimum: jak poznat podezřelý e-mail, zabezpečit účty a na co si dát pozor při práci s firemními daty.",
+        "startDate": "2026-07-16T19:30:00+02:00",
+        "endDate": "2026-07-16T21:00:00+02:00",
+        "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+          "@type": "VirtualLocation",
+          "url": "https://events.teams.microsoft.com/event/17c8ea16-dbdd-42e9-9287-146dad544f75@aba70d4f-a934-4d60-bf09-d619bac4fdc0"
+        },
+        "organizer": { "@id": "https://www.holkyvdatech.cz/#organization" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CZK",
+          "availability": "https://schema.org/InStock",
+          "url": "https://events.teams.microsoft.com/event/17c8ea16-dbdd-42e9-9287-146dad544f75@aba70d4f-a934-4d60-bf09-d619bac4fdc0"
+        }
+      },
+      {
+        "@type": "Event",
+        "name": "holky_v_datech Meetup #5",
+        "description": "Přijď se potkat s dalšími ženami z datového světa. Neformální setkání bez agendy – sdílíme zkušenosti, nápady i běžné starosti u dobré kávy.",
+        "startDate": "2026-07-30T17:30:00+02:00",
+        "endDate": "2026-07-30T19:30:00+02:00",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+          "@type": "Place",
+          "name": "Café Morgal",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Brno",
+            "addressCountry": "CZ"
+          }
+        },
+        "organizer": { "@id": "https://www.holkyvdatech.cz/#organization" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CZK",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.holkyvdatech.cz/prihlaska.html"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -25,9 +99,10 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav__links" id="nav-links">
-        <li><a href="#o-nas">O nás</a></li>
+        <li><a href="o-nas.html">O nás</a></li>
         <li><a href="#akce">Akce</a></li>
         <li><a href="mentoring.html">Mentoring</a></li>
+        <li><a href="watchdog.html">Watchdog</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
         <li><a href="#kontakt" class="btn btn--sm">Přidej se</a></li>
       </ul>
@@ -50,7 +125,7 @@
         </p>
         <div class="hero__cta">
           <a href="#akce" class="btn">Nadcházející akce</a>
-          <a href="#o-nas" class="btn btn--ghost">Zjistit víc</a>
+          <a href="o-nas.html" class="btn btn--ghost">Zjistit víc</a>
         </div>
       </div>
       <div class="hero__visual">
@@ -63,41 +138,6 @@
           <img src="assets/fotky_zelene/DSC08059-Edit.jpg" alt="" class="hero-slide" />
           <img src="assets/fotky/DSC07510.jpg" alt="" class="hero-slide" />
           <img src="assets/fotky_zelene/DSC08252-Edit.jpg" alt="" class="hero-slide" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- O NÁS -->
-  <section class="section o-nas" id="o-nas">
-    <div class="container">
-      <div class="section__header">
-        <img src="assets/logo.png" alt="holky_v_datech" class="section__logo" />
-        <span class="pill pill--dark">O nás</span>
-        <h2>Proč jsme vznikly</h2>
-        <p class="section__sub">Protože ženy v datech potřebují místo, kde nemusí nic dokazovat. Prostor, kde se sdílí bez filtrů, podporuje bez podmínek a roste díky těm, které to znají zevnitř.</p>
-      </div>
-      <div class="cards-3">
-        <div class="card card--icon">
-          <div class="card__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
-          </div>
-          <h3>Měsíční online setkání</h3>
-          <p>90 minut, jedno hluboké téma. Žádné úvody, žádné základy – rovnou k věci s lidmi, kteří kontextu rozumí.</p>
-        </div>
-        <div class="card card--icon">
-          <div class="card__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <h3>Prostor pro otevřenou diskuzi</h3>
-          <p>Sdílíme reálné zkušenosti, slepé uličky i úspěchy. Bez přetvářky, bez přednášení – jen peer-to-peer výměna.</p>
-        </div>
-        <div class="card card--icon">
-          <div class="card__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="9" cy="12" r="3"/><circle cx="18" cy="5" r="3"/><circle cx="18" cy="19" r="3"/><path d="M12 12h0m0 0 4.5-5.5M12 12l4.5 5.5"/></svg>
-          </div>
-          <h3>Síť, která rozumí kontextu</h3>
-          <p>Propojení s analytičkami, datovými inženýrkami a manažerkami, které mají stejné výzvy jako ty.</p>
         </div>
       </div>
     </div>
@@ -121,6 +161,16 @@
         <div class="history-list" id="history-list"></div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- WATCHDOG TEASER -->
+  <section class="watchdog-teaser">
+    <div class="container watchdog-teaser__inner">
+      <span class="pill pill--dark">Watchdog</span>
+      <h2>Co se děje v komunitě, datech a AI</h2>
+      <p>Automatický přehled akcí, deadlinů a novinek z komunit pro ženy v datech, z datové a AI scény v Česku. Aktualizuje se automaticky, denně. Vytvořeno AI (Claude Cowork).</p>
+      <a href="watchdog.html" class="btn">Zobrazit poslední digest</a>
     </div>
   </section>
 
@@ -203,6 +253,9 @@
       <div class="footer__social">
         <a href="https://instagram.com/holkyvdatech" target="_blank" rel="noopener" aria-label="Instagram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/holky-v-datech" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
         </a>
       </div>
     </div>

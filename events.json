@@ -28,19 +28,18 @@
     "status": "confirmed"
   },
   {
-    "id": "placeholder-mastermind-4",
-    "placeholder": true,
-    "date": "2026-08-12",
+    "id": "mastermind-4",
+    "date": "2026-07-16",
     "time": "19:30",
     "durationMinutes": 90,
     "type": "mastermind",
     "format": "Online",
-    "title": "[PLACEHOLDER] holky_v_datech Mastermind #4",
-    "topic": "Téma bude upřesněno",
-    "description": "PLACEHOLDER – ukázkový budoucí záznam ve stavu \"tba\" pro demonstraci designu karty. Nahraď skutečnými údaji, jakmile bude akce potvrzená, nebo záznam smaž.",
-    "location": null,
-    "registrationUrl": null,
-    "status": "tba"
+    "title": "holky_v_datech Mastermind #4",
+    "topic": "Kyberbezpečnost 101 — co bychom měly znát všechny, které pracujeme s daty",
+    "description": "Pozvání přijala Nikola Včelková, která nás provede základy kybernetické bezpečnosti. Praktické minimum: jak poznat podezřelý e-mail, zabezpečit účty a na co si dát pozor při práci s firemními daty.",
+    "location": "Online (Microsoft Teams)",
+    "registrationUrl": "https://events.teams.microsoft.com/event/17c8ea16-dbdd-42e9-9287-146dad544f75@aba70d4f-a934-4d60-bf09-d619bac4fdc0",
+    "status": "confirmed"
   },
   {
     "id": "placeholder-meetup-6",
