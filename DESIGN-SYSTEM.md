@@ -150,15 +150,27 @@ Po nasazení ověřuj přes `validator.schema.org` a `search.google.com/test/ric
 
 ## Watchdog (watchdog.html)
 
-Stránka zobrazuje poslední běh automatického "Watchdog" digestu (komunity/akce/tvorba kolem dat a AI v ČR), generovaného AI nástrojem (Claude Cowork) mimo tento web – zdrojová data žijí v `04_Research_agent/research-agent_Komunitni_a_datova_scena/output/watchdog-digests/`.
+Stránka zobrazuje aktivní položky automatického "Watchdog" digestu (komunity/akce/tvorba kolem dat a AI v ČR), sbíraného AI nástrojem (Claude Cowork scheduled task) mimo tento web – zdrojová data žijí v `04_Research_agent/research-agent_Komunitni_a_datova_scena/output/watchdog-digests/`.
 
-Web nemá build krok, takže se stránka aktualizuje ručně/agentem: v repu je `watchdog-template.html` – kopie `watchdog.html` se dvěma placeholdery:
-- `<!-- WATCHDOG_DATE -->` v hero bannem místo řádku `<p class="digest-meta">Poslední aktualizace: ...</p>`
-- `<!-- WATCHDOG_CONTENT -->` místo všech obsahových sekcí (od „Deadliny a akce" po „Prázdné kategorie")
+`watchdog.html` je statická kostra (nav/hero/footer) beze změn mezi běhy – obsah renderuje `watchdog.js` z `watchdog-items.json` do `<div id="watchdog-content">`. **Nepřepisuj `watchdog-items.json` jako celek** – je to perzistentní úložiště (upsert, ne overwrite): scheduled task při každém běhu přidává nové položky a aktualizuje `lastSeen`/`status` u existujících, nikdy soubor nenahrazuje čerstvým snímkem. To řeší dřívější problém, kdy den bez novinek přepsal a smazal ze stránky pořád aktuální nález z předešlého dne.
 
-Při novém běhu se z `watchdog-template.html` vygeneruje nový `watchdog.html` nahrazením obou placeholderů skutečným obsahem – strukturu drž podle tříd `.digest-section-header`, `.digest-list`/`.digest-list-row`, `.digest-card`/`.digest-card--featured`, `.digest-subhead`, `.digest-empty` (navržené přesně podle formátu Watchdog digestu). Nezapomeň aktualizovat i `lastmod` u watchdog.html v `sitemap.xml`.
+Schéma položky (`items[]`):
+- `id`, `category` (`Holky`/`Data`/`AI`), `section` (`akce`/`obsah`/`alert`)
+- `title`, `org`, `meta` (předformátovaný český text s datem/místem/cenou), `url`
+- `eventDate` (ISO `YYYY-MM-DD` nebo `null`), `deadlineDate` (volitelné dřívější "do kdy")
+- `unverified`, `updated` (bool flagy pro pill "NEOVĚŘENO"/"Aktualizace")
+- `status`: `active` (zobrazuje se) / `archived` (nahrazeno novější položkou nebo proběhlo) / `resolved` (alert vyřešen) – archivované/resolved položky v souboru zůstávají (dedup historie), jen se nevykreslují
+- `firstSeen`, `lastSeen` – audit, nemá vliv na render
 
-Zobrazuje jen nejnovější digest, žádný archiv starších (rozhodnutí: jednoduchost před úplností).
+Expirace se řeší dvěma způsoby, podle typu položky (viz `watchdog.js`):
+- **Datované položky** (akce, deadliny): auto-expirují, jakmile `eventDate < dnešek` (stejné lexikografické porovnání ISO stringů jako v `events.js` – žádná timezone logika navíc).
+- **Nedatované/rekurentní položky** (podcasty, newslettery): zůstávají aktivní, dokud je *sběrný krok* (upsert) neoznačí `status: "archived"` po nalezení novější epizody/vydání stejné série.
+
+Sekce „Deadliny a akce" nahoře stránky se generuje automaticky – bere aktivní položky s `eventDate`/`deadlineDate` napříč kategoriemi, seřadí podle nejbližšího data a vezme prvních 5. Nemusí se tedy ručně duplikovat položka do dvou sekcí.
+
+Top-level pole `lastRun`, `nextDiscoveryRun` (hero meta řádek) a `notes` (pole vět „sledováno, beze změny" pro entity bez konkrétní datované položky) scheduled task také aktualizuje při každém běhu.
+
+Nezapomeň při zásahu do watchdogu aktualizovat i `lastmod` u watchdog.html v `sitemap.xml`.
 
 ---
 
