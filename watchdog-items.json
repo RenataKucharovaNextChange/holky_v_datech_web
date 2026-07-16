@@ -1,12 +1,12 @@
 {
-  "lastRun": "2026-07-15",
+  "lastRun": "2026-07-16",
   "nextDiscoveryRun": "2026-07-20",
   "notes": [
-    "AI Ladies, WomenTech Network, She Loves Data, The AI Club: beze změny od posledního běhu.",
+    "AI Ladies, WomenTech Network, She Loves Data (mimo workshop výše), The AI Club: beze změny od posledního běhu.",
     "Filip Dřímalka: beze změny, žádný nový článek/newsletter.",
-    "Učíme se sami s AI: web dnes technicky nedostupný přes automatizovaný scan.",
-    "Prompt (Voxpot): bez nové epizody přes 7 týdnů — poslední 27. 5. 2026 navzdory inzerované ~2týdenní frekvenci, možný výpadek k dalšímu sledování.",
-    "NatřiAI, Uhlík vs Křemík, ČERNÁ.AI FESTIVAL, CEE AI Summit: beze změny.",
+    "Učíme se sami s AI: web dnes znovu technicky nedostupný přes automatizovaný scan.",
+    "Prompt (Voxpot): bez nové epizody přes 7 týdnů — poslední 27. 5. 2026 navzdory inzerované ~2týdenní frekvenci, výpadek pokračuje.",
+    "NatřiAI, ČERNÁ.AI FESTIVAL, CEE AI Summit: beze změny.",
     "Naučíme AI Podcast: výpadek pokračuje — poslední epizoda 8. 6. 2026, přes 5,5 týdne ticho.",
     "Discovery — příští běh 20. 7. 2026 (jen v pondělí)."
   ],
@@ -41,7 +41,7 @@
       "updated": false,
       "status": "active",
       "firstSeen": "2026-07-11",
-      "lastSeen": "2026-07-14"
+      "lastSeen": "2026-07-16"
     },
     {
       "id": "lcc-2026",
@@ -49,15 +49,15 @@
       "section": "akce",
       "org": "Femme Palette",
       "title": "Leadership & Career Conference 2026",
-      "meta": "Deadline early bird: potvrzeno 31. 7. 2026 (2 499–3 499 Kč podle balíčku) · Konání: 3. 10. 2026, WPP Praha · 24 oznámených řečníků (dřív 14)",
+      "meta": "Deadline early bird: potvrzeno 31. 7. 2026 (2 499–3 499 Kč podle balíčku) · Konání: 3. 10. 2026, WPP Praha · 24 oznámených řečníků",
       "url": "https://www.femmepalette.com/conference-2026",
       "eventDate": "2026-10-03",
       "deadlineDate": "2026-07-31",
       "unverified": false,
-      "updated": true,
+      "updated": false,
       "status": "active",
       "firstSeen": "2026-07-08",
-      "lastSeen": "2026-07-15"
+      "lastSeen": "2026-07-16"
     },
     {
       "id": "female-founders-2026",
@@ -73,7 +73,7 @@
       "updated": false,
       "status": "active",
       "firstSeen": "2026-07-08",
-      "lastSeen": "2026-07-14"
+      "lastSeen": "2026-07-16"
     },
     {
       "id": "ai-content-marketing-mastery",
@@ -106,7 +106,7 @@
       "note": "Mastermind #4 — praktický úvod do kybernetické bezpečnosti pro lidi pracující s daty.",
       "status": "active",
       "firstSeen": "2026-07-15",
-      "lastSeen": "2026-07-15"
+      "lastSeen": "2026-07-16"
     },
     {
       "id": "femme-palette-summer-picnic",
@@ -114,33 +114,33 @@
       "section": "akce",
       "org": "Femme Palette",
       "title": "She Connects: Summer Picnic & Community Gathering",
-      "meta": "Konání: 22. 7. 2026, 18:00 · Björnsonův sad, Brno",
-      "url": "https://femmepalette.com/events",
+      "meta": "Konání: 22. 7. 2026, 18:00 · Björnsonův sad, Brno · prodej vstupenek potvrzen",
+      "url": "https://www.smsticket.cz/vstupenky/72142-she-connects-summer-picnic-community-gathering-bjornsonuv-sad-brno",
       "eventDate": "2026-07-22",
       "deadlineDate": null,
       "unverified": false,
-      "updated": false,
-      "note": "Nová akce v přehledu Femme Palette — přesný program se zatím nepodařilo dohledat.",
+      "updated": true,
+      "note": "Nově potvrzen prodej vstupenek na konkrétní odkaz (dřív jen datum/místo v přehledu akcí) — přesný program se zatím nepodařilo dohledat.",
       "status": "active",
       "firstSeen": "2026-07-15",
-      "lastSeen": "2026-07-15"
+      "lastSeen": "2026-07-16"
     },
     {
       "id": "proholky-lektorka-nesrovnalost",
       "category": "Holky",
       "section": "obsah",
       "org": null,
-      "title": "proholky.ai — nesrovnalost v uvedené lektorce",
-      "meta": "NEOVĚŘENO",
+      "title": "proholky.ai — samostatný projekt, ne změna lektorky",
+      "meta": "Vyjasněno 2026-07-16",
       "url": "https://proholky.ai/",
       "eventDate": null,
       "deadlineDate": null,
-      "unverified": true,
-      "updated": false,
-      "note": "proholky.ai nově v sekci „O mně\" uvádí jako lektorku Terezu Řezníčkovou místo Terezie Ho — nejasné, jde-li o rebranding, nebo zastaralý obsah.",
+      "unverified": false,
+      "updated": true,
+      "note": "proholky.ai (lektorka Tereza Řezníčková) je samostatný, oddělený projekt od terezieho.cz (Terezie Ho, „AI pro mámy podnikatelky\") — nejde o rebranding ani výměnu lektorky, jak naznačoval včerejší nález, ale o dva různé produkty.",
       "status": "active",
       "firstSeen": "2026-07-15",
-      "lastSeen": "2026-07-15"
+      "lastSeen": "2026-07-16"
     },
     {
       "id": "dobrodata-konference-2026",
@@ -148,15 +148,15 @@
       "section": "akce",
       "org": "DoBroData",
       "title": "DoBroData Konference 2026",
-      "meta": "Konání: 25. 11. 2026 · Divadlo Palace · prodej aktivní na GoOut, vlastní web neaktualizován (cena zatím neověřena)",
-      "url": "https://goout.net/cs/listky/dobrodata-2026-konference-o-datech-pro-lepsi-svet/mskmb",
+      "meta": "Konání: 25. 11. 2026 · Divadlo Palace · prodej aktivní na GoOut (cenové rozpětí 3 500–10 000 Kč, NEOVĚŘENO proti dřívějším 5 500 Kč early bird), vlastní web neaktualizován",
+      "url": "https://goout.net/cs/dobrodata-2026-konference-o-datech-pro-lepsi-svet/szmrnky",
       "eventDate": "2026-11-25",
       "deadlineDate": null,
-      "unverified": false,
-      "updated": false,
+      "unverified": true,
+      "updated": true,
       "status": "active",
       "firstSeen": "2026-07-01",
-      "lastSeen": "2026-07-15"
+      "lastSeen": "2026-07-16"
     },
     {
       "id": "dobrodata-ticket-discrepancy",
@@ -164,16 +164,16 @@
       "section": "alert",
       "org": "DoBroData",
       "title": "DoBroData — rozpor v informacích o prodeji vstupenek",
-      "meta": "Signál napříč dny: 10. 7. → 11. 7. → 14. 7. → 15. 7. 2026",
-      "note": "Web dobrodata.cz pořád ukazuje „registrace již brzy\", ale nákupní formulář na GoOut je ověřeně funkční a aktivní (25. 11. 2026, Divadlo Palace) — přesnou cenu se kvůli JS-renderovanému ceníku ani dnes nepodařilo potvrdit automatizovaně. Doporučeno ověřit ručně (telefon/e-mail organizátorům nebo kontrola GoOut checkoutu).",
+      "meta": "Signál napříč dny: 10. 7. → 11. 7. → 14. 7. → 15. 7. → 16. 7. 2026",
+      "note": "Web dobrodata.cz pořád ukazuje „registrace již brzy\", beze změny 5. den po sobě. Na GoOut se dnes poprvé podařilo přečíst cenové rozpětí (3 500–10 000 Kč) — NEOVĚŘENO, zda odpovídá dřív avizovanému early bird 5 500 Kč, nebo jde o širší škálu vstupenek. Doporučeno ověřit ručně (telefon/e-mail organizátorům).",
       "url": null,
       "eventDate": null,
       "deadlineDate": null,
       "unverified": false,
-      "updated": false,
+      "updated": true,
       "status": "active",
       "firstSeen": "2026-07-10",
-      "lastSeen": "2026-07-15"
+      "lastSeen": "2026-07-16"
     },
     {
       "id": "vibe-coding-summer-start",
@@ -189,7 +189,7 @@
       "updated": false,
       "status": "active",
       "firstSeen": "2026-07-08",
-      "lastSeen": "2026-07-15"
+      "lastSeen": "2026-07-16"
     },
     {
       "id": "datatalk-newsletter-168",
@@ -206,24 +206,43 @@
       "updated": false,
       "status": "active",
       "firstSeen": "2026-07-15",
-      "lastSeen": "2026-07-15"
+      "lastSeen": "2026-07-16"
     },
     {
       "id": "zandl-article-unverified",
       "category": "AI",
       "section": "obsah",
       "org": null,
-      "title": "Patrik Zandl — možný nový příspěvek",
-      "meta": "NEOVĚŘENO datum publikace",
-      "url": "https://zandl.substack.com/archive",
+      "title": "Patrik Zandl — #123, „Kdyby Evropa vzdala závod o špičkový AI model...\"",
+      "meta": "Vydáno: 30. 6. 2026 (datum nyní ověřeno)",
+      "url": "https://zandl.substack.com/p/123-kdyz-by-evropa-vzdala-zavod-o",
       "eventDate": null,
       "deadlineDate": null,
-      "unverified": true,
-      "updated": false,
-      "note": "„Kdyby Evropa vzdala závod o špičkový AI model...\" se v archivu řadí před dubnovými příspěvky, přesné datum publikace se automatizovaně nepodařilo ověřit.",
+      "seriesId": "zandl-substack",
+      "unverified": false,
+      "updated": true,
+      "note": "Datum publikace, dřív neověřené, dnes potvrzeno na 30. 6. 2026. Zatím nejnovější číslo, žádné #124 nevyšlo.",
       "status": "active",
       "firstSeen": "2026-07-15",
-      "lastSeen": "2026-07-15"
+      "lastSeen": "2026-07-16"
+    },
+    {
+      "id": "uhlik-vs-kremik-mike-trafik",
+      "category": "AI",
+      "section": "obsah",
+      "org": "Uhlík vs Křemík",
+      "title": "Nahradí AI lidskou kreativitu? (rozhovor s Mikem Trafikem)",
+      "meta": "Vydání: 15. 7. 2026",
+      "url": "https://open.spotify.com/episode/1McrmOXZps1etcTbH0QgmC",
+      "eventDate": null,
+      "deadlineDate": null,
+      "seriesId": "uhlik-vs-kremik",
+      "unverified": false,
+      "updated": false,
+      "note": "Rozhovor s raperem Michalem Řepkou (Mike Trafik, PSH) o AI a kreativitě, v anotaci zmíněn zářijový ČERNÁ.AI FESTIVAL.",
+      "status": "active",
+      "firstSeen": "2026-07-16",
+      "lastSeen": "2026-07-16"
     }
   ]
 }
