@@ -18,7 +18,6 @@
 (function () {
   const MOUNT_ID = 'watchdog-content';
   const META_ID = 'digest-meta';
-  const NEAREST_LIMIT = 5;
 
   function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -60,16 +59,6 @@
     return true;
   }
 
-  function renderNearestRow(item) {
-    const row = el('div', 'digest-list-row');
-    row.appendChild(el('strong', null, item.title + ' '));
-    if (item.org) row.appendChild(pill(item.org));
-    const meta = el('div', 'digest-meta', item.meta + ' ');
-    appendLink(meta, item.url);
-    row.appendChild(meta);
-    return row;
-  }
-
   function renderAlertCard(item) {
     const card = el('div', 'digest-card digest-card--featured');
     const head = el('div');
@@ -79,6 +68,23 @@
     card.appendChild(el('div', 'digest-meta', item.meta));
     card.appendChild(el('div', null, item.note));
     return card;
+  }
+
+  // Alerts and unverified items are real but not load-bearing for a visitor's
+  // first glance, so they're tucked behind a native <details> toggle at the
+  // bottom of the page instead of competing with the clear category content.
+  function renderUnclearSection(items) {
+    const details = document.createElement('details');
+    details.className = 'digest-unclear';
+    const summary = document.createElement('summary');
+    summary.className = 'digest-unclear__summary';
+    summary.textContent = `Co ještě není jisté nebo si žádá pozornost (${items.length})`;
+    details.appendChild(summary);
+
+    const body = el('div', 'digest-unclear__body');
+    items.forEach(item => body.appendChild(item.section === 'alert' ? renderAlertCard(item) : renderCard(item)));
+    details.appendChild(body);
+    return details;
   }
 
   function renderCard(item) {
@@ -137,36 +143,11 @@
     mount.innerHTML = '';
     let sectionToggle = true; // alternate section / section--off like the static original
 
-    // "Nejbližší" — everything with a date, soonest first, regardless of category.
-    const dated = active
-      .filter(i => i.section !== 'alert' && (i.eventDate || i.deadlineDate))
-      .sort((a, b) => {
-        const da = a.deadlineDate || a.eventDate;
-        const db = b.deadlineDate || b.eventDate;
-        return da.localeCompare(db);
-      })
-      .slice(0, NEAREST_LIMIT);
-
-    if (dated.length) {
-      const header = el('div', 'digest-section-header');
-      header.appendChild(pill('Nejbližší'));
-      header.appendChild(el('h2', null, 'Deadliny a akce'));
-      const list = el('div', 'digest-list');
-      dated.forEach(item => list.appendChild(renderNearestRow(item)));
-      mount.appendChild(buildSection(sectionToggle ? 'section--off' : '', [header, list]));
-      sectionToggle = !sectionToggle;
-    }
-
-    // Proactive alerts, own featured section.
-    const alerts = active.filter(i => i.section === 'alert');
-    if (alerts.length) {
-      mount.appendChild(buildSection(sectionToggle ? 'section--off' : '', alerts.map(renderAlertCard)));
-      sectionToggle = !sectionToggle;
-    }
-
     // Category sections: Holky / Data / AI, each split into Akce (cards) / Obsah (list rows).
+    // Alerts and unverified items are excluded here — they render in the
+    // collapsed "unclear" section at the bottom instead.
     ['Holky', 'Data', 'AI'].forEach(category => {
-      const items = active.filter(i => i.category === category && i.section !== 'alert');
+      const items = active.filter(i => i.category === category && i.section !== 'alert' && !i.unverified);
       if (!items.length) return;
 
       const children = [el('div', 'digest-section-header', null)];
@@ -200,6 +181,13 @@
         notesEl.appendChild(document.createTextNode(note));
       });
       mount.appendChild(buildSection(sectionToggle ? 'section--off' : '', [header, notesEl]));
+      sectionToggle = !sectionToggle;
+    }
+
+    // Alerts + unverified items, collapsed at the very bottom of the page.
+    const unclear = active.filter(i => i.section === 'alert' || i.unverified);
+    if (unclear.length) {
+      mount.appendChild(buildSection(sectionToggle ? 'section--off' : '', [renderUnclearSection(unclear)]));
     }
   }
 

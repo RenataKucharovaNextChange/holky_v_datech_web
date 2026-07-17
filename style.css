@@ -913,6 +913,26 @@ body {
   background: var(--green);
   margin-right: 6px;
 }
+.digest-unclear__summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .9375rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  padding: 4px 0;
+}
+.digest-unclear__summary::-webkit-details-marker { display: none; }
+.digest-unclear__summary::before {
+  content: '▸';
+  color: var(--green);
+  font-size: .75rem;
+  transition: transform .2s;
+}
+.digest-unclear[open] .digest-unclear__summary::before { transform: rotate(90deg); }
+.digest-unclear__body { margin-top: 20px; }
 
 /* ── Watchdog teaser (homepage) ───────────────────── */
 .watchdog-teaser {
