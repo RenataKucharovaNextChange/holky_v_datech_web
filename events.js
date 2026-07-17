@@ -85,12 +85,17 @@
     const article = document.createElement('article');
     article.className = 'event-card'
       + (isFeatured ? ' event-card--featured' : '')
-      + (ev.status === 'tba' ? ' event-card--tba' : '');
+      + (ev.status === 'tba' || ev.status === 'planning' ? ' event-card--tba' : '');
 
-    const [, month, day] = ev.date.split('-');
     const dateEl = document.createElement('div');
     dateEl.className = 'event-card__date';
-    dateEl.innerHTML = `<span class="event-card__day">${day}</span><span class="event-card__month">${MONTHS_SHORT[parseInt(month, 10) - 1]}</span>`;
+    if (ev.date) {
+      const [, month, day] = ev.date.split('-');
+      dateEl.innerHTML = `<span class="event-card__day">${day}</span><span class="event-card__month">${MONTHS_SHORT[parseInt(month, 10) - 1]}</span>`;
+    } else {
+      dateEl.classList.add('event-card__date--tbd');
+      dateEl.innerHTML = `<span class="event-card__day">?</span><span class="event-card__month">Plánujeme</span>`;
+    }
 
     const body = document.createElement('div');
     body.className = 'event-card__body';
@@ -110,7 +115,18 @@
     const h3 = document.createElement('h3');
     const descP = document.createElement('p');
 
-    if (ev.status === 'tba') {
+    if (ev.status === 'planning') {
+      h3.textContent = `Připravujeme další ${(TYPE_LABELS[ev.type] || ev.type).toLowerCase()}`;
+      descP.textContent = ev.description;
+      body.append(h3, descP);
+
+      const cta = document.createElement('a');
+      cta.className = 'btn btn--sm';
+      cta.href = ev.ctaHref || 'index.html#kontakt';
+      cta.textContent = ev.ctaLabel || 'Napsat nám tip';
+      if (/^https?:/.test(ev.ctaHref || '')) { cta.target = '_blank'; cta.rel = 'noopener'; }
+      body.appendChild(cta);
+    } else if (ev.status === 'tba') {
       h3.textContent = `${TYPE_LABELS[ev.type] || ev.type} – termín potvrzen`;
       descP.textContent = 'Téma upřesníme.';
       body.append(h3, descP);
@@ -225,22 +241,27 @@
     }
 
     const today = todayISO();
-    const upcoming = events
+    const dated = events.filter(e => e.date);
+    const undated = events.filter(e => !e.date);
+    const upcoming = dated
       .filter(e => e.date >= today)
       .sort((a, b) => (a.date + (a.time || '')).localeCompare(b.date + (b.time || '')));
-    const past = events
+    const past = dated
       .filter(e => e.date < today)
       .sort((a, b) => (b.date + (b.time || '')).localeCompare(a.date + (a.time || '')));
+    // Undated (still-being-planned) events have no natural sort position, so they
+    // always trail the dated upcoming ones instead of competing with them.
+    const upcomingAll = upcoming.concat(undated);
 
     if (upcomingContainer) {
       upcomingContainer.innerHTML = '';
-      if (!upcoming.length) {
+      if (!upcomingAll.length) {
         const p = document.createElement('p');
         p.textContent = 'Právě nemáme naplánovanou žádnou akci. Sleduj nás, ať ti nic neuteče.';
         upcomingContainer.appendChild(p);
       } else {
-        upcoming.forEach((ev, i) => {
-          const card = renderUpcomingCard(ev, i === 0);
+        upcomingAll.forEach((ev, i) => {
+          const card = renderUpcomingCard(ev, i === 0 && Boolean(ev.date));
           upcomingContainer.appendChild(card);
           fadeIn(card);
         });

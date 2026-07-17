@@ -39,37 +39,19 @@
     "description": "Pozvání přijala Nikola Včelková, která nás provede základy kybernetické bezpečnosti. Praktické minimum: jak poznat podezřelý e-mail, zabezpečit účty a na co si dát pozor při práci s firemními daty.",
     "location": "Online (Microsoft Teams)",
     "registrationUrl": "https://events.teams.microsoft.com/event/17c8ea16-dbdd-42e9-9287-146dad544f75@aba70d4f-a934-4d60-bf09-d619bac4fdc0",
-    "status": "confirmed"
+    "status": "confirmed",
+    "archiveSlug": "mastermind-4"
   },
   {
-    "id": "placeholder-meetup-6",
-    "placeholder": true,
-    "date": "2026-09-10",
-    "time": "17:30",
-    "durationMinutes": 120,
-    "type": "meetup",
-    "format": "Brno",
-    "title": "[PLACEHOLDER] holky_v_datech Meetup #6",
-    "topic": "Téma bude upřesněno",
-    "description": "PLACEHOLDER – ukázkový budoucí záznam ve stavu \"tba\" pro demonstraci designu karty. Nahraď skutečnými údaji, jakmile bude akce potvrzená, nebo záznam smaž.",
-    "location": null,
-    "registrationUrl": null,
-    "status": "tba"
-  },
-  {
-    "id": "placeholder-webinar-1",
-    "placeholder": true,
-    "date": "2026-09-24",
-    "time": "18:00",
-    "durationMinutes": 60,
-    "type": "webinar",
+    "id": "mastermind-5-planning",
+    "date": null,
+    "time": null,
+    "type": "mastermind",
     "format": "Online",
-    "title": "[PLACEHOLDER] holky_v_datech Webinář #1",
-    "topic": "Ukázkové téma budoucího webináře",
-    "description": "PLACEHOLDER – ukázkový potvrzený budoucí záznam typu webinář, včetně CTA na přihlášku a přidání do kalendáře. Nahraď skutečnými údaji, jakmile bude akce potvrzená, nebo záznam smaž.",
-    "location": "Online",
-    "registrationUrl": "prihlaska.html",
-    "status": "confirmed"
+    "status": "planning",
+    "description": "Termín ani téma dalšího mastermindu ještě nemáme – teprve plánujeme. Máš tip na téma, které bychom měly probrat, nebo víš o někom, koho bychom měly pozvat?",
+    "ctaLabel": "Poslat tip",
+    "ctaHref": "mailto:info@holkyvdatech.cz?subject=Tip%20na%20dal%C5%A1%C3%AD%20mastermind"
   },
   {
     "id": "mastermind-2",
