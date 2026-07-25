@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Přihláška na akci – holky_v_datech</title>
+  <meta name="description" content="Přihlaš se na nadcházející akci komunity holky_v_datech – meetupy a mastermindy pro ženy v datech." />
+  <link rel="canonical" href="https://www.holkyvdatech.cz/prihlaska-meetup6.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Raleway:ital,wght@0,600;0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <style>
+    .prihlaska-section { padding: 56px 0 96px; background: var(--white); }
+    .prihlaska-box {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--off-white);
+      border: 1px solid var(--green-mid);
+      border-radius: var(--radius);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .check-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .first-time-extra {
+      display: none;
+      flex-direction: column;
+      gap: 22px;
+      padding: 20px;
+      background: var(--green-light);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--green-mid);
+    }
+    .first-time-extra.visible { display: flex; }
+    #p-motivation-other-text { margin-top: 4px; }
+    @media (max-width: 480px) {
+      .prihlaska-box { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav-wrapper">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logo.png" alt="holky_v_datech" class="nav__logo-img" />
+      </a>
+      <button class="nav__toggle" aria-label="Otevřít menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="o-nas.html">O nás</a></li>
+        <li><a href="index.html#akce">Akce</a></li>
+        <li><a href="mentoring.html">Mentoring</a></li>
+        <li><a href="watchdog.html">Watchdog</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><a href="index.html#kontakt" class="btn btn--sm">Přidej se</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HEADER -->
+  <section class="archiv-hero">
+    <div class="container">
+      <a href="index.html#akce" class="back-link">← Zpět na akce</a>
+      <span class="pill pill--dark">Přihláška</span>
+      <h1>holky_v_datech Meetup #6</h1>
+      <p>24. 9. 2026 · 17:30 · Brno – místo upřesníme</p>
+    </div>
+  </section>
+
+  <!-- FORMULÁŘ -->
+  <section class="prihlaska-section">
+    <div class="container">
+      <form class="prihlaska-box" id="prihlaska-form">
+        <input type="hidden" name="event" value="Meetup #6 (24. 9. 2026, Brno – místo upřesníme)" />
+
+        <div class="form-group">
+          <label for="p-name">Jméno a příjmení</label>
+          <input type="text" id="p-name" name="name" placeholder="Jana Nováková" required />
+        </div>
+
+        <div class="form-group">
+          <label for="p-email">E-mail</label>
+          <input type="email" id="p-email" name="email" placeholder="jana@example.com" required />
+        </div>
+
+        <div class="form-group form-group--checkbox">
+          <label class="checkbox-label">
+            <input type="checkbox" id="p-first-time" name="firstTime" />
+            Jsem tu poprvé 🙋
+          </label>
+        </div>
+
+        <div class="first-time-extra" id="first-time-extra">
+          <div class="form-group">
+            <label>Jak ses o nás dozvěděla?</label>
+            <div class="check-group">
+              <label class="checkbox-label"><input type="checkbox" name="source" value="Doporučení od kamarádky" /> Doporučení od kamarádky</label>
+              <label class="checkbox-label"><input type="checkbox" name="source" value="Instagram" /> Instagram</label>
+              <label class="checkbox-label"><input type="checkbox" name="source" value="Facebook" /> Facebook</label>
+              <label class="checkbox-label"><input type="checkbox" name="source" value="Web" /> Web holkyvdatech.cz</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Co tě k nám přivádí?</label>
+            <div class="check-group">
+              <label class="checkbox-label"><input type="checkbox" name="motivation" value="Poznat další ženy z komunity" /> Poznat další ženy z komunity</label>
+              <label class="checkbox-label"><input type="checkbox" name="motivation" value="Dozvědět se víc o datech a AI" /> Dozvědět se víc o datech a AI</label>
+              <label class="checkbox-label"><input type="checkbox" name="motivation" value="Chci si zkusit přednášet / pomoct s organizací" /> Chci si zkusit přednášet / pomoct s organizací</label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="p-motivation-other" name="motivation" value="Jiné" />
+                Jiné
+              </label>
+              <input type="text" id="p-motivation-other-text" name="motivationOther" placeholder="Napiš nám víc…" style="display:none;" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group form-group--checkbox">
+          <label class="checkbox-label">
+            <input type="checkbox" id="p-discord" name="discord" />
+            Chci se přidat do naší Discord komunity (pokud tam ještě nejsem) 💬
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn--full">Odeslat přihlášku</button>
+        <p id="form-msg" class="form-note"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logo.png" alt="holky_v_datech" class="nav__logo-img nav__logo-img--footer" />
+      </a>
+      <p class="footer__copy">© 2026 holky_v_datech · <a href="mailto:info@holkyvdatech.cz">info@holkyvdatech.cz</a></p>
+      <div class="footer__social">
+        <a href="https://instagram.com/holkyvdatech" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/holky-v-datech" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Odkaz na pozvánku do Discord komunity
+    const DISCORD_INVITE = 'https://discord.gg/cAa7jyN2f';
+
+    const firstTimeCheckbox = document.getElementById('p-first-time');
+    const firstTimeExtra = document.getElementById('first-time-extra');
+    firstTimeCheckbox?.addEventListener('change', () => {
+      firstTimeExtra.classList.toggle('visible', firstTimeCheckbox.checked);
+    });
+
+    const motivationOtherCheckbox = document.getElementById('p-motivation-other');
+    const motivationOtherText = document.getElementById('p-motivation-other-text');
+    motivationOtherCheckbox?.addEventListener('change', () => {
+      motivationOtherText.style.display = motivationOtherCheckbox.checked ? 'block' : 'none';
+    });
+
+    const form = document.getElementById('prihlaska-form');
+    const msg = document.getElementById('form-msg');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Odesílám…';
+
+      const data = new FormData(form);
+      const payload = {
+        event: data.get('event'),
+        name: data.get('name').trim(),
+        email: data.get('email').trim(),
+        firstTime: data.get('firstTime') === 'on',
+        source: data.getAll('source'),
+        motivation: data.getAll('motivation').filter(v => v !== 'Jiné'),
+        motivationOther: data.get('motivationOther') || '',
+        discord: data.get('discord') === 'on',
+      };
+
+      try {
+        const res = await fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) throw new Error('Request failed');
+
+        btn.textContent = '✓ Přihlášeno!';
+        btn.style.background = '#1a5233';
+        msg.style.color = 'var(--green)';
+
+        if (payload.discord) {
+          msg.innerHTML = `Díky za přihlášku! Tady je odkaz na náš Discord: <a href="${DISCORD_INVITE}" target="_blank" rel="noopener">přidat se</a>.`;
+        } else {
+          msg.textContent = 'Díky za přihlášku! Brzy se ozveme s podrobnostmi.';
+        }
+
+        form.reset();
+        firstTimeExtra.classList.remove('visible');
+        motivationOtherText.style.display = 'none';
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Odeslat přihlášku';
+        msg.style.color = '#c0392b';
+        msg.textContent = 'Něco se nepovedlo, zkus to prosím znovu nebo napiš na info@holkyvdatech.cz.';
+      }
+    });
+  </script>
+</body>
+</html>

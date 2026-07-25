@@ -28,6 +28,20 @@
     "status": "confirmed"
   },
   {
+    "id": "meetup-6",
+    "date": "2026-09-24",
+    "time": "17:30",
+    "durationMinutes": 120,
+    "type": "meetup",
+    "format": "Brno",
+    "title": "holky_v_datech Meetup #6",
+    "topic": "Brno – místo upřesníme",
+    "description": "Přijď se potkat s dalšími ženami z datového světa. Neformální setkání bez agendy – sdílíme zkušenosti, nápady i běžné starosti u dobré kávy. Konkrétní místo v Brně ještě domlouváme, upřesníme brzy.",
+    "location": "Brno – místo upřesníme",
+    "registrationUrl": "prihlaska-meetup6.html",
+    "status": "confirmed"
+  },
+  {
     "id": "mastermind-4",
     "date": "2026-07-16",
     "time": "19:30",
