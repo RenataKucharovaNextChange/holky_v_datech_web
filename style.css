@@ -481,10 +481,20 @@ body {
   background: #e8f0fe;
   color: #1a56a4;
 }
+.history-item__name-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
 .history-item__name {
   font-size: .9375rem;
   font-weight: 600;
   color: var(--ink);
+}
+.history-item__topic {
+  font-size: .8125rem;
+  font-weight: 400;
+  color: var(--ink-soft);
 }
 
 /* ── Gallery ───────────────────────────────────────── */

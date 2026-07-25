@@ -198,15 +198,26 @@
     typeSpan.className = 'history-item__type' + (ev.format === 'Online' ? ' history-item__type--online' : '');
     typeSpan.textContent = ev.format;
 
+    const nameWrap = document.createElement('span');
+    nameWrap.className = 'history-item__name-wrap';
+
     const nameSpan = document.createElement('span');
     nameSpan.className = 'history-item__name';
     nameSpan.textContent = ev.title;
+    nameWrap.appendChild(nameSpan);
+
+    if (ev.topic) {
+      const topicSpan = document.createElement('span');
+      topicSpan.className = 'history-item__topic';
+      topicSpan.textContent = ev.topic;
+      nameWrap.appendChild(topicSpan);
+    }
 
     const arrow = document.createElement('span');
     arrow.className = 'history-item__arrow';
     arrow.textContent = '→';
 
-    a.append(dateSpan, typeSpan, nameSpan, arrow);
+    a.append(dateSpan, typeSpan, nameWrap, arrow);
     return a;
   }
 
