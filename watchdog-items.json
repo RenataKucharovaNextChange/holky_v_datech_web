@@ -1,15 +1,19 @@
 {
-  "lastRun": "2026-07-25",
-  "nextDiscoveryRun": "2026-07-20",
+  "lastRun": "2026-08-10",
+  "nextDiscoveryRun": "2026-08-17",
   "notes": [
-    "Pozn. k provozu: 4 běhy mezi 19. a 24. 7. selhaly kvůli výpadku Tavily API (limit plánu) — obnoveno 25. 7. Discovery vrstva tak minula pondělí 20. 7.; nextDiscoveryRun bude opraveno na příští pondělí (27. 7.) až proběhne příští Discovery běh.",
-    "WomenTech Network, The AI Club, ai.pro.holky (Terezie Ho): beze změny od posledního běhu.",
-    "Filip Dřímalka: beze změny, žádný nový článek/newsletter (poslední díl 22. 4. 2026).",
-    "Tomáš Paulus / REFRAMED: poslední dohledatelné vydání 22. 10. 2025 — NEOVĚŘENO, možná jde jen o limit LinkedIn extrakce, doporučeno ověřit ručně.",
-    "Učíme se sami s AI: web dnes znovu technicky nedostupný přes automatizovaný scan.",
-    "NatřiAI: poslední epizoda #36 vyšla 15. 7. 2026, den před sledovaným oknem — bez nové epizody v tomto běhu.",
-    "ČERNÁ.AI FESTIVAL, CEE AI Summit: beze změny.",
-    "Discovery — dnes (sobota) se nespouští, běží jen v pondělí."
+    "Delší okno (14 dní, 27.7.–10.8.) — běh 3. 8. neproběhl kvůli výpadku Tavily konektoru, dnešní běh po reconnectu pokrývá celé mezidobí.",
+    "WomenTech Network, The AI Club, CyberLadies: beze změny od posledního běhu.",
+    "She Loves Data: beze změny, CZ relevance u AI Content Marketing Mastery stále nepotvrzena.",
+    "ai.pro.holky (Terezie Ho): terezieho.cz se ukázal být běžný WordPress web, ne JS SPA jak se dosud předpokládalo — technický limit částečně prolomen. Žádné nové kurzy na webu, ale nový Instagram reel (viz obsah).",
+    "AI Ladies: dva neohlášené formáty bez termínu zmíněné na webu — „Callcast\" a „AI Ladies Hub\", oba „Připravujeme\".",
+    "Filip Dřímalka: nová epizoda (viz obsah).",
+    "Tomáš Paulus / REFRAMED: poslední dohledatelné vydání stále 22. 10. 2025 — pauza potvrzena opakovaně, přes 9,5 měsíce beze zjevné aktivity.",
+    "Učíme se sami s AI: web dnes znovu technicky nedostupný přes automatizovaný scan, nulová externí viditelnost potvrzena znovu.",
+    "NatřiAI: #36 (15.7.) zůstává nejnovější, žádná nová epizoda skoro 4 týdny — možný signál pauzy.",
+    "Naučíme AI Podcast: žádná nová plná epizoda, jen Instagram teasery bez data vydání.",
+    "CEE AI Summit: beze změny.",
+    "Discovery (pondělní běh): žádný nový kandidát na komunitu ani podcast. AI Skills 4 Women (Prague Training Academy × Microsoft) z minula stále čeká na potvrzení uživatelkou."
   ],
   "items": [
     {
@@ -50,15 +54,16 @@
       "section": "akce",
       "org": "Femme Palette",
       "title": "Leadership & Career Conference 2026",
-      "meta": "Deadline early bird: potvrzeno 31. 7. 2026 (2 499–3 499 Kč podle balíčku) · Konání: 3. 10. 2026, WPP Praha · 24 oznámených řečníků",
+      "meta": "Early bird skončil 31. 7. 2026, cena nyní od 2 999 Kč · Konání: 3. 10. 2026, WPP Praha · 24 oznámených řečníků",
       "url": "https://www.femmepalette.com/conference-2026",
       "eventDate": "2026-10-03",
-      "deadlineDate": "2026-07-31",
+      "deadlineDate": null,
       "unverified": false,
-      "updated": false,
+      "updated": true,
+      "note": "Early bird deadline (31.7.) proběhl, cena vzrostla na od 2 999 Kč, listing nyní \"Last spots left\".",
       "status": "active",
       "firstSeen": "2026-07-08",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "female-founders-2026",
@@ -66,16 +71,16 @@
       "section": "akce",
       "org": "Femme Palette",
       "title": "Female Founders: Build, Grow & Connect",
-      "meta": "Deadline early bird: 1. 8. 2026 (590 Kč, poté 790 Kč) · Konání: 2. 9. 2026 · STRV, Praha · kompletní seznam řečnic zveřejněn (Markéta Šťastná, Kristýna Dolejšová, Tereza Texl, Tereza Stejskal, Anna Bohoněk aj.)",
+      "meta": "Early bird skončil 1. 8. 2026, cena nyní 790 Kč · Konání: 2. 9. 2026 · STRV, Praha · kompletní seznam řečnic zveřejněn",
       "url": "https://femmepalette.com/female-founders",
       "eventDate": "2026-09-02",
-      "deadlineDate": "2026-08-01",
+      "deadlineDate": null,
       "unverified": false,
       "updated": true,
-      "note": "Nově zveřejněn kompletní program a řečnice, upřesněna cena po early bird deadlinu (790 Kč).",
+      "note": "Early bird deadline (1.8.) proběhl, cena vzrostla na 790 Kč, listing nyní \"Last spots left\".",
       "status": "active",
       "firstSeen": "2026-07-08",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "ai-content-marketing-mastery",
@@ -91,7 +96,7 @@
       "updated": false,
       "status": "active",
       "firstSeen": "2026-07-14",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-07-27"
     },
     {
       "id": "ailadies-webinar-asistent-web",
@@ -107,7 +112,7 @@
       "updated": false,
       "status": "active",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-07-27"
     },
     {
       "id": "ailadies-webinar-proc-nuda",
@@ -121,10 +126,10 @@
       "deadlineDate": null,
       "unverified": false,
       "updated": false,
-      "note": "Nový, čtvrtý webinář v řadě AI Ladies. Dřív ohlašovaný „10× AI ve tvém dni\" zůstává bez určeného termínu.",
+      "note": "Nový, čtvrtý webinář v řadě AI Ladies. Dřív ohlašovaný „10× AI ve tvém dni\" zůstává bez určeného termínu, nově se navíc objevily dva další neohlášené formáty bez termínu (Callcast, AI Ladies Hub).",
       "status": "active",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "ailadies-night-2026",
@@ -141,7 +146,7 @@
       "note": "Datum/místo známé už dřív, dnes poprvé zaznamenán kompletní program (síťování u stolů, talk show, AI koutek).",
       "status": "active",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "cyberladies-sraz-06",
@@ -158,7 +163,7 @@
       "note": "Téma: Zranitelnosti v roce 2026 — revoluce nebo bublina? + volná diskuze o práci v cybersecurity.",
       "status": "active",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-07-27"
     },
     {
       "id": "femme-palette-moms-connect",
@@ -174,7 +179,7 @@
       "updated": false,
       "status": "active",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-07-27"
     },
     {
       "id": "femme-palette-barre-edition",
@@ -190,7 +195,7 @@
       "updated": false,
       "status": "active",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "femme-palette-book-club",
@@ -206,7 +211,42 @@
       "updated": false,
       "status": "active",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-08-10"
+    },
+    {
+      "id": "femme-palette-mentoring-walk",
+      "category": "Holky",
+      "section": "akce",
+      "org": "Femme Palette (partner)",
+      "title": "Mentoring Walk",
+      "meta": "Konání: 9. 9. 2026 · více měst (Praha/Brno/Ostrava/Liberec) · pořádá Inspire&Impact Network, Femme Palette jako partner",
+      "url": "https://www.instagram.com/inspire_impact_network/",
+      "eventDate": "2026-09-09",
+      "deadlineDate": null,
+      "unverified": true,
+      "updated": false,
+      "note": "NEOVĚŘENO, zda jde o oficiální akci Femme Palette nebo jen partnerskou zmínku — nenalezeno na femmepalette.com/events.",
+      "status": "active",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
+    },
+    {
+      "id": "ai-pro-holky-reel-vibecoding",
+      "category": "Holky",
+      "section": "obsah",
+      "org": "ai.pro.holky",
+      "title": "Instagram reel: vibe coding proti pracovní frustraci",
+      "meta": "Instagram, 7. 8. 2026",
+      "url": "https://www.instagram.com/ai.pro.holky/",
+      "eventDate": null,
+      "deadlineDate": null,
+      "seriesId": "ai-pro-holky-instagram",
+      "unverified": false,
+      "updated": false,
+      "note": "Terezie Ho vyzývá sledující, ať napíšou pracovní frustrace do komentářů, a nabízí 3 způsoby, jak by mohl pomoct vibe coding.",
+      "status": "active",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "cyberladies-mastermind-4",
@@ -270,10 +310,10 @@
       "eventDate": "2026-11-25",
       "deadlineDate": null,
       "unverified": true,
-      "updated": true,
+      "updated": false,
       "status": "active",
       "firstSeen": "2026-07-01",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "dobrodata-ticket-discrepancy",
@@ -281,8 +321,8 @@
       "section": "alert",
       "org": "DoBroData",
       "title": "DoBroData — rozpor v informacích o prodeji vstupenek",
-      "meta": "Signál napříč dny: 10. 7. → 11. 7. → 14. 7. → 15. 7. → 16. 7. → 25. 7. 2026",
-      "note": "Rozpor trvá 6. zaznamenaný den. Web dobrodata.cz pořád ukazuje „registrace již brzy\", GoOut prodává beze změny za 3 500–10 000 Kč. Nově se ve FAQ webu objevil třetí, dosud nezachycený model registrace — dar přes darujme.cz (doporučeno 2 500 Kč/osoba, registrace prý proběhne po platbě). NEOVĚŘENO, zda je FAQ text nový nebo jen dřív nezachycený technickým limitem extrakce. Doporučeno ověřit přímo mimo automatizovaný scan (telefon/e-mail organizátorům).",
+      "meta": "Signál napříč dny: 10. 7. → 11. 7. → 14. 7. → 15. 7. → 16. 7. → 25. 7. → 27. 7. → 10. 8. 2026",
+      "note": "Rozpor trvá minimálně 14. zaznamenaný den, beze změny oproti 27.7. Web dobrodata.cz pořád ukazuje „registrace již brzy\", GoOut prodává beze změny za 3 500–10 000 Kč, FAQ webu stále nabízí i třetí (dárcovský) model přes darujme.cz. Instagram rozpor nekomentuje. Doporučeno ověřit přímo mimo automatizovaný scan (telefon/e-mail organizátorům) — doporučení trvá už téměř měsíc.",
       "url": null,
       "eventDate": null,
       "deadlineDate": null,
@@ -290,7 +330,7 @@
       "updated": true,
       "status": "active",
       "firstSeen": "2026-07-10",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "vibe-coding-summer-start",
@@ -338,10 +378,82 @@
       "seriesId": "datatalk-newsletter",
       "unverified": false,
       "updated": false,
-      "note": "OpenAI představila první hardware (Codex Micro) a agentní režim ChatGPT Work, Apple žaluje OpenAI kvůli obchodním tajemstvím, CEO DeepMindu volá po regulačním úřadu pro AI.",
-      "status": "active",
+      "note": "Nahrazeno novějšími čísly #170 a #171.",
+      "status": "archived",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-07-27"
+    },
+    {
+      "id": "datatalk-newsletter-170",
+      "category": "Data",
+      "section": "obsah",
+      "org": null,
+      "title": "DataTalk newsletter #170 — „Elektrody a AI rozhýbaly ochrnutého\"",
+      "meta": "Vydání: cca 27. 7. 2026",
+      "url": "https://www.datatalk.cz/news/339",
+      "eventDate": null,
+      "deadlineDate": null,
+      "seriesId": "datatalk-newsletter",
+      "unverified": true,
+      "updated": false,
+      "note": "Přesné datum vydání NEOVĚŘENO. Nahrazeno novějším číslem #171.",
+      "status": "archived",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
+    },
+    {
+      "id": "datatalk-newsletter-171",
+      "category": "Data",
+      "section": "obsah",
+      "org": null,
+      "title": "DataTalk newsletter #171 — „Claude Opus 5: Jako Fable 5, ale za polovic\"",
+      "meta": "Vydání: cca 31. 7. 2026",
+      "url": "https://www.datatalk.cz/news/341",
+      "eventDate": null,
+      "deadlineDate": null,
+      "seriesId": "datatalk-newsletter",
+      "unverified": true,
+      "updated": false,
+      "note": "Přesné datum vydání NEOVĚŘENO. Aktuálně nejnovější číslo.",
+      "status": "active",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
+    },
+    {
+      "id": "datatalk-podcast-189",
+      "category": "Data",
+      "section": "obsah",
+      "org": "DataTalk",
+      "title": "DataTalk podcast #189 — Patrik Gudev (Rendero)",
+      "meta": "Vydání: cca 24.–27. 7. 2026",
+      "url": "https://www.datatalk.cz/podcast/",
+      "eventDate": null,
+      "deadlineDate": null,
+      "seriesId": "datatalk-podcast",
+      "unverified": true,
+      "updated": false,
+      "note": "Přesné datum vydání NEOVĚŘENO. Nahrazeno novější epizodou #190.",
+      "status": "archived",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
+    },
+    {
+      "id": "datatalk-podcast-190",
+      "category": "Data",
+      "section": "obsah",
+      "org": "DataTalk",
+      "title": "DataTalk podcast #190 — Jan Petrov (ValkaAI)",
+      "meta": "Vydání: cca 7. 8. 2026",
+      "url": "https://www.datatalk.cz/podcast/",
+      "eventDate": null,
+      "deadlineDate": null,
+      "seriesId": "datatalk-podcast",
+      "unverified": true,
+      "updated": false,
+      "note": "AI komentování zápasů v reálném čase, hlasové emoce a videoavataři. Přesné datum vydání NEOVĚŘENO (odhad podle \"3 dny\" v Apple Podcasts v čase scanu). Aktuálně nejnovější epizoda.",
+      "status": "active",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "datatalk-data-mesh-37",
@@ -357,7 +469,39 @@
       "updated": false,
       "status": "active",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-08-10"
+    },
+    {
+      "id": "datatalk-data-mesh-38",
+      "category": "Data",
+      "section": "akce",
+      "org": "DataTalk",
+      "title": "DATA mesh #38 by Appsatori",
+      "meta": "Konání: 8. 9. 2026 · Praha",
+      "url": "https://www.datatalk.cz/kalendar-akci/",
+      "eventDate": "2026-09-08",
+      "deadlineDate": null,
+      "unverified": false,
+      "updated": false,
+      "status": "active",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
+    },
+    {
+      "id": "datatalk-data-mesh-brno-10",
+      "category": "Data",
+      "section": "akce",
+      "org": "DataTalk",
+      "title": "DATA mesh BRNO #10 by Direct",
+      "meta": "Konání: 17. 9. 2026 · Brno",
+      "url": "https://luma.com/09gr8wiq",
+      "eventDate": "2026-09-17",
+      "deadlineDate": null,
+      "unverified": false,
+      "updated": false,
+      "status": "active",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "zandl-article-unverified",
@@ -372,10 +516,80 @@
       "seriesId": "zandl-substack",
       "unverified": false,
       "updated": false,
-      "note": "Reconfirmed 25.7.: #123 zůstává nejnovější číslo, žádné #124 nevyšlo.",
-      "status": "active",
+      "note": "Nahrazeno novějším číslem #124 (26.7.2026).",
+      "status": "archived",
       "firstSeen": "2026-07-15",
       "lastSeen": "2026-07-25"
+    },
+    {
+      "id": "zandl-124",
+      "category": "AI",
+      "section": "obsah",
+      "org": null,
+      "title": "Patrik Zandl — #124, „Meta vyměnila metaverse za AI. Účet zatím platí reklama\"",
+      "meta": "Vydáno: 26. 7. 2026",
+      "url": "https://zandl.substack.com/p/124-a-bude-po-ni-meta-prijde-ve-stredu",
+      "eventDate": null,
+      "deadlineDate": null,
+      "seriesId": "zandl-substack",
+      "unverified": false,
+      "updated": false,
+      "note": "Rozebírá střet Mety mezi metaverse a AI před čtvrtletními výsledky (29.7.) na čtyřech infrastrukturních rozhodnutích a eskalující kauze sledování zaměstnanců. Newsletter nyní na 7402 odběratelích. Update 10.8.: #125 zatím nevyšlo (potvrzeno přes archiv).",
+      "status": "active",
+      "firstSeen": "2026-07-27",
+      "lastSeen": "2026-08-10"
+    },
+    {
+      "id": "zandl-vibecoding-cz",
+      "category": "AI",
+      "section": "akce",
+      "org": "Patrik Zandl / Vibecoding.cz",
+      "title": "Vibecoding Talks — pravidelný pražský meetup",
+      "meta": "Konání: 22. 9. 2026 · Kino Dlabačov, Praha · měsíční kadence",
+      "url": "https://vibecoding.cz/",
+      "eventDate": "2026-09-22",
+      "deadlineDate": null,
+      "unverified": true,
+      "updated": false,
+      "note": "Vedlejší projekt Patrika Zandla — samostatný web s denními AI/LLM články, workshopy a videokurzy, existuje minimálně od konce června 2026, dosud nezaznamenáno v known-listu. NEOVĚŘENO, zda jde o první zachycený běh série nebo již dřívější etablovaný meetup.",
+      "status": "active",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
+    },
+    {
+      "id": "cerna-ai-festival-2026",
+      "category": "AI",
+      "section": "akce",
+      "org": "ČERNÁ.AI",
+      "title": "ČERNÁ.AI FESTIVAL — kompletní program a řečníci",
+      "meta": "Konání: 15. 9. 2026 · Gong, Ostrava · 60–70 potvrzených řečníků, 7 pódií · Standard 2 190 Kč (do 31. 8.), poté Last minute 3 190 Kč",
+      "url": "https://cernaaifestival.cz/",
+      "eventDate": "2026-09-15",
+      "deadlineDate": "2026-08-31",
+      "unverified": false,
+      "updated": true,
+      "note": "Nově zveřejněné ceny vstupenek (dřív jen program a řečníci): Standard 2 190 Kč platí do 31.8., poté Last minute 3 190 Kč.",
+      "status": "active",
+      "firstSeen": "2026-07-27",
+      "lastSeen": "2026-08-10"
+    },
+    {
+      "id": "drimalka-abugo",
+      "category": "AI",
+      "section": "obsah",
+      "org": "Filip Dřímalka",
+      "title": "10× člověk nestačí: Jak ABUGO staví AI-first firmu pro 170 lidí",
+      "meta": "Vydání: 6. 8. 2026",
+      "url": "https://drimalka.com/blog/inspirace-zdarma/abugo-ai-first-firma",
+      "eventDate": null,
+      "deadlineDate": null,
+      "seriesId": "drimalka-blog",
+      "unverified": false,
+      "updated": false,
+      "note": "Rozhovor s Petrem Svobodou a Borisem Bošiakem (ABUGO) o budování sdíleného AI Hubu pro 170 lidí — přenést individuální rychlost práce s AI na celou organizaci zatím nemá nikdo plně vyřešené.",
+      "status": "active",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "uhlik-vs-kremik-mike-trafik",
@@ -408,10 +622,28 @@
       "seriesId": "uhlik-vs-kremik",
       "unverified": false,
       "updated": false,
-      "note": "Debata o tom, jak AI mění tvorbu a výrobu knih a která povolání v nakladatelství zasáhne první.",
-      "status": "active",
+      "note": "Nahrazeno novější epizodou o AI ve zdravotnictví.",
+      "status": "archived",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-07-27"
+    },
+    {
+      "id": "uhlik-vs-kremik-zdravotnictvi",
+      "category": "AI",
+      "section": "obsah",
+      "org": "Uhlík vs Křemík",
+      "title": "Právník z ministerstva: Zachrání AI zdravotnictví?",
+      "meta": "Vydání: 5. 8. 2026",
+      "url": "https://podcasty.seznam.cz/podcast/uhlik-vs-kremik/",
+      "eventDate": null,
+      "deadlineDate": null,
+      "seriesId": "uhlik-vs-kremik",
+      "unverified": false,
+      "updated": false,
+      "note": "Petr Kohout, ředitel právního odboru na Ministerstvu zdravotnictví, o nasazení AI ve veřejné správě a zdravotnictví.",
+      "status": "active",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "prompt-voxpot-ep25",
@@ -426,10 +658,28 @@
       "seriesId": "prompt-voxpot",
       "unverified": false,
       "updated": false,
-      "note": "Otázka evropské AI suverenity na příkladu Mistralu, impulzem spor Anthropicu s americkou administrativou o přístup k modelům pro cizí státní příslušníky.",
-      "status": "active",
+      "note": "Nahrazeno novější epizodou #26.",
+      "status": "archived",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-07-27"
+    },
+    {
+      "id": "prompt-voxpot-ep26",
+      "category": "AI",
+      "section": "obsah",
+      "org": "Prompt (Voxpot)",
+      "title": "PROMPT #26 — „Mají roboti platit daně?\"",
+      "meta": "Vydání: cca 7. 8. 2026",
+      "url": "https://prompt.voxpot.cz/",
+      "eventDate": null,
+      "deadlineDate": null,
+      "seriesId": "prompt-voxpot",
+      "unverified": true,
+      "updated": false,
+      "note": "Ekonom Jan Bittner (VŠE) o dani z robotů a dopadu AI na zdanění práce vs. kapitálu. Přesné datum vydání NEOVĚŘENO.",
+      "status": "active",
+      "firstSeen": "2026-08-10",
+      "lastSeen": "2026-08-10"
     },
     {
       "id": "naucime-ai-podcast-doul",
@@ -444,10 +694,10 @@
       "seriesId": "naucime-ai-podcast",
       "unverified": false,
       "updated": false,
-      "note": "AI adopce ve velkém korporátu — od zákazu ChatGPT po interní nástroj DM GPT a školení zaměstnanců.",
+      "note": "AI adopce ve velkém korporátu — od zákazu ChatGPT po interní nástroj DM GPT a školení zaměstnanců. Update 10.8.: stále nejnovější, žádná nová plná epizoda, jen Instagram teasery.",
       "status": "active",
       "firstSeen": "2026-07-25",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-08-10"
     }
   ]
 }
