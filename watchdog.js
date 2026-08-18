@@ -87,9 +87,18 @@
     return details;
   }
 
+  // Category pill: Holky / Data / AI — shown on every card and list row so
+  // items are identifiable at a glance now that Akce/Obsah span categories
+  // instead of being grouped by them.
+  function categoryPill(category) {
+    return pill(category, 'pill--dark');
+  }
+
   function renderCard(item) {
     const card = el('div', 'digest-card');
     const head = el('div');
+    if (item.category) head.appendChild(categoryPill(item.category));
+    if (item.format) head.appendChild(pill(item.format));
     if (item.updated) head.appendChild(pill('Aktualizace'));
     if (item.unverified) head.appendChild(pill('NEOVĚŘENO'));
     if (head.childNodes.length) card.appendChild(head);
@@ -108,8 +117,12 @@
 
   function renderListRow(item) {
     const row = el('div', 'digest-list-row');
+    const head = el('div', null, null);
+    head.style.marginBottom = '6px';
+    if (item.category) head.appendChild(categoryPill(item.category));
+    if (item.unverified) head.append(' ', pill('NEOVĚŘENO'));
+    row.appendChild(head);
     row.appendChild(el('strong', null, item.title));
-    if (item.unverified) row.append(' ', pill('NEOVĚŘENO'));
     const meta = el('div', 'digest-meta');
     meta.textContent = item.meta;
     appendLink(meta, item.url);
@@ -143,33 +156,39 @@
     mount.innerHTML = '';
     let sectionToggle = true; // alternate section / section--off like the static original
 
-    // Category sections: Holky / Data / AI, each split into Akce (cards) / Obsah (list rows).
-    // Alerts and unverified items are excluded here — they render in the
-    // collapsed "unclear" section at the bottom instead.
-    ['Holky', 'Data', 'AI'].forEach(category => {
-      const items = active.filter(i => i.category === category && i.section !== 'alert' && !i.unverified);
-      if (!items.length) return;
+    // Akce / Obsah sections span all categories (Holky/Data/AI) — each item
+    // carries its own category pill (and, for events, a format pill:
+    // Online / Offline · město) instead of being grouped under a category
+    // heading. Alerts and unverified items are excluded here — they render
+    // in the collapsed "unclear" section at the bottom instead.
+    const visible = active.filter(i => i.section !== 'alert' && !i.unverified);
 
+    const akce = visible
+      .filter(i => i.section === 'akce')
+      .sort((a, b) => {
+        if (!a.eventDate && !b.eventDate) return 0;
+        if (!a.eventDate) return 1;
+        if (!b.eventDate) return -1;
+        return a.eventDate < b.eventDate ? -1 : a.eventDate > b.eventDate ? 1 : 0;
+      });
+    if (akce.length) {
       const children = [el('div', 'digest-section-header', null)];
-      children[0].appendChild(el('h2', null, category));
-
-      const akce = items.filter(i => i.section === 'akce');
-      if (akce.length) {
-        children.push(el('h3', 'digest-subhead', 'Akce'));
-        akce.forEach(item => children.push(renderCard(item)));
-      }
-
-      const obsah = items.filter(i => i.section === 'obsah');
-      if (obsah.length) {
-        children.push(el('h3', 'digest-subhead', 'Obsah'));
-        const list = el('div', 'digest-list');
-        obsah.forEach(item => list.appendChild(renderListRow(item)));
-        children.push(list);
-      }
-
+      children[0].appendChild(el('h2', null, 'Akce'));
+      akce.forEach(item => children.push(renderCard(item)));
       mount.appendChild(buildSection(sectionToggle ? 'section--off' : '', children));
       sectionToggle = !sectionToggle;
-    });
+    }
+
+    const obsah = visible.filter(i => i.section === 'obsah');
+    if (obsah.length) {
+      const children = [el('div', 'digest-section-header', null)];
+      children[0].appendChild(el('h2', null, 'Obsah'));
+      const list = el('div', 'digest-list');
+      obsah.forEach(item => list.appendChild(renderListRow(item)));
+      children.push(list);
+      mount.appendChild(buildSection(sectionToggle ? 'section--off' : '', children));
+      sectionToggle = !sectionToggle;
+    }
 
     // Footer notes — entities actively watched with nothing new to show right now.
     if (data.notes && data.notes.length) {

@@ -156,7 +156,7 @@ Stránka zobrazuje aktivní položky automatického "Watchdog" digestu (komunity
 
 Schéma položky (`items[]`):
 - `id`, `category` (`Holky`/`Data`/`AI`), `section` (`akce`/`obsah`/`alert`)
-- `title`, `org`, `meta` (předformátovaný český text s datem/místem/cenou), `url`
+- `title`, `org`, `format` (jen u `section: "akce"` — `"Online"` nebo `"Offline · Město"`, vykreslí se jako druhý pill vedle kategorie), `meta` (předformátovaný český text s datem/místem/cenou), `url`
 - `eventDate` (ISO `YYYY-MM-DD` nebo `null`), `deadlineDate` (volitelné dřívější "do kdy")
 - `unverified`, `updated` (bool flagy pro pill "NEOVĚŘENO"/"Aktualizace")
 - `status`: `active` (zobrazuje se) / `archived` (nahrazeno novější položkou nebo proběhlo) / `resolved` (alert vyřešen) – archivované/resolved položky v souboru zůstávají (dedup historie), jen se nevykreslují
@@ -166,9 +166,9 @@ Expirace se řeší dvěma způsoby, podle typu položky (viz `watchdog.js`):
 - **Datované položky** (akce, deadliny): auto-expirují, jakmile `eventDate < dnešek` (stejné lexikografické porovnání ISO stringů jako v `events.js` – žádná timezone logika navíc).
 - **Nedatované/rekurentní položky** (podcasty, newslettery): zůstávají aktivní, dokud je *sběrný krok* (upsert) neoznačí `status: "archived"` po nalezení novější epizody/vydání stejné série.
 
-Sekce „Deadliny a akce" nahoře stránky se generuje automaticky – bere aktivní položky s `eventDate`/`deadlineDate` napříč kategoriemi, seřadí podle nejbližšího data a vezme prvních 5. Nemusí se tedy ručně duplikovat položka do dvou sekcí.
+**Layout (upraveno 2026-08-10 na žádost uživatelky):** stránka NEMÁ samostatnou sekci „Nejbližší deadliny". Obsah se nedělí podle kategorie (Holky/Data/AI) do tří sekcí — místo toho jsou napříč všemi kategoriemi jen dvě sekce, **Akce** (karty, řazené podle `eventDate` vzestupně, položky bez data na konci) a **Obsah** (řádky seznamu). Každá položka nese vlastní pill s kategorií (Holky/Data/AI), karty v Akci navíc druhý pill s `format`. Alerty a NEOVĚŘENO položky se nadále nevykreslují v hlavních sekcích, ale ve sbaleném bloku „Co ještě není jisté" dole na stránce (beze změny).
 
-Top-level pole `lastRun`, `nextDiscoveryRun` (hero meta řádek) a `notes` (pole vět „sledováno, beze změny" pro entity bez konkrétní datované položky) scheduled task také aktualizuje při každém běhu.
+Top-level pole `lastRun`, `nextDiscoveryRun` (hero meta řádek) a `notes` (pole vět „sledováno, beze změně" pro entity bez konkrétní datované položky) scheduled task také aktualizuje při každém běhu.
 
 Nezapomeň při zásahu do watchdogu aktualizovat i `lastmod` u watchdog.html v `sitemap.xml`.
 
