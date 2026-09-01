@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jdu na Next Gen Women – vytvoř si grafiku</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --peach: #f6c2ae;
+    --peach-deep: #efb096;
+    --teal: #6d8784;
+    --teal-dark: #47605c;
+    --ink: #2c3532;
+    --white: #ffffff;
+    --off-white: #fbf6f3;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--off-white);
+    color: var(--ink);
+  }
+  .wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .brand img { height: 46px; }
+  h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 6px;
+    color: var(--teal-dark);
+  }
+  .sub {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--ink);
+    opacity: 0.75;
+    margin: 0 0 28px;
+    line-height: 1.5;
+  }
+  .step-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--teal-dark);
+    margin-bottom: 12px;
+  }
+  .step-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid #f0ddd3;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .dropzone {
+    border: 2px dashed var(--peach-deep);
+    border-radius: 14px;
+    padding: 22px 16px;
+    text-align: center;
+    cursor: pointer;
+    background: var(--off-white);
+    transition: background 0.15s ease;
+  }
+  .dropzone:hover, .dropzone.drag {
+    background: #fdece4;
+  }
+  .dropzone .icon { font-size: 1.8rem; margin-bottom: 6px; }
+  .dropzone p { margin: 4px 0; font-size: 0.9rem; }
+  .dropzone .hint { font-size: 0.78rem; opacity: 0.65; }
+  input[type="file"] { display: none; }
+
+  .variants {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .variant {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid #f0ddd3;
+    border-radius: 12px;
+    padding: 12px 14px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+  .variant input { accent-color: var(--teal); flex-shrink: 0; }
+  .variant.active {
+    border-color: var(--teal);
+    background: #eef3f2;
+  }
+  .variant b { display: block; color: var(--teal-dark); }
+
+  canvas#poster {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(71, 96, 92, 0.18);
+    background: var(--peach);
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 100px;
+    padding: 15px 20px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn:not(:disabled):hover { background: var(--teal-dark); }
+
+  .note {
+    text-align: center;
+    font-size: 0.78rem;
+    opacity: 0.6;
+    margin-top: 10px;
+  }
+
+  .preview-flag {
+    background: #fff3ea;
+    border: 1px solid var(--peach-deep);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    color: var(--teal-dark);
+    text-align: center;
+    margin-bottom: 22px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="preview-flag">Interní testovací verze – stránka zatím není nikde propojená.</div>
+
+  <div class="brand">
+    <img src="assets/Konference/logo-full-trimmed.png" alt="Next Gen Women Konference" />
+  </div>
+
+  <h1>Jdu na Next Gen Women</h1>
+  <p class="sub">Nahraj svou fotku, vyber si text a stáhni si hotovou grafiku na LinkedIn i Instagram.</p>
+
+  <div class="step-label"><span class="step-num">1</span> Nahraj svou fotku</div>
+  <div class="card">
+    <div class="dropzone" id="dropzone">
+      <div class="icon">📷</div>
+      <p><strong>Klikni nebo přetáhni fotku</strong></p>
+      <p class="hint">JPG, PNG · nejlépe portrét na výšku</p>
+      <input type="file" id="fileInput" accept="image/*" />
+    </div>
+  </div>
+
+  <div class="step-label"><span class="step-num">2</span> Vyber si text</div>
+  <div class="card">
+    <div class="variants" id="variants">
+      <label class="variant active">
+        <input type="radio" name="variant" value="0" checked />
+        <span><b>JSEM NA</b>NEXT GEN WOMEN</span>
+      </label>
+      <label class="variant">
+        <input type="radio" name="variant" value="1" />
+        <span><b>ROSTU PO SVÉM</b>S NEXT GEN WOMEN</span>
+      </label>
+      <label class="variant">
+        <input type="radio" name="variant" value="2" />
+        <span><b>PŘIDÁVÁM SE K</b>NEXT GEN WOMEN</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="step-label"><span class="step-num">3</span> Stáhni si grafiku</div>
+  <div class="card">
+    <canvas id="poster" width="1080" height="1350"></canvas>
+    <button class="btn" id="downloadBtn" disabled>⬇ Stáhnout grafiku</button>
+    <p class="note">Formát 4:5 – ideální pro LinkedIn i Instagram příspěvek.</p>
+  </div>
+
+</div>
+
+<script>
+const COLORS = {
+  peach: '#f6c2ae',
+  peachDeep: '#efb096',
+  teal: '#6d8784',
+  tealDark: '#47605c',
+  white: '#ffffff'
+};
+
+const VARIANTS = [
+  { small: 'JSEM NA', big: 'NEXT GEN WOMEN' },
+  { small: 'ROSTU PO SVÉM', big: 'S NEXT GEN WOMEN' },
+  { small: 'PŘIDÁVÁM SE K', big: 'NEXT GEN WOMEN' }
+];
+
+const canvas = document.getElementById('poster');
+const ctx = canvas.getContext('2d');
+const W = canvas.width, H = canvas.height;
+
+let userPhoto = null;
+let variantIndex = 0;
+const logoImg = new Image();
+logoImg.src = 'assets/Konference/logo-full-trimmed.png';
+let logoReady = false;
+logoImg.onload = () => { logoReady = true; draw(); };
+
+function fitText(ctx, text, maxWidth, startSize, weight, minSize = 30) {
+  let size = startSize;
+  while (size > minSize) {
+    ctx.font = `${weight} ${size}px Poppins, sans-serif`;
+    if (ctx.measureText(text).width <= maxWidth) break;
+    size -= 2;
+  }
+  return size;
+}
+
+function drawSpaced(ctx, text, cx, y, spacing) {
+  const widths = [...text].map(ch => ctx.measureText(ch).width);
+  const total = widths.reduce((a, b) => a + b, 0) + spacing * (text.length - 1);
+  let x = cx - total / 2;
+  [...text].forEach((ch, i) => {
+    ctx.fillText(ch, x + widths[i] / 2, y);
+    x += widths[i] + spacing;
+  });
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+function drawPlaceholderBg() {
+  const g = ctx.createLinearGradient(0, 0, 0, H);
+  g.addColorStop(0, '#e9d3c7');
+  g.addColorStop(1, '#dcc3b6');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = 'rgba(71,96,92,0.35)';
+  ctx.font = '500 32px Poppins, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('sem se vloží tvoje fotka', W / 2, H / 2);
+}
+
+function drawPhotoCover(img) {
+  const canvasRatio = W / H;
+  const imgRatio = img.width / img.height;
+  let sx, sy, sw, sh;
+  if (imgRatio > canvasRatio) {
+    sh = img.height;
+    sw = sh * canvasRatio;
+    sy = 0;
+    sx = (img.width - sw) / 2;
+  } else {
+    sw = img.width;
+    sh = sw / canvasRatio;
+    sx = 0;
+    sy = (img.height - sh) / 2;
+  }
+  ctx.drawImage(img, sx, sy, sw, sh, 0, 0, W, H);
+}
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+
+  if (userPhoto) {
+    drawPhotoCover(userPhoto);
+  } else {
+    drawPlaceholderBg();
+  }
+
+  // scrim for headline legibility
+  const topScrim = ctx.createLinearGradient(0, 0, 0, 480);
+  topScrim.addColorStop(0, 'rgba(30,40,38,0.62)');
+  topScrim.addColorStop(1, 'rgba(30,40,38,0)');
+  ctx.fillStyle = topScrim;
+  ctx.fillRect(0, 0, W, 480);
+
+  // brand tint over whole photo
+  ctx.fillStyle = 'rgba(109,135,132,0.16)';
+  ctx.fillRect(0, 0, W, H);
+
+  // headline
+  const v = VARIANTS[variantIndex];
+  const maxWidth = W - 140;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'alphabetic';
+
+  ctx.font = '600 34px Poppins, sans-serif';
+  ctx.fillStyle = COLORS.peach;
+  drawSpaced(ctx, v.small, W / 2, 165, 6);
+
+  const bigSize = fitText(ctx, v.big, maxWidth, 92, 800);
+  ctx.font = `800 ${bigSize}px Poppins, sans-serif`;
+  ctx.fillStyle = COLORS.white;
+  ctx.shadowColor = 'rgba(20,28,26,0.35)';
+  ctx.shadowBlur = 18;
+  ctx.fillText(v.big, W / 2, 260);
+  ctx.shadowBlur = 0;
+
+  // bottom bar
+  const barH = 190;
+  const barY = H - barH;
+  ctx.fillStyle = COLORS.peach;
+  ctx.fillRect(0, barY, W, barH);
+
+  // logo badge
+  const badgeX = 50, badgeW = 420, badgeH = 130;
+  const badgeY = barY + (barH - badgeH) / 2;
+  ctx.fillStyle = COLORS.white;
+  roundRect(ctx, badgeX, badgeY, badgeW, badgeH, 22);
+  ctx.fill();
+
+  if (logoReady) {
+    const pad = 22;
+    const maxLogoW = badgeW - pad * 2;
+    const maxLogoH = badgeH - pad * 2;
+    const ratio = logoImg.width / logoImg.height;
+    let lw = maxLogoW, lh = lw / ratio;
+    if (lh > maxLogoH) { lh = maxLogoH; lw = lh * ratio; }
+    const lx = badgeX + (badgeW - lw) / 2;
+    const ly = badgeY + (badgeH - lh) / 2;
+    ctx.drawImage(logoImg, lx, ly, lw, lh);
+  }
+
+  // date + tag
+  const textX = badgeX + badgeW + 34;
+  const textMaxW = W - 50 - textX;
+  ctx.textAlign = 'left';
+  ctx.fillStyle = COLORS.tealDark;
+  const dateSize = fitText(ctx, '5.–8. 10. 2026', textMaxW, 40, 700);
+  ctx.font = `700 ${dateSize}px Poppins, sans-serif`;
+  ctx.fillText('5.–8. 10. 2026', textX, barY + barH / 2 - 6);
+
+  ctx.font = '600 22px Poppins, sans-serif';
+  drawTracked(ctx, 'ONLINE & ZDARMA', textX, barY + barH / 2 + 32, 2);
+}
+
+function drawTracked(ctx, text, x, y, spacing) {
+  let cx = x;
+  [...text].forEach(ch => {
+    ctx.fillText(ch, cx, y);
+    cx += ctx.measureText(ch).width + spacing;
+  });
+}
+
+// --- interactions ---
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+const downloadBtn = document.getElementById('downloadBtn');
+
+function loadFile(file) {
+  if (!file || !file.type.startsWith('image/')) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      userPhoto = img;
+      downloadBtn.disabled = false;
+      draw();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+dropzone.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', e => loadFile(e.target.files[0]));
+['dragover', 'dragenter'].forEach(evt =>
+  dropzone.addEventListener(evt, e => { e.preventDefault(); dropzone.classList.add('drag'); })
+);
+['dragleave', 'drop'].forEach(evt =>
+  dropzone.addEventListener(evt, e => { e.preventDefault(); dropzone.classList.remove('drag'); })
+);
+dropzone.addEventListener('drop', e => loadFile(e.dataTransfer.files[0]));
+
+document.querySelectorAll('input[name="variant"]').forEach(radio => {
+  radio.addEventListener('change', e => {
+    variantIndex = parseInt(e.target.value, 10);
+    document.querySelectorAll('.variant').forEach(l => l.classList.remove('active'));
+    e.target.closest('.variant').classList.add('active');
+    draw();
+  });
+});
+
+downloadBtn.addEventListener('click', () => {
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.download = 'jdu-na-next-gen-women.png';
+    link.href = url;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }, 'image/png');
+});
+
+document.fonts.ready.then(draw);
+draw();
+</script>
+
+</body>
+</html>

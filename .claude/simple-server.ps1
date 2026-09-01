@@ -20,8 +20,11 @@ $mime = @{
   ".txt"  = "text/plain"
 }
 
-while ($listener.IsListening) {
-  $context = $listener.GetContext()
+$runspacePool = [runspacefactory]::CreateRunspacePool(1, 16)
+$runspacePool.Open()
+
+$handlerScript = {
+  param($context, $Root, $mime)
   $request = $context.Request
   $response = $context.Response
   $response.KeepAlive = $false
@@ -46,4 +49,12 @@ while ($listener.IsListening) {
   } finally {
     $response.OutputStream.Close()
   }
+}
+
+while ($listener.IsListening) {
+  $context = $listener.GetContext()
+  $ps = [powershell]::Create()
+  $ps.RunspacePool = $runspacePool
+  [void]$ps.AddScript($handlerScript).AddArgument($context).AddArgument($Root).AddArgument($mime)
+  $ps.BeginInvoke() | Out-Null
 }
