@@ -57,15 +57,18 @@
     "archiveSlug": "mastermind-4"
   },
   {
-    "id": "mastermind-5-planning",
-    "date": null,
-    "time": null,
+    "id": "mastermind-5",
+    "date": "2026-10-08",
+    "time": "19:30",
+    "durationMinutes": 90,
     "type": "mastermind",
     "format": "Online",
-    "status": "planning",
-    "description": "Termín ani téma dalšího mastermindu ještě nemáme – teprve plánujeme. Máš tip na téma, které bychom měly probrat, nebo víš o někom, koho bychom měly pozvat?",
-    "ctaLabel": "Poslat tip",
-    "ctaHref": "mailto:info@holkyvdatech.cz?subject=Tip%20na%20dal%C5%A1%C3%AD%20mastermind"
+    "title": "Mastermind #5",
+    "topic": "Jak využít Claude Code",
+    "description": "Přednáška na téma, jak využít Claude Code ve své práci. Přijď se podívat, jak s ním pracovat a co všechno umí.",
+    "location": "Online (Microsoft Teams)",
+    "registrationUrl": "mailto:info@holkyvdatech.cz?subject=P%C5%99ihl%C3%A1%C5%A1en%C3%AD%20na%20Mastermind%20%235",
+    "status": "confirmed"
   },
   {
     "id": "mastermind-2",
