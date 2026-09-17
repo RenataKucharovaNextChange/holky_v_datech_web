@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Renáta Kuchařová · Next Gen Women 2026</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --green:#2a7a4b; --green-light:#e8f5ee; --green-mid:#c6e8d4; --green-dark:#1a5233;
+  --ink:#111b14; --ink-soft:#4a5e52; --white:#ffffff; --off-white:#f7fbf8;
+  --radius:16px; --radius-sm:8px;
+  --shadow:0 4px 24px rgba(42,122,75,.12); --shadow-lg:0 12px 40px rgba(42,122,75,.18);
+  --font:'Open Sans',system-ui,sans-serif; --font-serif:'Raleway',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);font-size:1rem;line-height:1.6;color:var(--ink-soft);background:var(--white);-webkit-font-smoothing:antialiased}
+.container{max-width:820px;margin:0 auto;padding:0 24px}
+h1,h2{font-family:var(--font-serif);color:var(--ink);font-weight:700;line-height:1.15}
+h1{font-size:clamp(1.75rem,3.5vw,2.5rem)}
+h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:16px}
+h3{font-family:var(--font);font-size:1.0625rem;font-weight:700;color:var(--ink);margin:0 0 8px}
+p{margin:0 0 16px}
+a{color:var(--green)}
+.pill{display:inline-block;padding:4px 14px;background:var(--green-light);color:var(--green-dark);border-radius:100px;font-size:.8125rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+
+/* NAV */
+.nav-wrapper{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--green-mid)}
+.nav{display:flex;align-items:center;gap:10px;padding-top:14px;padding-bottom:14px}
+.nav__logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav__logo-img{height:34px;width:auto;display:block}
+.nav__logo-text{font-family:var(--font);font-weight:700;font-size:.9375rem;color:var(--ink)}
+.nav__tag{margin-left:auto;font-size:.8125rem;color:var(--ink-soft)}
+
+/* SECTIONS */
+section{padding:64px 0}
+section.alt{background:var(--off-white);border-top:1px solid var(--green-mid);border-bottom:1px solid var(--green-mid)}
+
+/* HERO */
+.hero{padding:56px 0 48px}
+.hero__inner{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.hero__photo{width:100%;aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--green-light) center/cover no-repeat}
+.hero__photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero .lead{font-size:1.125rem}
+
+/* STEPS */
+.steps{list-style:none;margin:24px 0 0;border:1px solid var(--green-mid);border-radius:var(--radius);overflow:hidden;background:var(--white)}
+.steps li{display:flex;gap:16px;padding:20px 24px;border-bottom:1px solid var(--green-mid)}
+.steps li:last-child{border-bottom:none}
+.steps b{font-family:var(--font-serif);font-size:1.25rem;color:var(--green);flex:0 0 24px;line-height:1.4}
+.steps span{font-size:.9375rem}
+.steps span strong{color:var(--ink)}
+
+/* PROMPT */
+.prompt{background:var(--white);border:1px solid var(--green-mid);border-radius:var(--radius);overflow:hidden;margin-bottom:16px}
+.prompt__head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 16px 16px 20px}
+.prompt__title{font-family:var(--font);font-size:1.125rem;font-weight:700;color:var(--ink)}
+.prompt__actions{display:flex;gap:6px;flex-shrink:0}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;border-radius:50%;border:1.5px solid var(--green-mid);background:var(--white);color:var(--green-dark);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.icon-btn:hover{background:var(--green-light);border-color:var(--green)}
+.icon-btn svg{width:16px;height:16px;display:block}
+.icon-btn .chevron{transition:transform .2s}
+.icon-btn.is-expanded .chevron{transform:rotate(180deg)}
+.icon-btn .icon-check{display:none}
+.icon-btn.is-copied .icon-copy{display:none}
+.icon-btn.is-copied .icon-check{display:block}
+.icon-btn.is-copied{border-color:var(--green);color:var(--green)}
+.prompt__body{margin:0;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;font-size:.8125rem;line-height:1.65;color:var(--ink);background:var(--green-light);padding:16px 20px;max-height:180px;overflow-y:auto;transition:max-height .25s ease}
+.prompt__body.expanded{max-height:2400px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--green);color:var(--white);border:2px solid var(--green);border-radius:100px;font-family:var(--font);font-size:.9375rem;font-weight:600;text-decoration:none;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s}
+.btn:hover{background:var(--green-dark);border-color:var(--green-dark);transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn--ghost{background:transparent;color:var(--green)}
+.btn--ghost:hover{background:var(--green-light)}
+.btn--sm{padding:8px 18px;font-size:.875rem}
+
+/* CONTACT STRIP (avatar + links, mirrors o-nas.html founder-strip) */
+.contact-strip{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--white);border:1px solid var(--green-mid);border-radius:var(--radius);padding:24px 28px}
+.contact-strip__avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--green-mid);flex-shrink:0}
+.contact-strip__text{flex:1 1 220px}
+.contact-strip__text strong{color:var(--ink)}
+.contact-strip__links{display:flex;gap:10px;flex-wrap:wrap}
+
+/* FORM (rychlý vzkaz) */
+.form{background:var(--white);border:1px solid var(--green-mid);border-radius:var(--radius);padding:28px;margin-top:20px}
+.form-row{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+.form input,.form textarea{padding:12px 16px;border:1.5px solid var(--green-mid);border-radius:var(--radius-sm);font-family:var(--font);font-size:1rem;color:var(--ink);background:var(--off-white);resize:vertical}
+.form textarea{min-height:100px}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(42,122,75,.12)}
+.form .note{font-size:.8125rem;margin:14px 0 0}
+
+/* KLUB STRIP */
+.klub-strip{background:var(--green-light);border-top:1px solid var(--green-mid);border-bottom:1px solid var(--green-mid);padding:28px 0}
+.klub-strip .container{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.klub-strip p{margin:0;font-size:.9375rem;flex:1 1 240px}
+.klub-strip p strong{color:var(--ink)}
+
+/* FOOTER */
+footer{background:var(--ink);padding:32px 0;color:rgba(255,255,255,.7);font-size:.875rem}
+footer .container{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+footer a{color:rgba(255,255,255,.7);text-decoration:none}
+footer a:hover{color:#fff}
+footer .footer__logo{height:26px;filter:brightness(0) invert(1)}
+footer .sep{margin-left:auto;color:rgba(255,255,255,.5)}
+
+@media(max-width:640px){
+  .hero__inner{grid-template-columns:1fr}
+  .hero__photo{max-width:280px;margin:0 auto}
+  section{padding:48px 0}
+  footer .sep{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-wrapper">
+  <nav class="nav container">
+    <a href="https://www.holkyvdatech.cz" class="nav__logo">
+      <img src="assets/logo.png" alt="holky_v_datech" class="nav__logo-img" />
+      <span class="nav__logo-text">holky_v_datech</span>
+    </a>
+    <span class="nav__tag">Konference Next Gen Women 2026</span>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="container hero__inner">
+    <div>
+      <span class="pill">Konference Next Gen Women 2026</span>
+      <h1 style="margin-top:20px">Viděly jste mě mluvit o tom, jak si s AI ulevit od toho, co nosíte v hlavě.</h1>
+      <p class="lead">Jsem Renáta Kuchařová. Čtrnáct let jsem pracovala ve velkých firmách, nejdřív v auditu, pak jsem vedla finanční tým a šest let byla datovou analytičkou. Od února 2026 mám vlastní firmu NextChange AI a pomáhám firmám zavádět AI do financí a účetnictví. Vedle toho vedu komunitu holky_v_datech. Jsem máma tří dětí a žiju v Brně.</p>
+    </div>
+    <div class="hero__photo">
+      <img src="assets/fotky_zelene/DSC08028-Edit.jpg" alt="Renáta Kuchařová" />
+    </div>
+  </div>
+</header>
+
+<section class="alt">
+  <div class="container">
+    <h2>Tři věci z přednášky</h2>
+    <ol class="steps">
+      <li><b>1</b><span><strong>Škála L1 až L6.</strong> Šest úrovní, jak se dá AI používat, od pasivního hledání v Googlu po stavění vlastních nástrojů. Cíl není doskákat na šestku. Cíl je vědět, kde stojíte, a udělat jeden krok.</span></li>
+      <li><b>2</b><span><strong>Dokument o sobě.</strong> Jeden textový soubor, ve kterém je, kdo jste, jak chcete komunikovat a co do AI dávat nechcete. Nejmenší investice s největším dopadem. Prompty na jeho vytvoření máte níž.</span></li>
+      <li><b>3</b><span><strong>Postup na cokoliv.</strong> Pojmenujte konkrétní problém. Rozhodněte, jak moc to chcete automatizovat. Teprve pak jděte do AI, a to na úrovni, kterou jste si vybraly.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Prompty na dokument o sobě</h2>
+    <p>Slíbila jsem je v přednášce, tak si je tady rovnou vezměte. Vyberte jeden podle toho, jak dlouho už s AI mluvíte, a vložte ho do ChatGPT nebo Claude.</p>
+
+    <div class="prompt">
+      <div class="prompt__head">
+        <span class="prompt__title">Když s AI teprve začínáte</span>
+        <div class="prompt__actions">
+          <button class="icon-btn" data-copy aria-label="Zkopírovat do AI" title="Zkopírovat do AI">
+            <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+          <button class="icon-btn" data-toggle aria-label="Rozbalit prompt" title="Rozbalit prompt">
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      </div>
+      <pre class="prompt__body">Vytvoř se mnou about-me.md, kontextový dokument o mně, který budu vkládat do systémového promptu AI asistentů, aby věděli, s kým pracují.
+
+POSTUP
+Nejdřív se zeptej na jednu věc: k čemu přesně dokument použiju a kdo ho bude číst. Podle odpovědi uprav bloky níže.
+
+Pak se mě ptej po blocích:
+1. identita a role
+2. projekty a co právě běží
+3. pracovní styl a rozhodování
+4. komunikace a formát výstupů
+5. co nechci - opakované chyby asistentů, věci, co mi lezou na nervy, hranice
+
+V každém bloku dej najednou 3 až 5 otázek, očíslované. Po každém bloku se zastav a čekej na mou odpověď. Nepokračuj sám.
+
+DOPTÁVÁNÍ
+Když odpovím obecně ("mám ráda strukturu", "chci to stručně"), neber to. Zeptej se na konkrétní příklad nebo na hranici: kdy to neplatí, jak vypadalo poslední selhání, co je moc a co málo. Maximálně dvě doplňující otázky na blok, ať to nezdržuje.
+
+Než se budeš ptát, projdi, co už o mně víš z předchozích konverzací a dostupných souborů. Tyhle věci mi nepokládej jako otázky, jen mi je předlož k potvrzení nebo opravě.
+
+VÝSTUP
+Markdown, třetí osoba, čeština, maximálně 800 slov.
+Nadpisy podle bloků, v každém plynulý text, odrážky jen na skutečné seznamy (nástroje, projekty).
+Osm set slov znamená, že se tam všechno nevejde. Vyber to, co asistentovi nejvíc změní odpověď, zbytek vynech. Na konci mi napiš, co jsi vynechal, ať to můžu přehodit.
+Každé tvrzení o mně musí stát na něčem, co jsem řekla. Nedoplňuj, nezobecňuj, nepřidávej vlastnosti, které zní dobře.
+Kde mi chybí odpověď, napiš [doplnit] místo domýšlení.
+Vynech formulace, které by seděly na kohokoliv jiného v mém oboru.
+
+Na konec přidej sekci "Jak s tímto dokumentem pracovat" - tři až pět vět pro asistenta, co si z toho má vzít prioritně.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt__head">
+        <span class="prompt__title">Když už máte desítky konverzací</span>
+        <div class="prompt__actions">
+          <button class="icon-btn" data-copy aria-label="Zkopírovat do AI" title="Zkopírovat do AI">
+            <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+          <button class="icon-btn" data-toggle aria-label="Rozbalit prompt" title="Rozbalit prompt">
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      </div>
+      <pre class="prompt__body">Sestav about-me.md z toho, co o mně víš z naší dosavadní konverzace.
+Dokument budu vkládat do systémového promptu AI asistentů.
+
+NEŽ ZAČNEŠ PSÁT
+Projdi historii a vypiš mi nejdřív soupis toho, co jsi našel, po kategoriích: role a kontext, projekty, pracovní styl, komunikační preference, nástroje. U každé položky uveď, jestli jsem to řekla přímo, nebo je to tvůj závěr z toho, jak jsem se ptala.
+Pak se zastav a čekej, až ti to potvrdím nebo opravím. Nepiš dokument dřív.
+
+CO JE FAKT
+Fakt je něco, co jsem řekla vlastními slovy. Není to:
+- tvůj závěr z toho, jak jsem formulovala zadání
+- vlastnost, kterou sis odvodil z mého chování v chatu
+- něco, co jsi navrhl ty a já to jen nezpochybnila
+Tyhle věci do dokumentu nedávej. Když si nejsi jistý, zařaď to do soupisu jako závěr, ne jako fakt, a nech mě rozhodnout.
+
+CO VYNECHAT
+- věci, které už neplatí: ukončené projekty, nástroje, od kterých jsem odešla, staré priority. Když nevíš, jestli to ještě běží, zeptej se.
+- jednorázové zmínky vydávané za vzorec. Když jsem něco řekla jednou, napiš "zmínila jednou", nebo to vynech.
+- cokoliv o klientech, jejich lidech a interních věcech. Dokument jde do každé konverzace, tohle tam nepatří. Roli a typ práce ano, konkrétní klientské detaily ne.
+
+VÝSTUP
+Markdown, třetí osoba, čeština, maximálně 800 slov.
+Nadpisy podle kategorií, plynulý text, odrážky jen na skutečné seznamy.
+Osm set slov znamená výběr. Nech to, co asistentovi nejvíc změní odpověď.
+Sekce "Jak s tímto dokumentem pracovat" na konec, tři až pět vět.
+
+PO DOKUMENTU
+Přidej dvě krátké sekce mimo hlavní text:
+- Co jsem vynechal kvůli limitu
+- Co o tobě nevím: tři až pět konkrétních mezer, na které se tě mám doptat, ať dokument doplníme</pre>
+    </div>
+
+    <p style="margin-top:24px"><strong style="color:var(--ink)">Dvě věci k tomu.</strong> Co vám AI napíše, si přečtěte a opravte. Vymyslí si. A ten soubor bude nejcitlivější věc, jakou si vyrobíte, takže do něj napište jen to, aby vám AI rozuměla. Místo jmen dětí iniciály nebo jen věk, žádné diagnózy, částky ani jména klientů.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <h2>Ozvěte se</h2>
+    <p>S čímkoliv, i s otázkou, na kterou jsem v přednášce neodpověděla.</p>
+
+    <div class="contact-strip">
+      <img src="assets/Renata.png" alt="" class="contact-strip__avatar" />
+      <p class="contact-strip__text"><strong>Přidejte se ke mně</strong> na LinkedIn, sledujte holky_v_datech na Instagramu, nebo se jen mrkněte na web.</p>
+      <div class="contact-strip__links">
+        <a class="btn btn--sm" href="https://www.linkedin.com/in/ren%C3%A1ta-kucha%C5%99ov%C3%A1-84067116" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn--sm btn--ghost" href="https://instagram.com/holkyvdatech" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn--sm btn--ghost" href="https://www.holkyvdatech.cz" target="_blank" rel="noopener">holkyvdatech.cz</a>
+      </div>
+    </div>
+
+    <div class="form">
+      <p style="margin:0"><strong style="color:var(--ink)">Nebo mi rovnou napište pár slov</strong> – pozdrav, feedback na přednášku, cokoliv.</p>
+      <form class="form-row" id="message-form">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="access_key" value="6310b1e7-7460-48ce-9ba1-e3d800b2e5f9">
+        <input type="hidden" name="subject" value="Vzkaz z Next Gen Women">
+        <input type="hidden" name="from_name" value="Next Gen Women – web">
+        <input type="email" name="email" id="msg-email" placeholder="Váš e-mail" required>
+        <textarea name="message" id="msg-body" placeholder="Váš vzkaz…" required></textarea>
+        <button class="btn" type="submit">Odeslat vzkaz</button>
+        <p class="note" id="msg-status" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="klub-strip">
+  <div class="container">
+    <p><strong>Klub Next Gen Women.</strong> Všechno, co jsem si technicky nastavila, by nešlo tak hladce, nebýt žen, se kterými jsem to mohla rozebrat do hloubky. Klub vedou Lucka a Dita.</p>
+    <a class="btn btn--ghost" href="https://nextgenwomen.cz/klub/" target="_blank" rel="noopener">Podívat se do klubu</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <a href="https://www.holkyvdatech.cz"><img src="assets/logo.png" alt="holky_v_datech" class="footer__logo"></a>
+    <a href="https://www.holkyvdatech.cz">holkyvdatech.cz</a>
+    <a href="mailto:renata.kucharova@holkyvdatech.cz">renata.kucharova@holkyvdatech.cz</a>
+    <span class="sep">Renáta Kuchařová · 2026</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.closest('.prompt').querySelector('pre').innerText;
+    navigator.clipboard.writeText(t).then(function(){
+      b.classList.add('is-copied');
+      setTimeout(function(){ b.classList.remove('is-copied'); },1600);
+    });
+  });
+});
+
+document.querySelectorAll('[data-toggle]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var body=b.closest('.prompt').querySelector('.prompt__body');
+    var expanded=body.classList.toggle('expanded');
+    b.classList.toggle('is-expanded',expanded);
+    var label=expanded?'Sbalit prompt':'Rozbalit prompt';
+    b.setAttribute('aria-label',label);
+    b.title=label;
+  });
+});
+
+document.getElementById('message-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var form = e.target;
+  var status = document.getElementById('msg-status');
+  var button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  status.textContent = 'Odesílám…';
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(Object.fromEntries(new FormData(form)))
+  })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (data.success) {
+        status.textContent = 'Díky, dorazilo!';
+        form.reset();
+      } else {
+        status.textContent = 'Nepovedlo se odeslat, zkuste to prosím znovu.';
+      }
+    })
+    .catch(function(){
+      status.textContent = 'Nepovedlo se odeslat, zkuste to prosím znovu.';
+    })
+    .finally(function(){ button.disabled = false; });
+});
+</script>
+</body>
+</html>
