@@ -82,7 +82,9 @@ section.alt{background:var(--off-white);border-top:1px solid var(--green-mid);bo
 /* CONTACT STRIP (avatar + links, mirrors o-nas.html founder-strip) */
 .contact-strip{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--white);border:1px solid var(--green-mid);border-radius:var(--radius);padding:24px 28px}
 .contact-strip__avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--green-mid);flex-shrink:0}
-.contact-strip__text{flex:1 1 220px}
+.contact-strip + .contact-strip{margin-top:12px}
+.contact-strip__logo{height:56px;width:56px;object-fit:contain;flex-shrink:0}
+.contact-strip__text{flex:1 1 220px;margin:0;font-size:.9375rem}
 .contact-strip__text strong{color:var(--ink)}
 .contact-strip__links{display:flex;gap:10px;flex-wrap:wrap}
 
@@ -149,14 +151,6 @@ footer .sep{margin-left:auto;color:rgba(255,255,255,.5)}
     </div>
   </div>
 </header>
-
-<div class="klub-strip">
-  <div class="container klub-strip__inner">
-    <img src="assets/Konference/logo-full-trimmed.png" alt="Next Gen Women Konference" class="klub-strip__logo">
-    <p><strong>Klub Next Gen Women.</strong> Všechno, co jsem si technicky nastavila, by nešlo tak hladce, nebýt žen, se kterými jsem to mohla rozebrat do hloubky. Klub vedou Lucka a Dita.</p>
-    <a class="btn btn--ghost" href="https://nextgenwomen.cz/klub/" target="_blank" rel="noopener">Podívat se do klubu</a>
-  </div>
-</div>
 
 <section class="alt">
   <div class="container">
@@ -272,11 +266,19 @@ Přidej dvě krátké sekce mimo hlavní text:
 
     <div class="contact-strip">
       <img src="assets/Renata.png" alt="" class="contact-strip__avatar" />
-      <p class="contact-strip__text"><strong>Přidejte se ke mně</strong> na LinkedIn, sledujte holky_v_datech na Instagramu, nebo se jen mrkněte na web.</p>
+      <p class="contact-strip__text"><strong>Renáta Kuchařová</strong><br>Instagram je soukromý, stačí poslat žádost o sledování.</p>
       <div class="contact-strip__links">
         <a class="btn btn--sm" href="https://www.linkedin.com/in/ren%C3%A1ta-kucha%C5%99ov%C3%A1-84067116" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn--sm btn--ghost" href="https://instagram.com/renca_kucharova" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+
+    <div class="contact-strip">
+      <img src="assets/logo.png" alt="" class="contact-strip__logo" />
+      <p class="contact-strip__text"><strong>holky_v_datech</strong><br>Komunita datových analytiček.</p>
+      <div class="contact-strip__links">
+        <a class="btn btn--sm" href="https://www.holkyvdatech.cz" target="_blank" rel="noopener">holkyvdatech.cz</a>
         <a class="btn btn--sm btn--ghost" href="https://instagram.com/holkyvdatech" target="_blank" rel="noopener">Instagram</a>
-        <a class="btn btn--sm btn--ghost" href="https://www.holkyvdatech.cz" target="_blank" rel="noopener">holkyvdatech.cz</a>
       </div>
     </div>
 
@@ -307,6 +309,14 @@ Přidej dvě krátké sekce mimo hlavní text:
     </div>
   </div>
 </section>
+
+<div class="klub-strip">
+  <div class="container klub-strip__inner">
+    <img src="assets/Konference/logo-full-trimmed.png" alt="Next Gen Women Konference" class="klub-strip__logo">
+    <p><strong>Klub Next Gen Women.</strong> Všechno, co jsem si technicky nastavila, by nešlo tak hladce, nebýt žen, se kterými jsem to mohla rozebrat do hloubky. Klub vedou Lucka a Dita.</p>
+    <a class="btn btn--ghost" href="https://nextgenwomen.cz/klub-next-gen-women/" target="_blank" rel="noopener">Podívat se do klubu</a>
+  </div>
+</div>
 
 <footer>
   <div class="container">
