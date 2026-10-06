@@ -268,7 +268,8 @@
       upcomingContainer.innerHTML = '';
       if (!upcomingAll.length) {
         const p = document.createElement('p');
-        p.textContent = 'Právě nemáme naplánovanou žádnou akci. Sleduj nás, ať ti nic neuteče.';
+        p.className = 'events-empty';
+        p.textContent = 'Další akce právě připravujeme. Vydrž chvilku, brzy je tady zveřejníme.';
         upcomingContainer.appendChild(p);
       } else {
         upcomingAll.forEach((ev, i) => {
