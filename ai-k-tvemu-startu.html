@@ -181,7 +181,7 @@ ol.steps .sbody { padding: 0 16px 16px; display: flex; flex-direction: column; g
 ol.steps > li { background: var(--bg) !important; }
 summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; border-radius: var(--radius); }
 /* doporučení: struktura složky */
-.tip { background: var(--surface); border-radius: var(--radius); padding: 24px; }
+.tip .st { gap: 6px; }
 .tip .pill { align-self: flex-start; }
 .tree { background: var(--bg); border-radius: 12px; padding: 16px; font-size: 15px; }
 .tree code { font-family: ui-monospace, Consolas, monospace; font-size: 14px; background: var(--pale); padding: 2px 8px; border-radius: 6px; word-break: break-all; }
@@ -290,13 +290,14 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
 </details>
 </div>
 
-<section class="tip" aria-labelledby="tip-h">
-  <span class="pill">Doporučení</span>
-  <h2 id="tip-h">Jak pojmenovat, co si uložíš</h2>
+<details class="sec tip">
+  <summary><span class="st"><span class="pill">Doporučení</span><span class="sh">Jak pojmenovat, co si uložíš</span><span class="ss">Složky a názvy souborů, ať se ti to samo seřadí</span></span><span class="chev" aria-hidden="true"></span></summary>
+  <div class="sec-body">
   <p>Vždycky název a datum ve tvaru rok-měsíc-den. Soubory se pak samy seřadí od nejstaršího a za půl roku najdeš cokoliv během vteřiny. Bez háčků a mezer, ať to funguje všude.</p>
   <p id="tip-sub" class="muted"></p>
   <div class="tree" id="tip-tree"></div>
-</section>
+  </div>
+</details>
 <section class="faq" aria-labelledby="faq-h">
   <h2 id="faq-h">Když něco nejde</h2>
   <details><summary>AI přečetla můj rukopis špatně</summary><div><p>Napiš jí, co je správně, třeba: „V části Priority má být místo ‚běhání‘ slovo ‚bydlení‘.“ Opravuj, dokud text nesedí. Příště můžeš fotit blíž a na denním světle.</p></div></details>
