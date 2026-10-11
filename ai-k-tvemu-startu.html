@@ -160,6 +160,8 @@ details.sec.done .num::after { content: "✓"; font-size: 17px; }
 details[open] > summary .chev { transform: rotate(225deg); margin: 4px 6px 0 0; }
 .sec-body { padding: 4px 18px 20px; display: flex; flex-direction: column; gap: 16px; }
 .btn.next, .btn.next-step { align-self: flex-start; }
+.btn.undo { background: transparent; color: var(--fg); border: 2px solid var(--pale); }
+.btn.undo:hover { background: var(--pale); }
 ol.steps > li { padding: 0 !important; }
 ol.steps > li::before { display: none; }
 ol.steps details > summary { list-style: none; display: flex; align-items: center; gap: 12px; padding: 14px 16px; cursor: pointer; }
@@ -301,7 +303,7 @@ const VIDEA = {
   'mobil-chatgpt': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ', 'mobil-claude': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
   'pocitac-chatgpt': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ', 'pocitac-claude': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
   'projekt-chatgpt': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ', 'projekt-claude': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
-  'bezpecnost-chatgpt': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ', 'bezpecnost-claude': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ'
+  'bezpecnost-chatgpt': 'https://youtu.be/04ktSjGd4II', 'bezpecnost-claude': 'https://youtu.be/04ktSjGd4II'
 };
 
 const today = (() => { const d = new Date(); const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()); })();
@@ -444,18 +446,28 @@ function render() {
   try { localStorage.setItem('ngw-ai-volba', JSON.stringify(state)); } catch (e) {}
 }
 
+/* Hotový krok jde vrátit: tlačítko se přepne na "Zrušit hotovo". */
+function markDone(btn) { btn.textContent = 'Zrušit hotovo'; btn.classList.add('undo'); }
+function toggleUndo(det, btn) {
+  if (!det.classList.contains('done')) return false;
+  det.classList.remove('done'); btn.textContent = 'Hotovo, další krok'; btn.classList.remove('undo');
+  return true;
+}
+
 document.addEventListener('click', (e) => {
   const n = e.target.closest('.next');
   if (n) {
     const cur = n.closest('details.sec'); const nx = document.getElementById(n.dataset.next);
-    if (cur) { cur.open = false; cur.classList.add('done'); }
+    if (cur && toggleUndo(cur, n)) return;
+    if (cur) { cur.open = false; cur.classList.add('done'); markDone(n); }
     if (nx) { nx.open = true; nx.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); }
     return;
   }
   const ns = e.target.closest('.next-step');
   if (ns) {
     const i = +ns.dataset.i; const cur = document.getElementById('st' + i); const nx = document.getElementById('st' + (i + 1));
-    cur.open = false; cur.classList.add('done');
+    if (toggleUndo(cur, ns)) return;
+    cur.open = false; cur.classList.add('done'); markDone(ns);
     if (nx) { nx.open = true; nx.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     return;
   }
