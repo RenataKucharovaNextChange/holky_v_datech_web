@@ -304,7 +304,7 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
   <details><summary>Nenabídla mi Word ani PDF ke stažení</summary><div><p>Pod odpovědí je ikonka kopírování. Zkopíruj text, vlož ho do Wordu, Google Dokumentů nebo Poznámek v telefonu a ulož s názvem podle pravidla výš. Výsledek je stejný.</p></div></details>
   <details><summary>Nemám účet</summary><div><p id="faq-account"></p></div></details>
   <details><summary>Musím platit?</summary><div><p id="faq-pay"></p></div></details>
-  <details><summary>Nemám pracovní list, píšu do sešitu</summary><div><p>Nevadí. Vyfoť stránky ze sešitu a postup je stejný. Prompt zachová tvoje nadpisy.</p></div></details>
+  <details><summary>Nemám vytištěný pracovní list (PDF), píšu do sešitu</summary><div><p>Nevadí, list tisknout nemusíš. Piš do sešitu nebo na papír a jednotlivé části si nadepiš stejně jako v listu: vize, energie, kde jsem teď, priority a cíle. Pak stránky vyfoť a postupuj stejně. Prompt tvoje nadpisy zachová.</p></div></details>
 </section>
 
 <section class="help" aria-labelledby="pomoc">
@@ -333,8 +333,8 @@ const TOOLS = {
     safetyPath: ['Otevři svůj profil: na mobilu přes postranní panel, na počítači vlevo dole.', 'Klikni na <b>Nastavení (Settings)</b>.', 'Otevři <b>Ovládání dat (Data controls)</b>.', 'Vypni <b>„Improve the model for everyone“</b>.'],
     safetyNote: ['V bezplatném ChatGPT je trénování zapnuté automaticky.', 'Stačí to udělat jednou, platí pro celý účet.', 'Týká se jen chatů od vypnutí, proto to udělej před prvním nahráním.'],
     project: { where: 'V levém panelu najdi <b>Projekty</b> a klikni na <b>Nový projekt</b>.', instr: 'V projektu otevři nastavení (ikonka vpravo nahoře) a najdi pole <b>Instrukce</b>.', files: 'V projektu najdi <b>Soubory</b> a přidej stažený dokument.', limit: 'Projekty jsou v ChatGPT i v bezplatné verzi.' },
-    pay: 'Ne. Obě verze fungují v bezplatném ChatGPT, včetně projektů. Bezplatná verze má jen omezený počet zpráv a nahraných souborů za den. Když narazíš, zkus to druhý den.',
-    account: 'Jdi na chatgpt.com nebo si stáhni aplikaci ChatGPT od OpenAI z App Store či Google Play. Registrace je zdarma přes e-mail nebo účet Google či Apple.'
+    pay: 'Ne. Hodně toho zvládneš i v bezplatném ChatGPT, obě verze návodu v něm fungují včetně projektů. Bezplatná verze má ale omezený počet zpráv a nahraných souborů za den. Doporučujeme proto placenou verzi <b>ChatGPT Plus</b>: nenarazíš na limity uprostřed práce a dostaneš silnější modely.',
+    account: 'Jdi na <b>chatgpt.com</b> nebo si z App Store či Google Play stáhni aplikaci <b>ChatGPT</b> od OpenAI. Klikni na <b>Zaregistrovat se (Sign up)</b> a pokračuj e-mailem, účtem Google nebo Apple. Registrace je zdarma.'
   },
   claude: {
     name: 'Claude', web: 'claude.ai', store: 'Claude od Anthropic',
@@ -343,8 +343,8 @@ const TOOLS = {
     safetyPath: ['Klikni na své jméno v menu.', 'Otevři <b>Nastavení (Settings)</b>.', 'Otevři <b>Soukromí (Privacy)</b>.', 'Vypni <b>„Help improve Claude“</b>.'],
     safetyNote: ['Claude se na trénování ptá při prvním přihlášení. Zkontroluj, co jsi zvolila.', 'Stačí to udělat jednou, platí pro celý účet a nové chaty.', 'V aplikaci se přepínač může jmenovat trochu jinak, hledej ho v části Soukromí.'],
     project: { where: 'V levém panelu klikni na <b>Projekty (Projects)</b> a pak na <b>Nový projekt</b>.', instr: 'V projektu najdi pole <b>Instrukce (Instructions)</b> a klikni na úpravu.', files: 'V projektu najdi <b>Soubory (Files)</b>, klikni na <b>+</b> a přidej stažený dokument.', limit: 'V bezplatné verzi můžeš mít nejvýš pět projektů. Na klub ti stačí jeden.' },
-    pay: 'Ne. Obě verze fungují v bezplatném Claudovi. Bezplatná verze má omezený počet zpráv. Když narazíš, počkej pár hodin a pokračuj ve stejném chatu.',
-    account: 'Jdi na claude.ai nebo si stáhni aplikaci Claude od Anthropic z App Store či Google Play. Registrace je zdarma přes e-mail nebo účet Google.'
+    pay: 'Ne. Hodně toho zvládneš i v bezplatném Claudovi, obě verze návodu v něm fungují, projekty až do pěti. Bezplatná verze má ale omezený počet zpráv. Doporučujeme proto placenou verzi <b>Claude Pro</b>: nenarazíš na limity uprostřed práce a projektů můžeš mít, kolik chceš.',
+    account: 'Jdi na <b>claude.ai</b> nebo si z App Store či Google Play stáhni aplikaci <b>Claude</b> od Anthropic. Zadej svůj e-mail nebo klikni na <b>Pokračovat přes Google (Continue with Google)</b>. Při registraci e-mailem ti přijde odkaz nebo kód pro přihlášení. Registrace je zdarma.'
   }
 };
 
@@ -469,8 +469,8 @@ function render() {
   document.getElementById('next-text').textContent = v === 'projekt'
     ? 'Na mastermindu a při restartu otevři projekt, založ v něm nový chat a napiš pár vět, jak se ti daří. Projekt zná tvůj START, takže nic nepřikládáš.'
     : 'Na mastermindu a při restartu otevři chat „Můj START“ (nebo do nového chatu nahraj svůj uložený dokument) a napiš pár vět, jak se ti daří. Všechno tak zůstává na jednom místě.';
-  document.getElementById('faq-account').textContent = t.account;
-  document.getElementById('faq-pay').textContent = t.pay;
+  document.getElementById('faq-account').innerHTML = t.account;
+  document.getElementById('faq-pay').innerHTML = t.pay;
   document.getElementById('tip-sub').textContent = TREES[v].sub;
   document.getElementById('tip-tree').innerHTML = "<div class=\"folder\">" + treeHtml(TREES[v].tree) + '</div>';
   try { localStorage.setItem('ngw-ai-volba', JSON.stringify(state)); } catch (e) {}
