@@ -130,6 +130,12 @@ ol.steps ul { margin: 0; padding-left: 18px; }
 .path { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; }
 .path span { background: var(--bg); border: 1px solid var(--pale); border-radius: 8px; padding: 3px 10px; font-weight: 700; }
 .path i { font-style: normal; color: var(--muted); }
+.sblock { background: var(--bg); border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+.sblock ul, .sblock ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 4px; font-size: 15px; }
+.nolist li::marker { color: var(--blush); font-size: 1.2em; }
+.clicks { gap: 6px !important; }
+.clicks li::marker { color: var(--accent); font-weight: 700; }
+.notes { color: var(--muted); font-size: 14px !important; border-top: 1px solid var(--pale); padding-top: 10px !important; padding-left: 18px !important; }
 
 details { background: var(--surface); border-radius: 12px; padding: 0 18px; }
 summary { cursor: pointer; font-weight: 700; padding: 14px 0; list-style-position: outside; }
@@ -239,19 +245,24 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
 <details class="sec safe" id="k3">
   <summary><span class="num">3</span><span class="st"><span class="sh">Bezpečnost: než začneš</span><span class="ss">Co do chatu nepsat a jak vypnout trénování</span></span><span class="chev" aria-hidden="true"></span></summary>
   <div class="sec-body">
-  <p>Budeš psát o sobě, o energii, o vztazích. To je v pořádku, jen to napiš tak, aby z toho nešel poznat nikdo další.</p>
-  <div>
-    <h3 style="margin-bottom:8px">Do chatu nedávej</h3>
-    <ul class="nogo"><li>rodná čísla a čísla dokladů</li><li>čísla účtů a karet</li><li>hesla</li><li>zdravotní diagnózy</li><li>jména a údaje o dětech a dalších lidech</li><li>věci z práce: klienti, čísla, interní dokumenty</li></ul>
-    <p class="hint" style="margin-top:8px">Místo jmen piš „partner“, „šéfová“, „starší syn“. Pro tvůj START to stačí.</p>
+  <p>Psát o sobě, o energii a o vztazích je v pořádku. Jen tak, aby z toho nešel poznat nikdo další.</p>
+  <div class="sblock">
+    <h3>Do chatu nedávej</h3>
+    <ul class="nolist">
+      <li>rodná čísla a čísla dokladů</li>
+      <li>čísla účtů a karet, hesla</li>
+      <li>zdravotní diagnózy</li>
+      <li>jména a údaje o dětech a dalších lidech</li>
+      <li>věci z práce: klienty, čísla, interní dokumenty</li>
+    </ul>
+    <p class="hint">Místo jmen piš „partner“, „šéfová“, „starší syn“.</p>
+  </div>
+  <div class="sblock">
+    <h3 id="safety-title">Vypni trénování na svých datech</h3>
+    <ol class="clicks" id="safety-path"></ol>
+    <ul class="notes" id="safety-note"></ul>
   </div>
   <div class="video" id="safety-video"></div>
-  <div>
-    <h3 style="margin-bottom:8px" id="safety-title">Vypni trénování na svých datech</h3>
-    <p style="margin-bottom:10px" id="safety-why"></p>
-    <div class="path" id="safety-path"></div>
-    <p class="hint" style="margin-top:10px" id="safety-note"></p>
-  </div>
 
   <button type="button" class="btn next" data-next="k4">Hotovo, další krok</button>
   </div>
@@ -321,9 +332,8 @@ const TOOLS = {
     name: 'ChatGPT', web: 'chatgpt.com', store: 'ChatGPT od OpenAI',
     attachMobile: 'Klepni na <b>+</b> vedle pole pro psaní a vyber fotky.',
     attachPc: 'Klikni na <b>+</b> vedle pole pro psaní a vyber fotky, nebo je do okna přetáhni myší.',
-    safetyPath: ['Profil', 'Nastavení (Settings)', 'Ovládání dat (Data controls)', 'vypnout „Improve the model for everyone“'],
-    safetyWhy: 'Bezplatný ChatGPT má trénování na tvých chatech zapnuté automaticky. Na mobilu otevři postranní panel a klepni na svůj profil, na počítači klikni na svůj profil vlevo dole.',
-    safetyNote: 'Nastavení platí pro celý účet, stačí to udělat jednou. Týká se chatů od chvíle vypnutí, proto to udělej před prvním nahráním.',
+    safetyPath: ['Otevři svůj profil: na mobilu přes postranní panel, na počítači vlevo dole.', 'Klikni na <b>Nastavení (Settings)</b>.', 'Otevři <b>Ovládání dat (Data controls)</b>.', 'Vypni <b>„Improve the model for everyone“</b>.'],
+    safetyNote: ['V bezplatném ChatGPT je trénování zapnuté automaticky.', 'Stačí to udělat jednou, platí pro celý účet.', 'Týká se jen chatů od vypnutí, proto to udělej před prvním nahráním.'],
     project: { where: 'V levém panelu najdi <b>Projekty</b> a klikni na <b>Nový projekt</b>.', instr: 'V projektu otevři nastavení (ikonka vpravo nahoře) a najdi pole <b>Instrukce</b>.', files: 'V projektu najdi <b>Soubory</b> a přidej stažený dokument.', limit: 'Projekty jsou v ChatGPT i v bezplatné verzi.' },
     pay: 'Ne. Obě verze fungují v bezplatném ChatGPT, včetně projektů. Bezplatná verze má jen omezený počet zpráv a nahraných souborů za den. Když narazíš, zkus to druhý den.',
     account: 'Jdi na chatgpt.com nebo si stáhni aplikaci ChatGPT od OpenAI z App Store či Google Play. Registrace je zdarma přes e-mail nebo účet Google či Apple.'
@@ -332,9 +342,8 @@ const TOOLS = {
     name: 'Claude', web: 'claude.ai', store: 'Claude od Anthropic',
     attachMobile: 'Klepni na <b>+</b> u pole pro psaní a vyber fotky.',
     attachPc: 'Klikni na <b>+</b> u pole pro psaní a vyber fotky, nebo je do okna přetáhni myší.',
-    safetyPath: ['Tvoje jméno', 'Nastavení (Settings)', 'Soukromí (Privacy)', 'vypnout „Help improve Claude“'],
-    safetyWhy: 'Claude se tě na trénování zeptá při prvním přihlášení. Když sis nejsi jistá, co jsi zvolila, zkontroluj to: klikni na své jméno v menu.',
-    safetyNote: 'Nastavení platí pro celý účet a pro chaty od chvíle vypnutí. V aplikaci se přepínač může jmenovat trochu jinak, hledej ho v části Soukromí.',
+    safetyPath: ['Klikni na své jméno v menu.', 'Otevři <b>Nastavení (Settings)</b>.', 'Otevři <b>Soukromí (Privacy)</b>.', 'Vypni <b>„Help improve Claude“</b>.'],
+    safetyNote: ['Claude se na trénování ptá při prvním přihlášení. Zkontroluj, co jsi zvolila.', 'Stačí to udělat jednou, platí pro celý účet a nové chaty.', 'V aplikaci se přepínač může jmenovat trochu jinak, hledej ho v části Soukromí.'],
     project: { where: 'V levém panelu klikni na <b>Projekty (Projects)</b> a pak na <b>Nový projekt</b>.', instr: 'V projektu najdi pole <b>Instrukce (Instructions)</b> a klikni na úpravu.', files: 'V projektu najdi <b>Soubory (Files)</b>, klikni na <b>+</b> a přidej stažený dokument.', limit: 'V bezplatné verzi můžeš mít nejvýš pět projektů. Na klub ti stačí jeden.' },
     pay: 'Ne. Obě verze fungují v bezplatném Claudovi. Bezplatná verze má omezený počet zpráv. Když narazíš, počkej pár hodin a pokračuj ve stejném chatu.',
     account: 'Jdi na claude.ai nebo si stáhni aplikaci Claude od Anthropic z App Store či Google Play. Registrace je zdarma přes e-mail nebo účet Google.'
@@ -425,9 +434,8 @@ function render() {
   document.getElementById('guide-video').innerHTML = videoCard(v + '-' + k, 'Video: ' + VARS[v].label.toLowerCase() + ' v ' + (k === 'chatgpt' ? 'ChatGPT' : 'Claudovi'), 'Celý postup od fotky po uložený dokument, pár minut.');
   document.getElementById('safety-video').innerHTML = videoCard('bezpecnost-' + k, 'Video: bezpečnost v ' + (k === 'chatgpt' ? 'ChatGPT' : 'Claudovi'), 'Co do chatu nepsat a kde vypnout trénování.');
   document.getElementById('safety-title').textContent = 'Vypni trénování na svých datech v ' + (k === 'chatgpt' ? 'ChatGPT' : 'Claudovi');
-  document.getElementById('safety-why').textContent = t.safetyWhy;
-  document.getElementById('safety-path').innerHTML = t.safetyPath.map(s => `<span>${s}</span>`).join('<i>›</i>');
-  document.getElementById('safety-note').textContent = t.safetyNote;
+  document.getElementById('safety-path').innerHTML = t.safetyPath.map(s => `<li>${s}</li>`).join('');
+  document.getElementById('safety-note').innerHTML = t.safetyNote.map(s => `<li>${s}</li>`).join('');
   pid = 0;
   const st = steps(v, k);
   document.getElementById('steps').innerHTML = st.map((s, i) => {
