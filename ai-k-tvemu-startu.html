@@ -135,6 +135,7 @@ ol.steps ul { margin: 0; padding-left: 18px; }
 .sblock ul, .sblock ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 4px; font-size: 15px; }
 .nolist li::marker { color: var(--blush); font-size: 1.2em; }
 .clicks { gap: 6px !important; }
+.tool-mini .opt { padding: 8px 14px; align-items: center; text-align: center; }
 .clicks li::marker { color: var(--accent); font-weight: 700; }
 .notes { color: var(--muted); font-size: 14px !important; border-top: 1px solid var(--pale); padding-top: 10px !important; padding-left: 18px !important; }
 
@@ -221,34 +222,11 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
     <div><h3>Co AI udělá</h3><ul><li>přepíše fotku pracovního listu do textu</li><li>uspořádá ho podle nadpisů z listu</li><li>připraví dokument k uložení</li></ul></div>
     <div><h3>Co AI nedělá</h3><ul><li>neradí ti, co dělat se životem</li><li>nehodnotí tě</li><li>sama ti nic nepřipomene, na to máš klub</li></ul></div>
   </div>
-  <button type="button" class="btn next" data-next="k2">Hotovo, další krok</button>
-  </div>
-</details>
-<details class="sec " id="k2">
-  <summary><span class="num">2</span><span class="st"><span class="sh">Vyber si, jak chceš pracovat</span><span class="ss" id="sel-sum">Jednoduchá verze · ChatGPT</span></span><span class="chev" aria-hidden="true"></span></summary>
-  <div class="sec-body">
-  <p class="muted">Návod v kroku 4 se přizpůsobí. Uvidíš jen to, co potřebuješ. Volbu můžeš kdykoliv změnit.</p>
-  <div class="q">
-    <div class="q-label" id="q1">Jakou verzi chceš</div>
-    <div class="opts two" role="group" aria-labelledby="q1">
-      <button type="button" class="opt" id="opt-zaklad" data-var="zaklad" aria-pressed="true"><span class="tag">Nejjednodušší</span><strong>Jednoduchá verze</strong><span>Jeden chat, ze kterého si stáhneš hotový dokument. Funguje na mobilu i na počítači.</span></button>
-      <button type="button" class="opt" id="opt-projekt" data-var="projekt" aria-pressed="false"><strong>Organizovaná verze</strong><span>Vlastní projekt v AI, kde máš všechno z klubu pohromadě na celý ročník. Nastavení zabere asi 20 minut.</span></button>
-    </div>
-  </div>
-  <div class="q">
-    <div class="q-label" id="q2">V jakém nástroji</div>
-    <div class="opts two" role="group" aria-labelledby="q2">
-      <button type="button" class="opt" id="opt-chatgpt" data-tool="chatgpt" aria-pressed="true"><strong>ChatGPT</strong><span>Nejrozšířenější, možná ho už máš.</span></button>
-      <button type="button" class="opt" id="opt-claude" data-tool="claude" aria-pressed="false"><strong>Claude</strong><span>Když už ho používáš nebo ho chceš zkusit.</span></button>
-    </div>
-    <p class="hint">Vyber si jeden nástroj a drž se ho. Když budeš přeskakovat mezi aplikacemi, rozpadne se ti to zase do několika míst.</p>
-  </div>
-
   <button type="button" class="btn next" data-next="k3">Hotovo, další krok</button>
   </div>
 </details>
 <details class="sec safe" id="k3">
-  <summary><span class="num">3</span><span class="st"><span class="sh">Bezpečnost: než začneš</span><span class="ss">Co do chatu nepsat a jak vypnout trénování</span></span><span class="chev" aria-hidden="true"></span></summary>
+  <summary><span class="num">2</span><span class="st"><span class="sh">Bezpečnost: než začneš</span><span class="ss">Co do chatu nepsat a jak vypnout trénování</span></span><span class="chev" aria-hidden="true"></span></summary>
   <div class="sec-body">
   <div class="video" id="safety-video"></div>
   <p>Psát o sobě, o energii a o vztazích je v pořádku. Jen tak, aby z toho nešel poznat nikdo další.</p>
@@ -265,8 +243,34 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
   </div>
   <div class="sblock">
     <h3 id="safety-title">Vypni trénování na svých datech</h3>
-    <ol class="clicks" id="safety-path"></ol>
+    <div class="opts two tool-mini" role="group" aria-label="Nástroj">
+      <button type="button" class="opt" data-tool="chatgpt" aria-pressed="true"><strong>ChatGPT</strong></button>
+      <button type="button" class="opt" data-tool="claude" aria-pressed="false"><strong>Claude</strong></button>
+    </div>    <ol class="clicks" id="safety-path"></ol>
     <ul class="notes" id="safety-note"></ul>
+  </div>
+
+  <button type="button" class="btn next" data-next="k2">Hotovo, další krok</button>
+  </div>
+</details>
+<details class="sec " id="k2">
+  <summary><span class="num">3</span><span class="st"><span class="sh">Vyber si, jak chceš pracovat</span><span class="ss" id="sel-sum">Jednoduchá verze · ChatGPT</span></span><span class="chev" aria-hidden="true"></span></summary>
+  <div class="sec-body">
+  <p class="muted">Návod v kroku 4 se přizpůsobí. Uvidíš jen to, co potřebuješ. Volbu můžeš kdykoliv změnit.</p>
+  <div class="q">
+    <div class="q-label" id="q1">Jakou verzi chceš</div>
+    <div class="opts two" role="group" aria-labelledby="q1">
+      <button type="button" class="opt" id="opt-zaklad" data-var="zaklad" aria-pressed="true"><span class="tag">Nejjednodušší</span><strong>Jednoduchá verze</strong><span>Jeden chat, ze kterého si stáhneš hotový dokument. Funguje na mobilu i na počítači.</span></button>
+      <button type="button" class="opt" id="opt-projekt" data-var="projekt" aria-pressed="false"><strong>Organizovaná verze</strong><span>Vlastní projekt v AI, kde máš všechno z klubu pohromadě na celý ročník. Nastavení zabere asi 20 minut.</span></button>
+    </div>
+  </div>
+  <div class="q">
+    <div class="q-label" id="q2">V jakém nástroji</div>
+    <div class="opts two" role="group" aria-labelledby="q2">
+      <button type="button" class="opt" id="opt-chatgpt" data-tool="chatgpt" aria-pressed="true"><strong>ChatGPT</strong><span>Nejrozšířenější, možná ho už máš.</span></button>
+      <button type="button" class="opt" id="opt-claude" data-tool="claude" aria-pressed="false"><strong>Claude</strong><span>Když už ho používáš nebo ho chceš zkusit.</span></button>
+    </div>
+    <p class="hint">Vyber si jeden nástroj a drž se ho. Když budeš přeskakovat mezi aplikacemi, rozpadne se ti to zase do několika míst.</p>
   </div>
 
   <button type="button" class="btn next" data-next="k4">Hotovo, další krok</button>
