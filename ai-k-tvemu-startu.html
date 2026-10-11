@@ -174,6 +174,17 @@ ol.steps details { padding: 0; background: transparent; border-radius: var(--rad
 ol.steps .sbody { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 10px; }
 ol.steps > li { background: var(--bg) !important; }
 summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; border-radius: var(--radius); }
+/* doporučení: struktura složky */
+.tip { background: var(--surface); border-radius: var(--radius); padding: 24px; }
+.tip .pill { align-self: flex-start; }
+.tree { background: var(--bg); border-radius: 12px; padding: 16px; font-size: 15px; }
+.tree code { font-family: ui-monospace, Consolas, monospace; font-size: 14px; background: var(--pale); padding: 2px 8px; border-radius: 6px; word-break: break-all; }
+.tree .lbl { font-weight: 700; }
+.tree .folder, .tree li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.tree ul { list-style: none; margin: 10px 0 0 14px; padding: 0 0 0 20px; border-left: 2px solid var(--accent); display: flex; flex-direction: column; gap: 10px; }
+.tree li { position: relative; }
+.tree li::before { content: ""; position: absolute; left: -20px; top: 50%; width: 14px; border-top: 2px solid var(--accent); }
+.tree li .lbl { font-weight: 400; color: var(--muted); }
 </style>
 
 </head>
@@ -251,25 +262,11 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
   <p class="muted" id="guide-sub"></p>
   <div class="video" id="guide-video"></div>
   <ol class="steps" id="steps"></ol>
-  <button type="button" class="btn next" data-next="k5">Hotovo, další krok</button>
-  </div>
-</details>
-<details class="sec " id="k5">
-  <summary><span class="num">5</span><span class="st"><span class="sh">Jak pojmenovat, co si uložíš</span><span class="ss">Název a datum, ať se to samo seřadí</span></span><span class="chev" aria-hidden="true"></span></summary>
-  <div class="sec-body">
-  <p>Vždycky název a datum ve tvaru rok-měsíc-den. Soubory se pak samy seřadí od nejstaršího a za půl roku najdeš cokoliv během vteřiny. Bez háčků a mezer, ať to funguje všude.</p>
-  <dl class="name">
-    <dt>Složka</dt><dd><code>Klub-NGW_2026-27</code></dd>
-    <dt>Tvůj START</dt><dd><code class="d-today">Muj-START_2026-10-14</code></dd>
-    <dt>Zápis z mastermindu</dt><dd><code>Mastermind_2026-10-21</code></dd>
-    <dt>Měsíční restart</dt><dd><code>Restart_2026-11-04</code></dd>
-  </dl>
-
   <button type="button" class="btn next" data-next="k6">Hotovo, další krok</button>
   </div>
 </details>
 <details class="sec " id="k6">
-  <summary><span class="num">6</span><span class="st"><span class="sh">Co dál</span><span class="ss">Jak se ke STARTu vrátíš</span></span><span class="chev" aria-hidden="true"></span></summary>
+  <summary><span class="num">5</span><span class="st"><span class="sh">Co dál</span><span class="ss">Jak se ke STARTu vrátíš</span></span><span class="chev" aria-hidden="true"></span></summary>
   <div class="sec-body">
   <p id="next-text"></p>
   <p class="muted">Další prompty, třeba na přípravu na mastermind, dostaneš v klubu postupně. Teď stačí mít START uložený na jednom místě.</p>
@@ -278,6 +275,19 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
 </details>
 </div>
 
+<section class="tip" aria-labelledby="tip-h">
+  <span class="pill">Doporučení</span>
+  <h2 id="tip-h">Jak pojmenovat, co si uložíš</h2>
+  <p>Vždycky název a datum ve tvaru rok-měsíc-den. Soubory se pak samy seřadí od nejstaršího a za půl roku najdeš cokoliv během vteřiny. Bez háčků a mezer, ať to funguje všude.</p>
+  <div class="tree">
+    <div class="folder"><span class="lbl">Složka</span><code>Klub-NGW_2026-27</code></div>
+    <ul>
+      <li><span class="lbl">Tvůj START</span><code class="d-today">Muj-START_2026-10-14</code></li>
+      <li><span class="lbl">Zápis z mastermindu</span><code>Mastermind_2026-10-21</code></li>
+      <li><span class="lbl">Měsíční restart</span><code>Restart_2026-11-04</code></li>
+    </ul>
+  </div>
+</section>
 <section class="faq" aria-labelledby="faq-h">
   <h2 id="faq-h">Když něco nejde</h2>
   <details><summary>AI přečetla můj rukopis špatně</summary><div><p>Napiš jí, co je správně, třeba: „V části Priority má být místo ‚běhání‘ slovo ‚bydlení‘.“ Opravuj, dokud text nesedí. Příště můžeš fotit blíž a na denním světle.</p></div></details>
