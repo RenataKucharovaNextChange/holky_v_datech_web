@@ -189,7 +189,11 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
 .tree .folder, .tree li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
 .tree ul { list-style: none; margin: 10px 0 0 14px; padding: 0 0 0 20px; border-left: 2px solid var(--accent); display: flex; flex-direction: column; gap: 10px; }
 .tree li { position: relative; }
-.tree li::before { content: ""; position: absolute; left: -20px; top: 50%; width: 14px; border-top: 2px solid var(--accent); }
+.tree li::before { content: ""; position: absolute; left: -20px; top: 13px; width: 14px; border-top: 2px solid var(--accent); }
+.tree .folder > ul { flex-basis: 100%; }
+.tree li > ul { flex-basis: 100%; margin-top: 8px; gap: 6px; }
+.tree code.dir { background: var(--sel-bg); color: var(--sel-fg); font-weight: 700; }
+.tree li.more { color: var(--muted); font-size: 14px; }
 .tree li .lbl { font-weight: 400; color: var(--muted); }
 </style>
 
@@ -290,14 +294,8 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
   <span class="pill">Doporučení</span>
   <h2 id="tip-h">Jak pojmenovat, co si uložíš</h2>
   <p>Vždycky název a datum ve tvaru rok-měsíc-den. Soubory se pak samy seřadí od nejstaršího a za půl roku najdeš cokoliv během vteřiny. Bez háčků a mezer, ať to funguje všude.</p>
-  <div class="tree">
-    <div class="folder"><span class="lbl">Složka</span><code>Klub-NGW_2026-27</code></div>
-    <ul>
-      <li><span class="lbl">Tvůj START</span><code class="d-today">Muj-START_2026-10-14</code></li>
-      <li><span class="lbl">Zápis z mastermindu</span><code>Mastermind_2026-10-21</code></li>
-      <li><span class="lbl">Měsíční restart</span><code>Restart_2026-11-04</code></li>
-    </ul>
-  </div>
+  <p id="tip-sub" class="muted"></p>
+  <div class="tree" id="tip-tree"></div>
 </section>
 <section class="faq" aria-labelledby="faq-h">
   <h2 id="faq-h">Když něco nejde</h2>
@@ -423,6 +421,31 @@ try { const s = JSON.parse(localStorage.getItem('ngw-ai-volba') || 'null'); if (
 const h = (location.hash || '').slice(1).split('-'); if (OLD[h[0]]) h[0] = OLD[h[0]];
 if (VARS[h[0]] && TOOLS[h[1]]) state = { v: h[0], k: h[1] };
 
+/* Doporučení: struktura složky podle zvolené verze. Složka = [název, [obsah]], soubor = řetězec nebo [štítek, název]. */
+const D = () => 'Muj-START_' + today;
+const TREES = {
+  zaklad: {
+    sub: 'Všechno z klubu ukládej do jedné složky. Stejný typ souboru má vždy stejný název, liší se jen datem.',
+    tree: ['Klub-NGW_2026-27', [D(), 'Mastermind_2026-10-21', 'Mastermind_2026-11-18', 'Mastermind_2026-12-16', 'Restart_2026-11-04', 'Restart_2026-12-02']]
+  },
+  projekt: {
+    sub: 'V organizované verzi si složku rozděl na podsložky. Číslo na začátku drží pořadí, uvnitř se soubory řadí podle data. Stejné soubory pak nahráváš i do projektu.',
+    tree: ['Klub-NGW_2026-27', [
+      ['00_Zaklad', [D(), 'Instrukce-projektu']],
+      ['01_Mesicni_restarty', ['Restart_2026-11-04', 'Restart_2026-12-02', 'Restart_2027-01-06']],
+      ['02_Masterminds', ['Mastermind_2026-10-21', 'Mastermind_2026-11-18', 'Mastermind_2026-12-16']],
+      ['03_Denik', ['Denik_2026-10-15', 'Denik_2026-10-22', 'Denik_2026-10-29']],
+      ['04_Hoste_a_nastroje', ['Host_2026-11-11', 'Host_2026-12-09', 'Kolo-zivota_2026-12-09']],
+      ['05_Retrospektivy', ['Retrospektiva_2027-01-27', 'Retrospektiva_2027-06-30']]
+    ]]
+  }
+};
+const isDir = (n) => Array.isArray(n) && Array.isArray(n[1]);
+function treeHtml(n) {
+  if (isDir(n)) return `<code class="dir">${n[0]}</code><ul>${n[1].map(c => `<li>${treeHtml(c)}</li>`).join('')}</ul>`;
+  return `<code>${n}</code>`;
+}
+
 function render() {
   const { v, k } = state, t = TOOLS[k];
   document.querySelectorAll('[data-var]').forEach(b => b.setAttribute('aria-pressed', b.dataset.var === v));
@@ -448,7 +471,8 @@ function render() {
     : 'Na mastermindu a při restartu otevři chat „Můj START“ (nebo do nového chatu nahraj svůj uložený dokument) a napiš pár vět, jak se ti daří. Všechno tak zůstává na jednom místě.';
   document.getElementById('faq-account').textContent = t.account;
   document.getElementById('faq-pay').textContent = t.pay;
-  document.querySelectorAll('.d-today').forEach(el => el.textContent = 'Muj-START_' + today);
+  document.getElementById('tip-sub').textContent = TREES[v].sub;
+  document.getElementById('tip-tree').innerHTML = "<div class=\"folder\">" + treeHtml(TREES[v].tree) + '</div>';
   try { localStorage.setItem('ngw-ai-volba', JSON.stringify(state)); } catch (e) {}
 }
 
