@@ -364,13 +364,13 @@ const PROMPT_START = () => `Na fotkách je můj ručně vyplněný pracovní lis
 1. Přepiš text z fotek co nejpřesněji. Nic nepřidávej, nevylepšuj a neraď mi.
 2. Zachovej nadpisy a pořadí z pracovního listu. Když je nějaká část prázdná, napiš „nevyplněno“.
 3. Místa, která nejde přečíst, označ [nečitelné] a na konci se mě na ně zeptej.
-4. Nahoru dej název „Můj START“ a dnešní datum ${today}.
+4. Nahoru dej název „Můj START“ a datum, kdy jsem poznámky psala. Na datum se mě nejdřív zeptej.
 
 Odpovídej česky.`;
 
 const PROMPT_EXPORT = (fmt) => `Text je v pořádku. Udělej z něj ${fmt} ke stažení. Text neměň.
 
-Soubor pojmenuj Muj-START_RRRR-MM-DD. Datum je den, kdy jsem poznámky psala, takže se mě na něj nejdřív zeptej. Když ho nebudu vědět, použij dnešní datum ${today}.`;
+Soubor pojmenuj Muj-START_RRRR-MM-DD. Datum je den, kdy jsem poznámky psala, takže se mě na něj nejdřív zeptej.`;
 
 const PROMPT_PROJECT = () => `Jsem členka Klubu Next Gen Women. V klubu pracuji podle rámce START: vize, energie, kde jsem teď, priority a cíle. V souborech tohoto projektu je můj aktuální START.
 
@@ -383,7 +383,7 @@ Když ti pošlu poznámky nebo fotku:
 Výstupy pojmenuj ve tvaru Nazev_RRRR-MM-DD (například Mastermind_2026-10-21).
 Odpovídej česky a stručně.`;
 
-const PROMPT_START_PROJECT = () => `Na fotkách je můj vyplněný pracovní list. Přepiš ho podle instrukcí projektu, zachovej nadpisy z listu a nahoru dej „Můj START“ a datum ${today}. Nečitelná místa označ [nečitelné] a zeptej se mě na ně.`;
+const PROMPT_START_PROJECT = () => `Na fotkách je můj vyplněný pracovní list. Přepiš ho podle instrukcí projektu, zachovej nadpisy z listu a nahoru dej „Můj START“ a datum, kdy jsem poznámky psala. Na datum se mě nejdřív zeptej. Nečitelná místa označ [nečitelné] a zeptej se mě na ně.`;
 
 let pid = 0;
 function promptBox(title, text) {
