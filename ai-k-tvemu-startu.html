@@ -97,6 +97,9 @@ header .pill { align-self: flex-start; }
 .play svg { width: 22px; height: 22px; fill: #324C44; margin-left: 4px; }
 .video .vt { flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .video .vt small { opacity: .85; font-size: 14px; }
+.video.sm { padding: 14px 16px; gap: 12px; }
+.video.sm .play { width: 40px; height: 40px; }
+.video.sm .play svg { width: 16px; height: 16px; }
 .btn { font: inherit; font-weight: 700; font-size: 15px; cursor: pointer; border: 0; border-radius: var(--pill); padding: 10px 20px; background: var(--accent); color: var(--on-accent); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
 .btn:hover { background: #324C44; }
 .btn.light { background: var(--surface); color: var(--fg); }
@@ -135,7 +138,6 @@ ol.steps ul { margin: 0; padding-left: 18px; }
 .sblock ul, .sblock ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 4px; font-size: 15px; }
 .nolist li::marker { color: var(--blush); font-size: 1.2em; }
 .clicks { gap: 6px !important; }
-.tool-mini .opt { padding: 8px 14px; align-items: center; text-align: center; }
 .clicks li::marker { color: var(--accent); font-weight: 700; }
 .notes { color: var(--muted); font-size: 14px !important; border-top: 1px solid var(--pale); padding-top: 10px !important; padding-left: 18px !important; }
 
@@ -243,10 +245,7 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
   </div>
   <div class="sblock">
     <h3 id="safety-title">Vypni trénování na svých datech</h3>
-    <div class="opts two tool-mini" role="group" aria-label="Nástroj">
-      <button type="button" class="opt" data-tool="chatgpt" aria-pressed="true"><strong>ChatGPT</strong></button>
-      <button type="button" class="opt" data-tool="claude" aria-pressed="false"><strong>Claude</strong></button>
-    </div>    <ol class="clicks" id="safety-path"></ol>
+    <ol class="clicks" id="safety-path"></ol>
     <ul class="notes" id="safety-note"></ul>
   </div>
 
@@ -261,17 +260,10 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
     <div class="q-label" id="q1">Jakou verzi chceš</div>
     <div class="opts two" role="group" aria-labelledby="q1">
       <button type="button" class="opt" id="opt-zaklad" data-var="zaklad" aria-pressed="true"><span class="tag">Nejjednodušší</span><strong>Jednoduchá verze</strong><span>Jeden chat, ze kterého si stáhneš hotový dokument. Funguje na mobilu i na počítači.</span></button>
-      <button type="button" class="opt" id="opt-projekt" data-var="projekt" aria-pressed="false"><strong>Organizovaná verze</strong><span>Vlastní projekt v AI, kde máš všechno z klubu pohromadě na celý ročník. Nastavení zabere asi 20 minut.</span></button>
+      <button type="button" class="opt" id="opt-projekt" data-var="projekt" aria-pressed="false"><span class="tag">Připravujeme</span><strong>Organizovaná verze</strong><span>Vlastní projekt v AI, kde máš všechno z klubu pohromadě na celý ročník. Nastavení zabere asi 20 minut.</span></button>
     </div>
   </div>
-  <div class="q">
-    <div class="q-label" id="q2">V jakém nástroji</div>
-    <div class="opts two" role="group" aria-labelledby="q2">
-      <button type="button" class="opt" id="opt-chatgpt" data-tool="chatgpt" aria-pressed="true"><strong>ChatGPT</strong><span>Nejrozšířenější, možná ho už máš.</span></button>
-      <button type="button" class="opt" id="opt-claude" data-tool="claude" aria-pressed="false"><strong>Claude</strong><span>Když už ho používáš nebo ho chceš zkusit.</span></button>
-    </div>
-    <p class="hint">Vyber si jeden nástroj a drž se ho. Když budeš přeskakovat mezi aplikacemi, rozpadne se ti to zase do několika míst.</p>
-  </div>
+
 
   <button type="button" class="btn next" data-next="k4">Hotovo, další krok</button>
   </div>
@@ -328,9 +320,9 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
 <script>
 /* ===== ODKAZY NA VIDEA (zatím TESTOVACÍ odkaz, nahradit skutečnými videi): sem vlož odkazy, až budou videa nahraná (YouTube, Vimeo, Disk). Prázdné = "Video připravujeme". ===== */
 const VIDEA = {
-  'zaklad-chatgpt': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ', 'zaklad-claude': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
-  'projekt-chatgpt': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ', 'projekt-claude': 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
-  'bezpecnost-chatgpt': 'https://youtu.be/04ktSjGd4II', 'bezpecnost-claude': 'https://youtu.be/04ktSjGd4II'
+  'uvod': 'https://youtu.be/bucYGQBHsKY', 'foto-chat': 'https://youtu.be/lARPTGVa2Qw', 'online-dokument': 'https://youtu.be/Xi1KR9dAlpI',
+  'projekt-chatgpt': '',
+  'bezpecnost-chatgpt': 'https://youtu.be/04ktSjGd4II'
 };
 
 const today = (() => { const d = new Date(); const p = n => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()); })();
@@ -345,16 +337,6 @@ const TOOLS = {
     project: { where: 'V levém panelu najdi <b>Projekty</b> a klikni na <b>Nový projekt</b>.', instr: 'V projektu otevři nastavení (ikonka vpravo nahoře) a najdi pole <b>Instrukce</b>.', files: 'V projektu najdi <b>Soubory</b> a přidej stažený dokument.', limit: 'Projekty jsou v ChatGPT i v bezplatné verzi.' },
     pay: 'Ne. Hodně toho zvládneš i v bezplatném ChatGPT, obě verze návodu v něm fungují včetně projektů. Bezplatná verze má ale omezený počet zpráv a nahraných souborů za den. Doporučujeme proto placenou verzi <b>ChatGPT Plus</b>: nenarazíš na limity uprostřed práce a dostaneš silnější modely.',
     account: 'Jdi na <b>chatgpt.com</b> nebo si z App Store či Google Play stáhni aplikaci <b>ChatGPT</b> od OpenAI. Klikni na <b>Zaregistrovat se (Sign up)</b> a pokračuj e-mailem, účtem Google nebo Apple. Registrace je zdarma.'
-  },
-  claude: {
-    name: 'Claude', web: 'claude.ai', store: 'Claude od Anthropic',
-    attachMobile: 'Klepni na <b>+</b> u pole pro psaní a vyber fotky.',
-    attachPc: 'Klikni na <b>+</b> u pole pro psaní a vyber fotky, nebo je do okna přetáhni myší.',
-    safetyPath: ['Klikni na své jméno v menu.', 'Otevři <b>Nastavení (Settings)</b>.', 'Otevři <b>Soukromí (Privacy)</b>.', 'Vypni <b>„Help improve Claude“</b>.'],
-    safetyNote: ['Claude se na trénování ptá při prvním přihlášení. Zkontroluj, co jsi zvolila.', 'Stačí to udělat jednou, platí pro celý účet a nové chaty.', 'V aplikaci se přepínač může jmenovat trochu jinak, hledej ho v části Soukromí.'],
-    project: { where: 'V levém panelu klikni na <b>Projekty (Projects)</b> a pak na <b>Nový projekt</b>.', instr: 'V projektu najdi pole <b>Instrukce (Instructions)</b> a klikni na úpravu.', files: 'V projektu najdi <b>Soubory (Files)</b>, klikni na <b>+</b> a přidej stažený dokument.', limit: 'V bezplatné verzi můžeš mít nejvýš pět projektů. Na klub ti stačí jeden.' },
-    pay: 'Ne. Hodně toho zvládneš i v bezplatném Claudovi, obě verze návodu v něm fungují, projekty až do pěti. Bezplatná verze má ale omezený počet zpráv. Doporučujeme proto placenou verzi <b>Claude Pro</b>: nenarazíš na limity uprostřed práce a projektů můžeš mít, kolik chceš.',
-    account: 'Jdi na <b>claude.ai</b> nebo si z App Store či Google Play stáhni aplikaci <b>Claude</b> od Anthropic. Zadej svůj e-mail nebo klikni na <b>Pokračovat přes Google (Continue with Google)</b>. Při registraci e-mailem ti přijde odkaz nebo kód pro přihlášení. Registrace je zdarma.'
   }
 };
 
@@ -403,16 +385,15 @@ function steps(v, k) {
   const t = TOOLS[k];
   if (v === 'zaklad') return [
     { h: fill() },
-    { h: `<h3>Vyfoť ho</h3><p>Každou stranu zvlášť, shora a na světle, ať je vidět celá stránka. Budeš pracovat na počítači? Pošli si fotky e-mailem sama sobě, přes OneDrive, Google Fotky nebo AirDrop.</p>` },
-    { h: `<h3>Otevři ${t.name} a založ nový chat</h3><p>Na mobilu otevři aplikaci <b>${t.store}</b> z App Store nebo Google Play, na počítači jdi v prohlížeči na <b>${t.web}</b>. Přihlas se. Trénování na datech máš vypnuté podle návodu výš.</p>` },
+    { h: `<h3>Vyfoť ho</h3><p>Každou stranu zvlášť, shora a na světle, ať je vidět celá stránka. Budeš pracovat na počítači? Pošli si fotky e-mailem sama sobě, přes OneDrive, Google Fotky nebo AirDrop.</p>${vid('foto-chat', 'Video 2: Vyfoť poznámky a začni chat', 'Jak vyfotit rukopis, otevřít ChatGPT a založit nové vlákno.')}` },    { h: `<h3>Otevři ${t.name} a založ nový chat</h3><p>Na mobilu otevři aplikaci <b>${t.store}</b> z App Store nebo Google Play, na počítači jdi v prohlížeči na <b>${t.web}</b>. Přihlas se. Trénování na datech máš vypnuté podle návodu výš.</p>` },
     { key: true, h: `<h3>Přilož fotky a vlož prompt</h3><p>Klepni nebo klikni na <b>+</b> vedle pole pro psaní a vyber fotky. Na počítači je můžeš do okna i přetáhnout myší. Pak zkopíruj text níž, vlož ho do pole pro psaní a odešli.</p>${promptBox('Prompt: přepis listu', PROMPT_START())}` },
-    { h: check },
+    { h: check + vid('online-dokument', 'Video 3: Úpravy a hotový dokument', 'Jak chat otevřít na počítači na chatgpt.com, doladit text a vytvořit finální dokument.') },
     { key: true, h: `<h3>Nech si udělat dokument a ulož ho</h3><p>Na konci vlákna požádej o Word nebo PDF. Tenhle text vlož jako další zprávu:</p>${promptBox('Prompt: Word ke stažení', PROMPT_EXPORT('dokument Word (.docx)'))}<p>Klepni na soubor v odpovědi a ulož ho do složky <b>Klub-NGW_2026-27</b>: v telefonu do <b>Souborů</b>, na OneDrive nebo Google Disk, v počítači třeba do Dokumentů. Chceš PDF? Napiš ve zprávě „PDF“ místo „dokument Word“.</p><p class="hint">Stejný chat uvidíš na mobilu i na ${t.web}, když se přihlásíš stejným účtem.</p>` },
     { h: `<h3>Přejmenuj chat na „Můj START“</h3><p>V seznamu chatů na něj na mobilu podrž prst, na počítači na něj najeď myší, a zvol přejmenování. Příště ho najdeš hned.</p>` }
   ];
   return [
     { h: `<h3>Vyplň list rukou a vyfoť ho</h3><p>Každou stranu zvlášť, shora a na světle. Projekt je nejpohodlnější nastavit na počítači, tak si fotky pošli i tam.</p>` },
-    { h: `<h3>Založ projekt</h3><p>Otevři ${t.web}. ${t.project.where} Pojmenuj ho <b>Můj růst · Klub NGW</b>.</p><p class="hint">${t.project.limit}</p>` },
+    { h: `<h3>Založ projekt</h3><p>Otevři ${t.web}. ${t.project.where} Pojmenuj ho <b>Můj růst · Klub NGW</b>.</p><p class="hint">${t.project.limit}</p>${vid('projekt-chatgpt', 'Video: organizovaná verze', 'Jak založit projekt a nastavit ho pro klub.')}` },
     { key: true, h: `<h3>Vlož instrukce projektu</h3><p>${t.project.instr} Vlož tam tenhle text. Projekt ho pak čte u každého chatu, takže ho nemusíš opakovat.</p>${promptBox('Instrukce projektu', PROMPT_PROJECT())}` },
     { key: true, h: `<h3>V projektu založ chat, přilož fotky a vlož prompt</h3><p>Chat zakládej uvnitř projektu, ne na hlavní stránce. ${t.attachPc}</p>${promptBox('Prompt: přepis listu', PROMPT_START_PROJECT())}` },
     { h: check },
@@ -420,6 +401,8 @@ function steps(v, k) {
     { h: `<h3>Jak s projektem pracovat dál</h3><ul><li>Každý mastermind nebo restart = nový chat uvnitř projektu.</li><li>Když si START upravíš, nahraj novou verzi a starou ze souborů projektu smaž. Jinak bude AI pracovat se starou vizí.</li><li>Projekt ti sám nic nepřipomene. Vracíš se do něj ty, když tě klub pozve.</li></ul>` }
   ];
 }
+
+const vid = (key, title, sub) => `<div class="video sm">${videoCard(key, title, sub)}</div>`;
 
 function videoCard(key, title, sub) {
   const url = VIDEA[key];
@@ -461,14 +444,13 @@ function treeHtml(n) {
 function render() {
   const { v, k } = state, t = TOOLS[k];
   document.querySelectorAll('[data-var]').forEach(b => b.setAttribute('aria-pressed', b.dataset.var === v));
-  document.querySelectorAll('[data-tool]').forEach(b => b.setAttribute('aria-pressed', b.dataset.tool === k));
   const lbl = VARS[v].label + ' · ' + t.name;
   document.getElementById('sel-sum').textContent = lbl;
   document.getElementById('guide-sum').textContent = lbl;
   document.getElementById('guide-sub').textContent = VARS[v].sub;
-  document.getElementById('guide-video').innerHTML = videoCard(v + '-' + k, 'Video: ' + VARS[v].label.toLowerCase() + ' v ' + (k === 'chatgpt' ? 'ChatGPT' : 'Claudovi'), 'Celý postup od fotky po uložený dokument, pár minut.');
-  document.getElementById('safety-video').innerHTML = videoCard('bezpecnost-' + k, 'Video: bezpečnost v ' + (k === 'chatgpt' ? 'ChatGPT' : 'Claudovi'), 'Co do chatu nepsat a kde vypnout trénování.');
-  document.getElementById('safety-title').textContent = 'Vypni trénování na svých datech v ' + (k === 'chatgpt' ? 'ChatGPT' : 'Claudovi');
+  document.getElementById('guide-video').innerHTML = videoCard('uvod', 'Video 1: Úvod', 'Co budeme dělat: z ručně psaných poznámek uděláme v ChatGPT hotový dokument.');
+  document.getElementById('safety-video').innerHTML = videoCard('bezpecnost-' + k, 'Video: bezpečnost v ' + t.name, 'Co do chatu nepsat a kde vypnout trénování.');
+  document.getElementById('safety-title').textContent = 'Vypni trénování na svých datech v ' + t.name;
   document.getElementById('safety-path').innerHTML = t.safetyPath.map(s => `<li>${s}</li>`).join('');
   document.getElementById('safety-note').innerHTML = t.safetyNote.map(s => `<li>${s}</li>`).join('');
   pid = 0;
@@ -515,7 +497,7 @@ document.addEventListener('click', (e) => {
     return;
   }
   const o = e.target.closest('.opt');
-  if (o) { if (o.dataset.var) state.v = o.dataset.var; if (o.dataset.tool) state.k = o.dataset.tool; render(); return; }
+  if (o) { if (o.dataset.var) state.v = o.dataset.var; render(); return; }
   const c = e.target.closest('.copy');
   if (c) {
     const pre = document.getElementById(c.dataset.target);
