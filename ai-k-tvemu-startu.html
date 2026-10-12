@@ -298,6 +298,9 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
   <summary><span class="st"><span class="pill">Doporučení</span><span class="sh">Jak pojmenovat, co si uložíš</span><span class="ss">Složky a názvy souborů, ať se ti to samo seřadí</span></span><span class="chev" aria-hidden="true"></span></summary>
   <div class="sec-body">
   <p>Vždycky název a datum ve tvaru rok-měsíc-den. Soubory se pak samy seřadí od nejstaršího a za půl roku najdeš cokoliv během vteřiny. Bez háčků a mezer, ať to funguje všude.</p>
+  <p>Tenhle prompt vlož na konec chatu a AI soubor pojmenuje sama:</p>
+  <div class="prompt"><div class="prompt-bar"><b>Prompt: pojmenování souboru</b><button type="button" class="btn copy" data-target="p-name">Kopírovat</button></div><pre id="p-name">Když mi budeš dávat soubor ke stažení, pojmenuj ho takhle: Typ_RRRR-MM-DD. Typ je jedno nebo dvě slova o tom, co v souboru je, víc slov spoj pomlčkou. Datum je den, kdy jsem poznámky psala, nejdřív se mě na něj zeptej. Bez háčků, čárek a mezer.</pre></div>
+  <p class="hint" id="tip-proj" hidden>V organizované verzi ho kopírovat nemusíš, je už v instrukcích projektu.</p>
   <p id="tip-sub" class="muted"></p>
   <div class="tree" id="tip-tree"></div>
   </div>
@@ -379,7 +382,7 @@ Když ti pošlu poznámky nebo fotku:
 - neraď mi, co mám dělat, a nehodnoť mě. Můžeš se doptat otázkou,
 - když řeším rozhodnutí, ukaž mi, co k tomu říká moje vize a priority. Rozhodnutí nech na mně.
 
-Výstupy pojmenuj ve tvaru Nazev_RRRR-MM-DD (například Mastermind_2026-10-21).
+Když mi budeš dávat soubor ke stažení, pojmenuj ho takhle: Typ_RRRR-MM-DD. Typ je jedno nebo dvě slova o tom, co v souboru je, víc slov spoj pomlčkou. Datum je den, kdy jsem poznámky psala, nejdřív se mě na něj zeptej. Bez háčků, čárek a mezer.
 Odpovídej česky a stručně.`;
 
 const PROMPT_START_PROJECT = () => `Na fotkách je můj vyplněný pracovní list. Přepiš ho podle instrukcí projektu, zachovej nadpisy z listu a nahoru dej „Můj START“ a datum, kdy jsem poznámky psala. Na datum se mě nejdřív zeptej. Nečitelná místa označ [nečitelné] a zeptej se mě na ně.`;
@@ -479,6 +482,7 @@ function render() {
   document.getElementById('faq-account').innerHTML = t.account;
   document.getElementById('faq-pay').innerHTML = t.pay;
   document.getElementById('tip-sub').textContent = TREES[v].sub;
+  document.getElementById('tip-proj').hidden = v !== 'projekt';
   document.getElementById('tip-tree').innerHTML = "<div class=\"folder\">" + treeHtml(TREES[v].tree) + '</div>';
   try { localStorage.setItem('ngw-ai-volba', JSON.stringify(state)); } catch (e) {}
 }
