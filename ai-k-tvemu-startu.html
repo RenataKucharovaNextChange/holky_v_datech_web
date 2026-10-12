@@ -195,6 +195,7 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
 .tree .folder > ul { flex-basis: 100%; }
 .tree li > ul { flex-basis: 100%; margin-top: 8px; gap: 6px; }
 .tree code.dir { background: var(--sel-bg); color: var(--sel-fg); font-weight: 700; }
+.tree .ex { display: inline-block; margin: 0 0 10px; }
 .tree li.more { color: var(--muted); font-size: 14px; }
 .tree li .lbl { font-weight: 400; color: var(--muted); }
 </style>
@@ -484,7 +485,7 @@ function render() {
   document.getElementById('faq-pay').innerHTML = t.pay;
   document.getElementById('tip-sub').textContent = TREES[v].sub;
   document.getElementById('tip-proj').hidden = v !== 'projekt';
-  document.getElementById('tip-tree').innerHTML = "<div class=\"folder\">" + treeHtml(TREES[v].tree) + '</div>';
+  document.getElementById('tip-tree').innerHTML = '<span class="tag ex">Příklad</span>' + "<div class=\"folder\">" + treeHtml(TREES[v].tree) + '</div>';
   try { localStorage.setItem('ngw-ai-volba', JSON.stringify(state)); } catch (e) {}
 }
 
