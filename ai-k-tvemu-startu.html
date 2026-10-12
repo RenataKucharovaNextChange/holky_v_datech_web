@@ -138,6 +138,7 @@ ol.steps ul { margin: 0; padding-left: 18px; }
 .sblock ul, .sblock ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 4px; font-size: 15px; }
 .nolist li::marker { color: var(--blush); font-size: 1.2em; }
 .clicks { gap: 6px !important; }
+ol.steps .sblock { background: var(--surface); }
 .clicks li::marker { color: var(--accent); font-weight: 700; }
 .notes { color: var(--muted); font-size: 14px !important; border-top: 1px solid var(--pale); padding-top: 10px !important; padding-left: 18px !important; }
 
@@ -249,27 +250,11 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
     <ul class="notes" id="safety-note"></ul>
   </div>
 
-  <button type="button" class="btn next" data-next="k2">Hotovo, další krok</button>
-  </div>
-</details>
-<details class="sec " id="k2">
-  <summary><span class="num">3</span><span class="st"><span class="sh">Vyber si, jak chceš pracovat</span><span class="ss" id="sel-sum">Jednoduchá verze · ChatGPT</span></span><span class="chev" aria-hidden="true"></span></summary>
-  <div class="sec-body">
-  <p class="muted">Návod v kroku 4 se přizpůsobí. Uvidíš jen to, co potřebuješ. Volbu můžeš kdykoliv změnit.</p>
-  <div class="q">
-    <div class="q-label" id="q1">Jakou verzi chceš</div>
-    <div class="opts two" role="group" aria-labelledby="q1">
-      <button type="button" class="opt" id="opt-zaklad" data-var="zaklad" aria-pressed="true"><span class="tag">Nejjednodušší</span><strong>Jednoduchá verze</strong><span>Jeden chat, ze kterého si stáhneš hotový dokument. Funguje na mobilu i na počítači.</span></button>
-      <button type="button" class="opt" id="opt-projekt" data-var="projekt" aria-pressed="false"><span class="tag">Připravujeme</span><strong>Organizovaná verze</strong><span>Vlastní projekt v AI, kde máš všechno z klubu pohromadě na celý ročník. Nastavení zabere asi 20 minut.</span></button>
-    </div>
-  </div>
-
-
   <button type="button" class="btn next" data-next="k4">Hotovo, další krok</button>
   </div>
 </details>
 <details class="sec " id="k4">
-  <summary><span class="num">4</span><span class="st"><span class="sh">Tvůj návod</span><span class="ss" id="guide-sum">Jednoduchá verze · ChatGPT</span></span><span class="chev" aria-hidden="true"></span></summary>
+  <summary><span class="num">3</span><span class="st"><span class="sh">Tvůj návod</span><span class="ss" id="guide-sum">ChatGPT na mobilu i na počítači</span></span><span class="chev" aria-hidden="true"></span></summary>
   <div class="sec-body">
   <p class="muted" id="guide-sub"></p>
   <div class="video" id="guide-video"></div>
@@ -278,7 +263,7 @@ summary:focus-visible { outline: 3px solid var(--blush); outline-offset: 2px; bo
   </div>
 </details>
 <details class="sec " id="k6">
-  <summary><span class="num">5</span><span class="st"><span class="sh">Co dál</span><span class="ss">Jak se ke STARTu vrátíš</span></span><span class="chev" aria-hidden="true"></span></summary>
+  <summary><span class="num">4</span><span class="st"><span class="sh">Co dál</span><span class="ss">Jak se ke STARTu vrátíš</span></span><span class="chev" aria-hidden="true"></span></summary>
   <div class="sec-body">
   <p id="next-text"></p>
   <p class="muted">Další prompty, třeba na přípravu na mastermind, dostaneš v klubu postupně. Teď stačí mít START uložený na jednom místě.</p>
@@ -335,7 +320,7 @@ const TOOLS = {
     safetyPath: ['Otevři svůj profil: na mobilu přes postranní panel, na počítači vlevo dole.', 'Klikni na <b>Nastavení (Settings)</b>.', 'Otevři <b>Ovládání dat (Data controls)</b>.', 'Vypni <b>„Improve the model for everyone“</b>.'],
     safetyNote: ['V bezplatném ChatGPT je trénování zapnuté automaticky.', 'Stačí to udělat jednou, platí pro celý účet.', 'Týká se jen chatů od vypnutí, proto to udělej před prvním nahráním.'],
     project: { where: 'V levém panelu najdi <b>Projekty</b> a klikni na <b>Nový projekt</b>.', instr: 'V projektu otevři nastavení (ikonka vpravo nahoře) a najdi pole <b>Instrukce</b>.', files: 'V projektu najdi <b>Soubory</b> a přidej stažený dokument.', limit: 'Projekty jsou v ChatGPT i v bezplatné verzi.' },
-    pay: 'Ne. Hodně toho zvládneš i v bezplatném ChatGPT, obě verze návodu v něm fungují včetně projektů. Bezplatná verze má ale omezený počet zpráv a nahraných souborů za den. Doporučujeme proto placenou verzi <b>ChatGPT Plus</b>: nenarazíš na limity uprostřed práce a dostaneš silnější modely.',
+    pay: 'Ne. Hodně toho zvládneš i v bezplatném ChatGPT, celý návod v něm funguje. Bezplatná verze má ale omezený počet zpráv a nahraných souborů za den. Doporučujeme proto placenou verzi <b>ChatGPT Plus</b>: nenarazíš na limity uprostřed práce a dostaneš silnější modely.',
     account: 'Jdi na <b>chatgpt.com</b> nebo si z App Store či Google Play stáhni aplikaci <b>ChatGPT</b> od OpenAI. Klikni na <b>Zaregistrovat se (Sign up)</b> a pokračuj e-mailem, účtem Google nebo Apple. Registrace je zdarma.'
   }
 };
@@ -385,8 +370,9 @@ function steps(v, k) {
   const t = TOOLS[k];
   if (v === 'zaklad') return [
     { h: fill() },
-    { h: `<h3>Vyfoť ho</h3><p>Každou stranu zvlášť, shora a na světle, ať je vidět celá stránka. Budeš pracovat na počítači? Pošli si fotky e-mailem sama sobě, přes OneDrive, Google Fotky nebo AirDrop.</p>${vid('foto-chat', 'Video 2: Vyfoť poznámky a začni chat', 'Jak vyfotit rukopis, otevřít ChatGPT a založit nové vlákno.')}` },    { h: `<h3>Otevři ${t.name} a založ nový chat</h3><p>Na mobilu otevři aplikaci <b>${t.store}</b> z App Store nebo Google Play, na počítači jdi v prohlížeči na <b>${t.web}</b>. Přihlas se. Trénování na datech máš vypnuté podle návodu výš.</p>` },
-    { key: true, h: `<h3>Přilož fotky a vlož prompt</h3><p>Klepni nebo klikni na <b>+</b> vedle pole pro psaní a vyber fotky. Na počítači je můžeš do okna i přetáhnout myší. Pak zkopíruj text níž, vlož ho do pole pro psaní a odešli.</p>${promptBox('Prompt: přepis listu', PROMPT_START())}` },
+    { h: `<h3>Vyfoť list mobilem</h3><p>Nejjednodušší je udělat všechno v mobilu. Každou stranu vyfoť zvlášť, shora a na světle, ať je vidět celá stránka.</p>${vid('foto-chat', 'Video 2: Vyfoť poznámky a začni chat', 'Jak vyfotit rukopis, otevřít ChatGPT a založit nové vlákno.')}<div class="sblock"><h3>Nemáš ChatGPT v mobilu?</h3><ul><li><b>Chceš ho tam mít:</b> stáhni si aplikaci <b>${t.store}</b> z App Store nebo Google Play a přihlas se.</li><li><b>Nechceš nic stahovat:</b> pošli si fotky do počítače (e-mailem sama sobě, přes OneDrive, Google Fotky nebo AirDrop) a ulož je do složky. Dál pokračuj v prohlížeči na <b>${t.web}</b>.</li></ul></div>` },
+    { h: `<h3>Otevři ${t.name} a založ nový chat</h3><p>V aplikaci nebo na ${t.web} klepni na <b>Nový chat</b>.</p>` },
+    { key: true, h: `<h3>Přilož fotky a vlož prompt</h3><p>Klepni na <b>+</b> vedle pole pro psaní a vyber fotky. Na počítači je vybereš ze složky, kam sis je uložila, nebo je do okna přetáhni myší. Pak zkopíruj text níž, vlož ho do pole pro psaní a odešli.</p>${promptBox('Prompt: přepis listu', PROMPT_START())}` },
     { h: check + vid('online-dokument', 'Video 3: Úpravy a hotový dokument', 'Jak chat otevřít na počítači na chatgpt.com, doladit text a vytvořit finální dokument.') },
     { key: true, h: `<h3>Nech si udělat dokument a ulož ho</h3><p>Na konci vlákna požádej o Word nebo PDF. Tenhle text vlož jako další zprávu:</p>${promptBox('Prompt: Word ke stažení', PROMPT_EXPORT('dokument Word (.docx)'))}<p>Klepni na soubor v odpovědi a ulož ho do složky <b>Klub-NGW_2026-27</b>: v telefonu do <b>Souborů</b>, na OneDrive nebo Google Disk, v počítači třeba do Dokumentů. Chceš PDF? Napiš ve zprávě „PDF“ místo „dokument Word“.</p><p class="hint">Stejný chat uvidíš na mobilu i na ${t.web}, když se přihlásíš stejným účtem.</p>` },
     { h: `<h3>Přejmenuj chat na „Můj START“</h3><p>V seznamu chatů na něj na mobilu podrž prst, na počítači na něj najeď myší, a zvol přejmenování. Příště ho najdeš hned.</p>` }
@@ -415,6 +401,7 @@ const OLD = { mobil: 'zaklad', pocitac: 'zaklad' };
 try { const s = JSON.parse(localStorage.getItem('ngw-ai-volba') || 'null'); if (s && OLD[s.v]) s.v = OLD[s.v]; if (s && VARS[s.v] && TOOLS[s.k]) state = s; } catch (e) {}
 const h = (location.hash || '').slice(1).split('-'); if (OLD[h[0]]) h[0] = OLD[h[0]];
 if (VARS[h[0]] && TOOLS[h[1]]) state = { v: h[0], k: h[1] };
+state.v = 'zaklad'; /* organizovaná verze se zatím nenabízí */
 
 /* Doporučení: struktura složky podle zvolené verze. Složka = [název, [obsah]], soubor = řetězec nebo [štítek, název]. */
 const D = () => 'Muj-START_' + today;
@@ -444,9 +431,6 @@ function treeHtml(n) {
 function render() {
   const { v, k } = state, t = TOOLS[k];
   document.querySelectorAll('[data-var]').forEach(b => b.setAttribute('aria-pressed', b.dataset.var === v));
-  const lbl = VARS[v].label + ' · ' + t.name;
-  document.getElementById('sel-sum').textContent = lbl;
-  document.getElementById('guide-sum').textContent = lbl;
   document.getElementById('guide-sub').textContent = VARS[v].sub;
   document.getElementById('guide-video').innerHTML = videoCard('uvod', 'Video 1: Úvod', 'Co budeme dělat: z ručně psaných poznámek uděláme v ChatGPT hotový dokument.');
   document.getElementById('safety-video').innerHTML = videoCard('bezpecnost-' + k, 'Video: bezpečnost v ' + t.name, 'Co do chatu nepsat a kde vypnout trénování.');
